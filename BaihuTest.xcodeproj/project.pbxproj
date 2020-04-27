@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8A245677A8004E3AAB /* AppDelegate.m */; };
 		A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8D245677A8004E3AAB /* SceneDelegate.m */; };
-		A03F0A91245677A8004E3AAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A90245677A8004E3AAB /* ViewController.m */; };
-		A03F0A94245677A8004E3AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A03F0A92245677A8004E3AAB /* Main.storyboard */; };
 		A03F0A96245677AB004E3AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03F0A95245677AB004E3AAB /* Assets.xcassets */; };
 		A03F0A99245677AB004E3AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A03F0A97245677AB004E3AAB /* LaunchScreen.storyboard */; };
 		A03F0A9C245677AB004E3AAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A9B245677AB004E3AAB /* main.m */; };
 		A03F0AA6245677AC004E3AAB /* BaihuTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AA5245677AC004E3AAB /* BaihuTestTests.m */; };
 		A03F0AB1245677AC004E3AAB /* BaihuTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AB0245677AC004E3AAB /* BaihuTestUITests.m */; };
+		A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC024568B56004E3AAB /* HomeTabBarItem.m */; };
+		A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC32456B20F004E3AAB /* HomeTabBar.m */; };
+		A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */; };
+		A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +43,6 @@
 		A03F0A8A245677A8004E3AAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A03F0A8C245677A8004E3AAB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		A03F0A8D245677A8004E3AAB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		A03F0A8F245677A8004E3AAB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A03F0A90245677A8004E3AAB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A03F0A93245677A8004E3AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A03F0A95245677AB004E3AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A03F0A98245677AB004E3AAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A03F0A9A245677AB004E3AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +53,14 @@
 		A03F0AAC245677AC004E3AAB /* BaihuTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaihuTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03F0AB0245677AC004E3AAB /* BaihuTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaihuTestUITests.m; sourceTree = "<group>"; };
 		A03F0AB2245677AC004E3AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A03F0ABF24568B56004E3AAB /* HomeTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBarItem.h; sourceTree = "<group>"; };
+		A03F0AC024568B56004E3AAB /* HomeTabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarItem.m; sourceTree = "<group>"; };
+		A03F0AC22456B20F004E3AAB /* HomeTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBar.h; sourceTree = "<group>"; };
+		A03F0AC32456B20F004E3AAB /* HomeTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBar.m; sourceTree = "<group>"; };
+		A03F0AC52456BC8E004E3AAB /* HomeTabBarConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBarConfig.h; sourceTree = "<group>"; };
+		A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarConfig.m; sourceTree = "<group>"; };
+		A03F0AC82456BE03004E3AAB /* HomeTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBarController.h; sourceTree = "<group>"; };
+		A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,13 +111,11 @@
 		A03F0A88245677A8004E3AAB /* BaihuTest */ = {
 			isa = PBXGroup;
 			children = (
+				A03F0ABE24568B23004E3AAB /* rootTab */,
 				A03F0A89245677A8004E3AAB /* AppDelegate.h */,
 				A03F0A8A245677A8004E3AAB /* AppDelegate.m */,
 				A03F0A8C245677A8004E3AAB /* SceneDelegate.h */,
 				A03F0A8D245677A8004E3AAB /* SceneDelegate.m */,
-				A03F0A8F245677A8004E3AAB /* ViewController.h */,
-				A03F0A90245677A8004E3AAB /* ViewController.m */,
-				A03F0A92245677A8004E3AAB /* Main.storyboard */,
 				A03F0A95245677AB004E3AAB /* Assets.xcassets */,
 				A03F0A97245677AB004E3AAB /* LaunchScreen.storyboard */,
 				A03F0A9A245677AB004E3AAB /* Info.plist */,
@@ -135,6 +140,21 @@
 				A03F0AB2245677AC004E3AAB /* Info.plist */,
 			);
 			path = BaihuTestUITests;
+			sourceTree = "<group>";
+		};
+		A03F0ABE24568B23004E3AAB /* rootTab */ = {
+			isa = PBXGroup;
+			children = (
+				A03F0ABF24568B56004E3AAB /* HomeTabBarItem.h */,
+				A03F0AC024568B56004E3AAB /* HomeTabBarItem.m */,
+				A03F0AC22456B20F004E3AAB /* HomeTabBar.h */,
+				A03F0AC32456B20F004E3AAB /* HomeTabBar.m */,
+				A03F0AC52456BC8E004E3AAB /* HomeTabBarConfig.h */,
+				A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */,
+				A03F0AC82456BE03004E3AAB /* HomeTabBarController.h */,
+				A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */,
+			);
+			path = rootTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +262,6 @@
 			files = (
 				A03F0A99245677AB004E3AAB /* LaunchScreen.storyboard in Resources */,
 				A03F0A96245677AB004E3AAB /* Assets.xcassets in Resources */,
-				A03F0A94245677A8004E3AAB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A03F0A91245677A8004E3AAB /* ViewController.m in Sources */,
+				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
+				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
+				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
+				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,14 +328,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A03F0A92245677A8004E3AAB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A03F0A93245677A8004E3AAB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A03F0A97245677AB004E3AAB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -448,7 +462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = youdao.BaihuTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +479,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = youdao.BaihuTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
