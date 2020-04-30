@@ -8,6 +8,7 @@
 
 #import "HomeTabBar.h"
 #import "HomeTabBarItem.h"
+#import "DimenAdapter.h"
 
 @interface HomeTabBar ()<HomeTabBarItemDelegate>
 
@@ -53,12 +54,13 @@
 }
 
 - (void)setupItems {
+    CGFloat padding =[DimenAdapter dimenAutoFit:10];
     CGFloat width = CGRectGetWidth(self.frame) / self.items.count;
-    CGFloat height = CGRectGetHeight(self.frame);
+    CGFloat height = CGRectGetHeight(self.frame ) - padding*2;
 
     for (int i = 0; i < self.items.count; i++) {
         HomeTabBarItem *item = [self.items objectAtIndex:i];
-        item.frame = CGRectMake(i * width, 0, width, height);
+        item.frame = CGRectMake(i * width, padding , width, height);
         [self addSubview:item];
         item.delegate = self;
     }

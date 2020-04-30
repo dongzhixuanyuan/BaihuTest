@@ -11,7 +11,7 @@
 #import "HomeTabBarConfig.h"
 #import "HomeTabBarItem.h"
 
-static CGFloat tabBarHeight = 49.0;
+static CGFloat tabBarHeight = 70.0;
 @interface HomeTabBarController ()<HomeTabBarDelegate>
 
 @property (nonatomic, strong) HomeTabBar *customTabBar;
@@ -101,17 +101,17 @@ static CGFloat tabBarHeight = 49.0;
 }
 
 - (void)setupTabBar {
-    NSMutableArray* items = [NSMutableArray array];
-    for (int i=0; i < _config.viewController.count; i++) {
-        HomeTabBarItem* item = [[HomeTabBarItem alloc]init];
+    NSMutableArray *items = [NSMutableArray array];
+    for (int i = 0; i < _config.viewController.count; i++) {
+        HomeTabBarItem *item = [[HomeTabBarItem alloc]init];
         if (i == 0) {
             item.icon = _config.seletedImages[i];
             if (_config.title.count > 0) {
                 item.titleColor = _config.selectedColor;
             }
-        }else {
+        } else {
             item.icon = _config.normalImage[i];
-            if(_config.title.count > 0 ){
+            if (_config.title.count > 0) {
                 item.titleColor = _config.normalColor;
             }
         }
@@ -123,23 +123,35 @@ static CGFloat tabBarHeight = 49.0;
     }
     self.tabBar.hidden = YES;
     self.customTabBar.items = [items copy];
-    self.customTabBar.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - tabBarHeight, CGRectGetWidth(self.view.frame), tabBarHeight);
     [self.view addSubview:self.customTabBar];
+    _customTabBar.translatesAutoresizingMaskIntoConstraints = NO;
+    //可以ios 11 后，适配底部的手势导航栏
+    if (@available(iOS 11.0,*)) {
+        UILayoutGuide *guide =  self.view.safeAreaLayoutGuide;
+        [_customTabBar.bottomAnchor constraintEqualToSystemSpacingBelowAnchor:guide.bottomAnchor multiplier:1].active = YES;
+        [_customTabBar.heightAnchor constraintEqualToConstant:tabBarHeight].active = YES;
+        [_customTabBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+        [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    } else {
+        [_customTabBar.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+        [_customTabBar.heightAnchor constraintEqualToConstant:tabBarHeight].active = YES;
+        [_customTabBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
+        [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    }
 }
 
-
--(void)tabBar:(HomeTabBar*) tab didSelectItem:(nonnull HomeTabBarItem *)item atIndex:(NSInteger)index {
-    NSMutableArray* items = [NSMutableArray arrayWithCapacity:0 ];
-    for (UIView* view in tab.subviews) {
+- (void)tabBar:(HomeTabBar *)tab didSelectItem:(nonnull HomeTabBarItem *)item atIndex:(NSInteger)index {
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:0 ];
+    for (UIView *view in tab.subviews) {
         if ([view isKindOfClass:[HomeTabBarItem class]]) {
-                    [items addObject:view];
+            [items addObject:view];
         }
     }
-    
-    for (int i=0; i < items.count; i++) {
-        UIView* view = items[i];
+
+    for (int i = 0; i < items.count; i++) {
+        UIView *view = items[i];
         if ([view isKindOfClass:[HomeTabBarItem class]]) {
-            HomeTabBarItem* item = (HomeTabBarItem*)view;
+            HomeTabBarItem *item = (HomeTabBarItem *)view;
             item.icon = self.config.normalImage[i];
             if (self.config.title.count > 0) {
                 item.titleColor = _config.normalColor;
@@ -153,11 +165,10 @@ static CGFloat tabBarHeight = 49.0;
     self.selectedIndex = index;
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    self.customTabBar.frame = CGRectMake(0, size.height-tabBarHeight, size.width, tabBarHeight);
+    self.customTabBar.frame = CGRectMake(0, size.height - tabBarHeight, size.width, tabBarHeight);
 }
-
 
 - (BOOL)shouldAutorotate {
     return self.isAutoRotation;
@@ -166,12 +177,12 @@ static CGFloat tabBarHeight = 49.0;
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     if (self.isAutoRotation) {
         return UIInterfaceOrientationMaskAllButUpsideDown;
-    }else {
+    } else {
         return UIInterfaceOrientationMaskPortrait;
     }
 }
 
-- (void)didReceiveMemoryWarning{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DEBD5127D9FCAABDCF0C42B /* libPods-BaihuTest-BaihuTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D06BF7A238765012F0EECF2 /* libPods-BaihuTest-BaihuTestUITests.a */; };
+		202086FC446872A63FAF646D /* libPods-BaihuTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 854FB12CA68D7F00054EAFC6 /* libPods-BaihuTest.a */; };
+		245CEB52EB2A6161F928A445 /* libPods-BaihuTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7A7589BF5CC1512239C57E /* libPods-BaihuTestTests.a */; };
 		A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8A245677A8004E3AAB /* AppDelegate.m */; };
 		A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8D245677A8004E3AAB /* SceneDelegate.m */; };
 		A03F0A96245677AB004E3AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03F0A95245677AB004E3AAB /* Assets.xcassets */; };
@@ -18,6 +21,7 @@
 		A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC32456B20F004E3AAB /* HomeTabBar.m */; };
 		A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */; };
 		A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */; };
+		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D06BF7A238765012F0EECF2 /* libPods-BaihuTest-BaihuTestUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaihuTest-BaihuTestUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		854FB12CA68D7F00054EAFC6 /* libPods-BaihuTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaihuTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89E19AA926BFD762C84F0AAE /* Pods-BaihuTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTest/Pods-BaihuTest.debug.xcconfig"; sourceTree = "<group>"; };
+		923C64EEB7EB21A13B19A1F0 /* Pods-BaihuTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest.release.xcconfig"; path = "Target Support Files/Pods-BaihuTest/Pods-BaihuTest.release.xcconfig"; sourceTree = "<group>"; };
+		957F973674B448F2C32A7F3E /* Pods-BaihuTest-BaihuTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest-BaihuTestUITests.release.xcconfig"; path = "Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B7A7589BF5CC1512239C57E /* libPods-BaihuTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaihuTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03F0A86245677A8004E3AAB /* BaihuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaihuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03F0A89245677A8004E3AAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A03F0A8A245677A8004E3AAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,6 +71,11 @@
 		A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarConfig.m; sourceTree = "<group>"; };
 		A03F0AC82456BE03004E3AAB /* HomeTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBarController.h; sourceTree = "<group>"; };
 		A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarController.m; sourceTree = "<group>"; };
+		A03F0ACC24580CE3004E3AAB /* DimenAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DimenAdapter.h; sourceTree = "<group>"; };
+		A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DimenAdapter.m; sourceTree = "<group>"; };
+		C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.release.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202086FC446872A63FAF646D /* libPods-BaihuTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245CEB52EB2A6161F928A445 /* libPods-BaihuTestTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +99,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEBD5127D9FCAABDCF0C42B /* libPods-BaihuTest-BaihuTestUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B94F4C9FED4041B45DE1916 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				854FB12CA68D7F00054EAFC6 /* libPods-BaihuTest.a */,
+				2D06BF7A238765012F0EECF2 /* libPods-BaihuTest-BaihuTestUITests.a */,
+				9B7A7589BF5CC1512239C57E /* libPods-BaihuTestTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		665D129AAB8E09AF804AAAD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89E19AA926BFD762C84F0AAE /* Pods-BaihuTest.debug.xcconfig */,
+				923C64EEB7EB21A13B19A1F0 /* Pods-BaihuTest.release.xcconfig */,
+				F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */,
+				957F973674B448F2C32A7F3E /* Pods-BaihuTest-BaihuTestUITests.release.xcconfig */,
+				C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */,
+				DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A03F0A7D245677A8004E3AAB = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +136,8 @@
 				A03F0AA4245677AC004E3AAB /* BaihuTestTests */,
 				A03F0AAF245677AC004E3AAB /* BaihuTestUITests */,
 				A03F0A87245677A8004E3AAB /* Products */,
+				665D129AAB8E09AF804AAAD5 /* Pods */,
+				2B94F4C9FED4041B45DE1916 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +154,7 @@
 		A03F0A88245677A8004E3AAB /* BaihuTest */ = {
 			isa = PBXGroup;
 			children = (
+				A03F0ACB24580CBF004E3AAB /* uiutil */,
 				A03F0ABE24568B23004E3AAB /* rootTab */,
 				A03F0A89245677A8004E3AAB /* AppDelegate.h */,
 				A03F0A8A245677A8004E3AAB /* AppDelegate.m */,
@@ -157,6 +201,15 @@
 			path = rootTab;
 			sourceTree = "<group>";
 		};
+		A03F0ACB24580CBF004E3AAB /* uiutil */ = {
+			isa = PBXGroup;
+			children = (
+				A03F0ACC24580CE3004E3AAB /* DimenAdapter.h */,
+				A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */,
+			);
+			path = uiutil;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A03F0AB5245677AC004E3AAB /* Build configuration list for PBXNativeTarget "BaihuTest" */;
 			buildPhases = (
+				6CBC2BD9BE81C44E9738E48D /* [CP] Check Pods Manifest.lock */,
 				A03F0A82245677A8004E3AAB /* Sources */,
 				A03F0A83245677A8004E3AAB /* Frameworks */,
 				A03F0A84245677A8004E3AAB /* Resources */,
@@ -181,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A03F0AB8245677AC004E3AAB /* Build configuration list for PBXNativeTarget "BaihuTestTests" */;
 			buildPhases = (
+				E59E0B5A43D89AD7264B47F7 /* [CP] Check Pods Manifest.lock */,
 				A03F0A9D245677AC004E3AAB /* Sources */,
 				A03F0A9E245677AC004E3AAB /* Frameworks */,
 				A03F0A9F245677AC004E3AAB /* Resources */,
@@ -199,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A03F0ABB245677AC004E3AAB /* Build configuration list for PBXNativeTarget "BaihuTestUITests" */;
 			buildPhases = (
+				6D7DFE2212E9617DF77471CD /* [CP] Check Pods Manifest.lock */,
 				A03F0AA8245677AC004E3AAB /* Sources */,
 				A03F0AA9245677AC004E3AAB /* Frameworks */,
 				A03F0AAA245677AC004E3AAB /* Resources */,
@@ -281,6 +337,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6CBC2BD9BE81C44E9738E48D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaihuTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D7DFE2212E9617DF77471CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaihuTest-BaihuTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E59E0B5A43D89AD7264B47F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaihuTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A03F0A82245677A8004E3AAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -293,6 +418,7 @@
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
 				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
 				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
+				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +577,7 @@
 		};
 		A03F0AB6245677AC004E3AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E19AA926BFD762C84F0AAE /* Pods-BaihuTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +595,7 @@
 		};
 		A03F0AB7245677AC004E3AAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 923C64EEB7EB21A13B19A1F0 /* Pods-BaihuTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -485,6 +613,7 @@
 		};
 		A03F0AB9245677AC004E3AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +634,7 @@
 		};
 		A03F0ABA245677AC004E3AAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -525,6 +655,7 @@
 		};
 		A03F0ABC245677AC004E3AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
@@ -543,6 +674,7 @@
 		};
 		A03F0ABD245677AC004E3AAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 957F973674B448F2C32A7F3E /* Pods-BaihuTest-BaihuTestUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
