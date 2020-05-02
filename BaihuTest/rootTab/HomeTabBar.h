@@ -10,7 +10,7 @@
 @class HomeTabBarItem;
 @protocol HomeTabBarDelegate;
 NS_ASSUME_NONNULL_BEGIN
-
+extern const CGFloat BOTTOM_TABS_HEIGHT;
 @interface HomeTabBar : UIView
 
 @property(nonatomic,strong)NSArray<HomeTabBarItem*>* items;

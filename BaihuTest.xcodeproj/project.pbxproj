@@ -22,6 +22,8 @@
 		A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC62456BC8E004E3AAB /* HomeTabBarConfig.m */; };
 		A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */; };
 		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
+		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
+		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		A03F0AC92456BE03004E3AAB /* HomeTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarController.m; sourceTree = "<group>"; };
 		A03F0ACC24580CE3004E3AAB /* DimenAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DimenAdapter.h; sourceTree = "<group>"; };
 		A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DimenAdapter.m; sourceTree = "<group>"; };
+		A03F0ACF245AB138004E3AAB /* IndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		A03F0AD0245AB138004E3AAB /* IndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
+		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
+		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
 		C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.release.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 		A03F0A88245677A8004E3AAB /* BaihuTest */ = {
 			isa = PBXGroup;
 			children = (
+				A03F0AD2245D527B004E3AAB /* index */,
 				A03F0ACB24580CBF004E3AAB /* uiutil */,
 				A03F0ABE24568B23004E3AAB /* rootTab */,
 				A03F0A89245677A8004E3AAB /* AppDelegate.h */,
@@ -208,6 +215,17 @@
 				A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */,
 			);
 			path = uiutil;
+			sourceTree = "<group>";
+		};
+		A03F0AD2245D527B004E3AAB /* index */ = {
+			isa = PBXGroup;
+			children = (
+				A03F0ACF245AB138004E3AAB /* IndexViewController.h */,
+				A03F0AD0245AB138004E3AAB /* IndexViewController.m */,
+				A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */,
+				A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */,
+			);
+			path = index;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,8 +429,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
+				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,

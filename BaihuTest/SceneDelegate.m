@@ -8,6 +8,7 @@
 
 #import "SceneDelegate.h"
 #import "HomeTabBarController.h"
+#import "IndexViewController.h"
 @interface SceneDelegate ()
 
 @end
@@ -24,6 +25,7 @@
         UIViewController *vc = [[UIViewController alloc]init];
         switch (i) {
             case 0:
+                vc = [[IndexViewController alloc]init];
                 vc.view.backgroundColor = [UIColor redColor];
                 vc.tabBarItem.title = @"微信";
                 vc.tabBarItem.image = [[UIImage imageNamed:@"tabbar_mainframe"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -57,8 +59,7 @@
         [tabController addChildViewController:vc];
     }
    HomeTabBarController* customTabController =  [HomeTabBarController createTabBarController:^HomeTabBarConfig *(HomeTabBarConfig * _Nonnull config) {
-        UIViewController* vc1 = [[UIViewController alloc]init];
-        vc1.view.backgroundColor = [UIColor redColor];
+        IndexViewController* vc1 = [[IndexViewController alloc]init];
         
         UIViewController* vc2 = [[UIViewController alloc]init];
         vc2.view.backgroundColor = [UIColor orangeColor];
@@ -76,10 +77,11 @@
         config.isNavigation = NO;
         return config;
     }];
-    UINavigationController *rootViewController = [[UINavigationController alloc]initWithRootViewController:customTabController];
+//    不使用系统的导航栏，所以不能用navigationviewcontroller
+//    UINavigationController *rootViewController = [[UINavigationController alloc]initWithRootViewController:customTabController];
+//    rootViewController.view.backgroundColor = [UIColor whiteColor];
     
-    rootViewController.view.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = rootViewController;
+    self.window.rootViewController = customTabController;
     [self.window makeKeyAndVisible];
 }
 

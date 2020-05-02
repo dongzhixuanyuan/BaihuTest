@@ -10,7 +10,15 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+extern CGFloat const STATUSBAR_HEIGHT;
+extern CGFloat const NAVIGATIONBAR_HEIGHT;
+extern CGFloat const HOME_INDICATION_HEIGHT;
 @interface DimenAdapter : NSObject
+
 + (CGFloat)dimenAutoFit:(CGFloat)dimen;
 + (CGRect) rectAutoFit:(CGRect) rect;
 @end
