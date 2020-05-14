@@ -9,7 +9,7 @@ target 'BaihuTest' do
   pod 'Masonry'
   pod 'YYModel'
   pod 'SDWebImage'
-  pod 'AFNetworking'
+  pod 'AFNetworking', '~> 4.0'
 
   target 'BaihuTestTests' do
     inherit! :search_paths

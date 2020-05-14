@@ -12,8 +12,9 @@
 #import "DimenAdapter.h"
 #import "IndexTabContainer.h"
 #import "HomeTabBar.h"
-@interface IndexViewController () <UIScrollViewDelegate>
-@property (nonatomic, strong) UIPageControl *pageControll;
+#import "PhotoListView.h"
+@interface IndexViewController () <UIScrollViewDelegate,IndexTabClickDelegate>
+
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) IndexTabContainer *tabContaienr;
 @end
@@ -25,6 +26,7 @@
     self = [super init];
     if (self) {
         _tabContaienr = [[IndexTabContainer alloc]init];
+        _tabContaienr.tabClickDelegate = self;
         [self.view addSubview:_tabContaienr];
         [_tabContaienr mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view.mas_top).offset(STATUSBAR_HEIGHT);
@@ -47,25 +49,20 @@
         gesture.cancelsTouchesInView = NO;
         [_scrollView addGestureRecognizer:gesture];
         UIImageView *view1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"day_sky"]];
+        PhotoListView* tableView = [[PhotoListView alloc]init];
+        
+        
         UIImageView *view2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dream"]];
         UIImageView *view3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"girl"]];
         UIImageView *view4 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sky"]];
-        [_scrollView addSubview:view1];
+//        [_scrollView addSubview:view1];
+        [_scrollView addSubview:tableView];
         [_scrollView addSubview:view2];
         [_scrollView addSubview:view3];
         [_scrollView addSubview:view4];
         [self layoutImageViews];
         [self.view addSubview:_scrollView];
-        _pageControll = [[UIPageControl alloc] init];
-        _pageControll.frame = CGRectMake(210, 235, 20, 20);//指定位置大小
-        _pageControll.numberOfPages = 4;//指定页面个数
-        _pageControll.currentPage = 0;//指定pagecontroll的值，默认选中的小白点（第一个）
-        //添加委托方法，当点击小白点就执行此方法
-
-        _pageControll.pageIndicatorTintColor = [UIColor redColor];// 设置非选中页的圆点颜色
-
-        _pageControll.currentPageIndicatorTintColor = [UIColor blueColor]; // 设置选中页的圆点颜色
-        [self.view addSubview:_pageControll];
+    
     }
     return self;
 }
@@ -96,7 +93,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     int page = _scrollView.contentOffset.x / _scrollView.frame.size.width;
-    _pageControll.currentPage = page;
+
 }
 
+- (void)onTabClick:(NSInteger)position {
+    CGFloat screenWidth =   _scrollView.frame.size.width;
+    CGPoint destination = CGPointMake(position*screenWidth, 0);
+    [_scrollView setContentOffset:destination animated:YES];
+}
 @end

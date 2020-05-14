@@ -7,7 +7,11 @@
 //
 
 #import "AppDelegate.h"
-
+#import <AFNetworking.h>
+#import <YYModel.h>
+#import "UrlConstants.h"
+#import "InitAccountResponseModel.h"
+#import "Constants.h"
 @interface AppDelegate ()
 
 @end
@@ -17,9 +21,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self getAccessToken];
+    
     return YES;
 }
 
+-(void)getAccessToken{
+    id token =  [[NSUserDefaults standardUserDefaults] objectForKey:KEY_ACCESS_TOKEN];
+    if (token == nil) {
+        //需要获取
+        NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
+        [manager POST:[UrlConstants getInitAccountUrl] parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            AccessTokenResponse* model = [AccessTokenResponse yy_modelWithDictionary:responseObject];
+            [[NSUserDefaults standardUserDefaults] setObject:model.data forKey:KEY_ACCESS_TOKEN];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"error:%@",error);
+        }];
+    }
+}
 
 #pragma mark - UISceneSession lifecycle
 
