@@ -16,6 +16,8 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 @interface UrlConstants : NSObject
 +(NSString*)getInitAccountUrl;
 +(NSString*)getCategoryUrl;
++(NSString*)getIndexAllUrl;
++(NSString*)getConfigUrl;
 @end
 
 NS_ASSUME_NONNULL_END

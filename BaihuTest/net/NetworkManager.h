@@ -14,9 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkManager : NSObject
 +(instancetype) getInstance;
+
 +(NSString*) buildAccountUrl;
 +(void)urlTest;
 +(AFHTTPSessionManager*)getHttpSessionManager;
++(NSDictionary<NSString*,NSString*>*)getCommonHeaders;
 @end
 
 

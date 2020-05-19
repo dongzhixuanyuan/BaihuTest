@@ -12,6 +12,9 @@
 #import "UrlConstants.h"
 #import "InitAccountResponseModel.h"
 #import "Constants.h"
+#import "NetworkManager.h"
+#import "ConfigBeanModel.h"
+#import "AppConfig.h"
 @interface AppDelegate ()
 
 @end
@@ -22,10 +25,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self getAccessToken];
-    
+    [self getConfigBean];
     return YES;
 }
 
+#pragma mark - 获取服务器初始化相关设置
 -(void)getAccessToken{
     id token =  [[NSUserDefaults standardUserDefaults] objectForKey:KEY_ACCESS_TOKEN];
     if (token == nil) {
@@ -39,6 +43,16 @@
             NSLog(@"error:%@",error);
         }];
     }
+}
+
+
+-(void)getConfigBean {
+    [[NetworkManager getHttpSessionManager] GET:[UrlConstants getConfigUrl] parameters:nil headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ConfigBeanModel* model = [ConfigBeanModel yy_modelWithDictionary:responseObject];
+        [[AppConfig getInstance]setConfigModel:model];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"getConfigUrl error %d",(long)error.code);
+    }];
 }
 
 #pragma mark - UISceneSession lifecycle

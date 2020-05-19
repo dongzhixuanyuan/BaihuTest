@@ -33,6 +33,9 @@
 		A0A4A69B2469552C00E74441 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69A2469552C00E74441 /* Constants.m */; };
 		A0A4A69F2469650C00E74441 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69E2469650B00E74441 /* CategoryModel.m */; };
 		A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */; };
+		A0D3C403246D3D4100802657 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */; };
+		A0D3C40724739D7B00802657 /* ConfigBeanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40624739D7B00802657 /* ConfigBeanModel.m */; };
+		A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4092473AA4700802657 /* AppConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,12 @@
 		A0A4A69E2469650B00E74441 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryModel.m; path = "../../../../../../tmp/有道词典切图/CategoryModel/CategoryModel.m"; sourceTree = "<group>"; };
 		A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListItemView.h; sourceTree = "<group>"; };
 		A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListItemView.m; sourceTree = "<group>"; };
+		A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoItemResponseModel.m; path = "../../../../../../tmp/有道词典切图/PhotoItemResponseModel/PhotoItemResponseModel.m"; sourceTree = "<group>"; };
+		A0D3C402246D3D4000802657 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoItemResponseModel.h; path = "../../../../../../tmp/有道词典切图/PhotoItemResponseModel/PhotoItemResponseModel.h"; sourceTree = "<group>"; };
+		A0D3C40524739D7B00802657 /* ConfigBeanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigBeanModel.h; path = "../../../../../tmp/有道词典切图/ConfigBeanModel/ConfigBeanModel.h"; sourceTree = "<group>"; };
+		A0D3C40624739D7B00802657 /* ConfigBeanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigBeanModel.m; path = "../../../../../tmp/有道词典切图/ConfigBeanModel/ConfigBeanModel.m"; sourceTree = "<group>"; };
+		A0D3C4082473AA4700802657 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		A0D3C4092473AA4700802657 /* AppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTestTests.release.xcconfig"; path = "Target Support Files/Pods-BaihuTestTests/Pods-BaihuTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +295,7 @@
 		A0A4A6912469491D00E74441 /* feature */ = {
 			isa = PBXGroup;
 			children = (
+				A0D3C40424739D5900802657 /* ServerSetting */,
 				A03F0ABE24568B23004E3AAB /* rootTab */,
 				A03F0AD2245D527B004E3AAB /* index */,
 				A0A4A6922469492600E74441 /* account */,
@@ -305,10 +315,23 @@
 		A0A4A69C246964F000E74441 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A0D3C402246D3D4000802657 /* PhotoItemResponseModel.h */,
+				A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */,
 				A0A4A69D2469650B00E74441 /* CategoryModel.h */,
 				A0A4A69E2469650B00E74441 /* CategoryModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A0D3C40424739D5900802657 /* ServerSetting */ = {
+			isa = PBXGroup;
+			children = (
+				A0D3C40524739D7B00802657 /* ConfigBeanModel.h */,
+				A0D3C40624739D7B00802657 /* ConfigBeanModel.m */,
+				A0D3C4082473AA4700802657 /* AppConfig.h */,
+				A0D3C4092473AA4700802657 /* AppConfig.m */,
+			);
+			path = ServerSetting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,14 +544,17 @@
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
 				A0A4A6952469496300E74441 /* InitAccountResponseModel.m in Sources */,
+				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A0A4A69F2469650C00E74441 /* CategoryModel.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
+				A0D3C403246D3D4100802657 /* PhotoItemResponseModel.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
 				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
+				A0D3C40724739D7B00802657 /* ConfigBeanModel.m in Sources */,
 				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
 				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 			);

@@ -8,8 +8,8 @@ target 'BaihuTest' do
   # Pods for BaihuTest
   pod 'Masonry'
   pod 'YYModel'
-  pod 'SDWebImage'
   pod 'AFNetworking', '~> 4.0'
+  pod 'SDWebImage', '~> 5.0'
 
   target 'BaihuTestTests' do
     inherit! :search_paths

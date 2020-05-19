@@ -95,7 +95,7 @@
         __strong __typeof(weakSelf) sself = weakSelf;
         CategoryModel* model = [CategoryModel yy_modelWithDictionary:responseObject];
         NSInteger existCount = [sself.topTabs count];
-        for (DataItem* item in model.data) {
+        for (CategoryDataItem* item in model.data) {
             existCount;
             UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:60] * (existCount), 0, [DimenAdapter dimenAutoFit:60], NAVIGATIONBAR_HEIGHT)];
             tab.userInteractionEnabled = YES;

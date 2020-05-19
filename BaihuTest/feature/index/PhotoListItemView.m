@@ -9,20 +9,21 @@
 #import "PhotoListItemView.h"
 #import <Masonry.h>
 #import "DimenAdapter.h"
-
-@interface PhotoListItemView ()<UITableViewDelegate,UITableViewDataSource>
+#import <SDWebImage.h>
+#import "AppConfig.h"
+@interface PhotoListItemView ()
 @property (nonatomic, strong, readwrite) UIImageView *first;
 @property (nonatomic, strong, readwrite) UIImageView *second;
 @property (nonatomic, strong, readwrite) UIImageView *third;
 @property (nonatomic, strong, readwrite) UIImageView *avart;
 @property (nonatomic, strong, readwrite) UILabel *modelDes;
 @property (nonatomic, strong, readwrite) UIImageView *favouriteBtn;
+@property (nonatomic,copy,readwrite)PhotoItemDataItem* item;
 @end
 
 @implementation PhotoListItemView
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _first = [[UIImageView alloc]init];
@@ -50,7 +51,6 @@
             make.top.equalTo(self.contentView.mas_top).offset(20.0);
             make.width.mas_equalTo(UI(100));
             make.height.mas_equalTo(UI(100));
-        
         }];
         [_second mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_first.mas_right).offset(20);
@@ -79,10 +79,21 @@
             make.left.mas_equalTo(_avart.mas_right).offset(10);
             make.right.lessThanOrEqualTo(_favouriteBtn.mas_left);
         }];
-        
-        
     }
     return self;
+}
+
+-(void) fillData:(PhotoItemDataItem*)bean{
+    
+    NSString* cover1UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key1 isThumb:false] ;
+    
+    NSString* cover2UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key2 isThumb:false] ;
+    
+    NSString* cover3UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key3 isThumb:false] ;
+    
+    [_first sd_setImageWithURL:[ NSURL URLWithString: cover1UrlStr]];
+    [_second sd_setImageWithURL:[ NSURL URLWithString: cover2UrlStr]];
+    [_third sd_setImageWithURL:[ NSURL URLWithString: cover3UrlStr]];
 }
 
 @end

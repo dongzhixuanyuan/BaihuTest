@@ -13,6 +13,7 @@
 #import "IndexTabContainer.h"
 #import "HomeTabBar.h"
 #import "PhotoListView.h"
+#import "UrlConstants.h"
 @interface IndexViewController () <UIScrollViewDelegate,IndexTabClickDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -49,7 +50,7 @@
         gesture.cancelsTouchesInView = NO;
         [_scrollView addGestureRecognizer:gesture];
         UIImageView *view1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"day_sky"]];
-        PhotoListView* tableView = [[PhotoListView alloc]init];
+        PhotoListView* tableView = [[PhotoListView alloc]initWithUrl:[UrlConstants getIndexAllUrl]];
         
         
         UIImageView *view2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dream"]];

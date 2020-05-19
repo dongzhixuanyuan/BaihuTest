@@ -13,6 +13,8 @@
 #import <YYModel.h>
 #import "UrlConstants.h"
 #import "CategoryModel.h"
+#import "Constants.h"
+#import "PhotoItemResponseModel.h"
 
 @interface NetworkManager()
 
@@ -38,19 +40,27 @@
     return manager;
 }
 
-+ (void)urlTest {
-   NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-   AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
-   [manager GET:[UrlConstants getCategoryUrl] parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-       NSString* result =  [Test dictionary2String:responseObject ];
-       NSLog(@"%@",result);
-   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-       NSLog(@"error:%@",error);
-   }];
-    
+
++ (NSDictionary *)getCommonHeaders {
+    NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:KEY_ACCESS_TOKEN];
+    if(accessToken == nil){
+        accessToken = @"";
+    }
+    NSDictionary* headers =[ [NSDictionary alloc]initWithObjectsAndKeys:accessToken,@"X-AUTH-TOKEN", nil];
+    return headers;
 }
 
-
-
++ (void)urlTest {
+    NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
+    [manager GET:[UrlConstants getIndexAllUrl] parameters:@{@"page":@0,@"size":@2} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString* result =  [Test dictionary2String:responseObject ];
+        PhotoItemResponseModel* model =    [PhotoItemResponseModel yy_modelWithDictionary:responseObject];
+        NSLog(@"%@",result);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error:%@",error);
+    }];
+    
+}
 
 @end

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PhotoItemResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoListItemView : UITableViewCell
-
+-(void) fillData:(PhotoItemDataItem*)bean;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoListView : UITableView
+-(instancetype)initWithUrl:(NSString*)url;
 @property(nonatomic,copy)NSString* url;
 @end
 
