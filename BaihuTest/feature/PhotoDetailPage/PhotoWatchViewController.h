@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoWatchViewController : UIViewController
 +(instancetype)initWithBean:(PhotoItemDataItem*)item;
+
 @end
 
 NS_ASSUME_NONNULL_END

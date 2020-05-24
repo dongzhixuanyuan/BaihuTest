@@ -50,7 +50,6 @@
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]init];
         gesture.cancelsTouchesInView = NO;
         [_scrollView addGestureRecognizer:gesture];
-        UIImageView *view1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"day_sky"]];
         PhotoListView* tableView = [[PhotoListView alloc]initWithUrl:[UrlConstants getIndexAllUrl]];
         tableView.clickCallback = ^(PhotoItemDataItem * _Nonnull photoItem) {
             PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];

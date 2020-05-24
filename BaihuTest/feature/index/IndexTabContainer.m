@@ -14,7 +14,7 @@
 #import "UrlConstants.h"
 #import <YYModel.h>
 #import "CategoryModel.h"
-
+#import "UIColor+Addition.h"
 
 @interface IndexTabContainer()
 @property(nonatomic,strong,readwrite)NSMutableArray<UIView*>* topTabs;
@@ -30,28 +30,21 @@
         self.frame = newFrame;
         self.backgroundColor = [UIColor greenColor];
         for (int i = 0; i < 2; i++) {
-            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:60] * i, 0, [DimenAdapter dimenAutoFit:60], NAVIGATIONBAR_HEIGHT)];
+            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:60] * i + UI(15), 0, [DimenAdapter dimenAutoFit:60], NAVIGATIONBAR_HEIGHT)];
             tab.userInteractionEnabled = YES;
             tab.backgroundColor = [UIColor whiteColor];
-            //使用类扩展来添加Uicolor通过0x0000ff形式来生成颜色的方法。
-            tab.textColor = [UIColor blackColor];
+            tab.textColor = [UIColor colorWithHexString:@"#777777"];
+            tab.font = [UIFont systemFontOfSize:14];
+            
             [_topTabs addObject:tab];
             switch (i) {
                 case 0:
-                    tab.text = @"dart";
+                    tab.text = @"精选";
                     tab.tag = 0;
                     break;
                 case 1:
-                    tab.text = @"oc";
+                    tab.text = @"最新";
                     tab.tag = 1;
-                    break;
-                case 2:
-                    tab.text = @"java";
-                    tab.tag = 2;
-                    break;
-                case 3:
-                    tab.text = @"js";
-                    tab.tag = 3;
                     break;
                 default:
                     break;
@@ -63,22 +56,12 @@
     return self;
 }
 
-
-
-
-
-
-
 - (void)layoutSubviews {
     [super layoutSubviews];
-    NSArray<UIView*>* children = [self subviews];
-    for (int i = 0; i < children.count; i++) {
-        UIView* child = [children objectAtIndex:i];
-    }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UIView* selectedView = (UITouch*)[touches anyObject].view;
+    UIView* selectedView = ((UITouch*)[touches anyObject]).view;
     for (UIView* child in [self subviews]) {
         if(child == selectedView){
             if (_tabClickDelegate && [_tabClickDelegate respondsToSelector:@selector(onTabClick:)]) {
@@ -96,22 +79,18 @@
         CategoryModel* model = [CategoryModel yy_modelWithDictionary:responseObject];
         NSInteger existCount = [sself.topTabs count];
         for (CategoryDataItem* item in model.data) {
-            existCount;
             UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:60] * (existCount), 0, [DimenAdapter dimenAutoFit:60], NAVIGATIONBAR_HEIGHT)];
             tab.userInteractionEnabled = YES;
             tab.backgroundColor = [UIColor whiteColor];
-            //使用类扩展来添加Uicolor通过0x0000ff形式来生成颜色的方法。
-            tab.textColor = [UIColor blackColor];
+            tab.textColor = [UIColor colorWithHexString:@"#777777"];
             tab.text = item.name;
             tab.tag = existCount;
+            tab.font = [UIFont systemFontOfSize:14];
             [sself.topTabs addObject:tab];
             [sself addSubview:tab];
             existCount++;
         }
         [sself setNeedsLayout];
-//        [sself layoutIfNeeded];
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 
     }];

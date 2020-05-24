@@ -24,6 +24,7 @@
 		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
+		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
 		A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6842466B0BC00E74441 /* PhotoListView.m */; };
 		A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6882468F62100E74441 /* NetworkManager.m */; };
 		A0A4A68B24690C0B00E74441 /* BaihuAPiService.kt in Resources */ = {isa = PBXBuildFile; fileRef = A0A4A68A24690C0B00E74441 /* BaihuAPiService.kt */; };
@@ -95,6 +96,8 @@
 		A03F0AD0245AB138004E3AAB /* IndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
+		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
+		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		A0A4A6832466B0BC00E74441 /* PhotoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListView.h; sourceTree = "<group>"; };
 		A0A4A6842466B0BC00E74441 /* PhotoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListView.m; sourceTree = "<group>"; };
 		A0A4A6872468F62100E74441 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				A03F0ACC24580CE3004E3AAB /* DimenAdapter.h */,
 				A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */,
+				A0A43025247A568300A93308 /* UIColor+Addition.h */,
+				A0A43026247A568300A93308 /* UIColor+Addition.m */,
 			);
 			path = uiutil;
 			sourceTree = "<group>";
@@ -583,6 +588,7 @@
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
 				A0A4A6952469496300E74441 /* InitAccountResponseModel.m in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
+				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A0A4A69F2469650C00E74441 /* CategoryModel.m in Sources */,
 				A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */,
