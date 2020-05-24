@@ -29,6 +29,7 @@
         self.delegate = self;
         self.dataSource = self;
         [self reFetchData];
+        
     }
     return self;
 }
@@ -58,7 +59,7 @@
         [sself.data addObjectsFromArray:model.data];
         [sself reloadData];
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
-        NSLog(@"error %d",error.code);
+        NSLog(@"error %ld",error.code);
     }];
 }
 
@@ -72,8 +73,13 @@
     if (itemView == nil) {
         itemView = [[PhotoListItemView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PhotoListItemView"];
     }
+    itemView.clickCallback = _clickCallback;
     [itemView fillData:[_data objectAtIndex:indexPath.item]];
     return itemView;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PhotoItemDataItem* selectedItem =   [_data objectAtIndex:indexPath.item];
+    _clickCallback(selectedItem);
+}
 @end

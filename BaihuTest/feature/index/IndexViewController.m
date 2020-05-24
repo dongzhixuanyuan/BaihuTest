@@ -14,6 +14,7 @@
 #import "HomeTabBar.h"
 #import "PhotoListView.h"
 #import "UrlConstants.h"
+#import "PhotoWatchViewController.h"
 @interface IndexViewController () <UIScrollViewDelegate,IndexTabClickDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -51,6 +52,13 @@
         [_scrollView addGestureRecognizer:gesture];
         UIImageView *view1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"day_sky"]];
         PhotoListView* tableView = [[PhotoListView alloc]initWithUrl:[UrlConstants getIndexAllUrl]];
+        tableView.clickCallback = ^(PhotoItemDataItem * _Nonnull photoItem) {
+            PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
+            
+//            [self presentViewController:newController animated:YES completion:nil];
+            [self.navigationController pushViewController:newController animated:YES];
+//            [self presentModalViewController:newController animated:YES];
+        };
         
         
         UIImageView *view2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dream"]];

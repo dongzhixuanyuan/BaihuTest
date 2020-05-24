@@ -16,7 +16,8 @@
 @property (nonatomic, strong, readwrite) UIImageView *second;
 @property (nonatomic, strong, readwrite) UIImageView *third;
 @property (nonatomic, strong, readwrite) UIImageView *avart;
-@property (nonatomic, strong, readwrite) UILabel *modelDes;
+@property (nonatomic, strong, readwrite) UILabel *photoDes;
+@property (nonatomic, strong, readwrite) UILabel *modelName;
 @property (nonatomic, strong, readwrite) UIImageView *favouriteBtn;
 @property (nonatomic,copy,readwrite)PhotoItemDataItem* item;
 @end
@@ -37,15 +38,29 @@
         _avart.layer.cornerRadius = UI(25);
         _favouriteBtn = [[UIImageView alloc]init];
         _favouriteBtn.backgroundColor = [UIColor systemPinkColor];
-        _modelDes = [[UILabel alloc]init];
+        _photoDes = [[UILabel alloc]init];
+        _modelName = [[UILabel alloc]init];
+        _modelName.text = @"测试名字";
         [self.contentView addSubview:_first];
         [self.contentView addSubview:_second];
         [self.contentView addSubview:_third];
         [self.contentView addSubview:_avart];
         [self.contentView addSubview:_favouriteBtn];
-        [self.contentView addSubview:_modelDes];
-        _modelDes.text = @"离屏渲染的地方也就不用离屏渲染了,\n 通过设置view.layer的mask属性";
-        _modelDes.textAlignment = NSTextAlignmentLeft | NSTextAlignmentCenter;
+        [self.contentView addSubview:_photoDes];
+        [self.contentView addSubview:_modelName];
+        _photoDes.text = @"离屏渲染的地方也就不用离屏渲染了,\n 通过设置view.layer的mask属性";
+        _photoDes.textAlignment = NSTextAlignmentLeft ;
+        _modelName.textAlignment = NSTextAlignmentLeft;
+        
+        UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoPhotoDetailPage:)];
+        [_first addGestureRecognizer:recognizer];
+        [_second addGestureRecognizer:recognizer];
+        [_third addGestureRecognizer:recognizer];
+        _first.tag = 1;
+        _second.tag = 2;
+        _third.tag = 3;
+        
+        
         [_first mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(20.0);
             make.top.equalTo(self.contentView.mas_top).offset(20.0);
@@ -74,11 +89,19 @@
             make.size.mas_equalTo(40);
             make.centerY.mas_equalTo(_avart);
         }];
-        [_modelDes mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(_avart.mas_centerY);
+        
+        [_modelName mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.lessThanOrEqualTo(_avart.mas_top).offset(5);
             make.left.mas_equalTo(_avart.mas_right).offset(10);
             make.right.lessThanOrEqualTo(_favouriteBtn.mas_left);
         }];
+        
+        [_photoDes mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(_modelName.mas_left);
+            make.right.lessThanOrEqualTo(_favouriteBtn.mas_left);
+            make.bottom.mas_lessThanOrEqualTo(_avart.mas_bottom).offset(-5);
+        }];
+        
     }
     return self;
 }
@@ -94,6 +117,28 @@
     [_first sd_setImageWithURL:[ NSURL URLWithString: cover1UrlStr]];
     [_second sd_setImageWithURL:[ NSURL URLWithString: cover2UrlStr]];
     [_third sd_setImageWithURL:[ NSURL URLWithString: cover3UrlStr]];
+    if(bean.info.model != nil){
+        _modelName.text = bean.info.model.name;
+        NSString* avatar = [[AppConfig getInstance]getPhotoWholeUrl:bean.info.model.avatar_image_url isThumb:YES];
+        [_avart sd_setImageWithURL: [NSURL URLWithString:avatar]];
+        
+    } else {
+        _modelName.text = @"素人";
+        [_avart sd_setImageWithURL:[ NSURL URLWithString: cover1UrlStr]];
+    }
+    _photoDes.text = bean.info.name;
+    
+}
+
+-(void)gotoPhotoDetailPage:(UITapGestureRecognizer*)sender {
+    //todo 点击跳转
+    NSInteger tag =  sender.view.tag;
+    //    if (tag == 1) {
+    //        itemClickListener()
+    //    }
+    if (_clickCallback) {
+        _clickCallback(_item);
+    }
 }
 
 @end

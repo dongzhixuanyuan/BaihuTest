@@ -79,10 +79,10 @@
         return config;
     }];
 //    不使用系统的导航栏，所以不能用navigationviewcontroller
-//    UINavigationController *rootViewController = [[UINavigationController alloc]initWithRootViewController:customTabController];
-//    rootViewController.view.backgroundColor = [UIColor whiteColor];
-    
-    self.window.rootViewController = customTabController;
+    UINavigationController *rootViewController = [[UINavigationController alloc]initWithRootViewController:customTabController];
+    rootViewController.view.backgroundColor = [UIColor whiteColor];
+    rootViewController.navigationBarHidden = YES;
+    self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     [NetworkManager urlTest];
     

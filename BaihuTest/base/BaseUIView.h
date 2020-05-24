@@ -1,8 +1,8 @@
 //
-//  IndexViewController.h
+//  BaseUIView.h
 //  BaihuTest
 //
-//  Created by liudong on 2020/4/30.
+//  Created by liudong on 2020/5/19.
 //  Copyright © 2020 liudong. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IndexViewController : UIViewController
+@interface BaseUIView : UIView
 
 @end
 
