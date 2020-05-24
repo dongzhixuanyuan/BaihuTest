@@ -25,17 +25,17 @@
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
 		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
+		A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43042247A9FC200A93308 /* CategoryModel.m */; };
+		A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */; };
+		A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4304C247AA06E00A93308 /* ConfigBeanModel.m */; };
+		A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43051247AA0C500A93308 /* InitAccountResponseModel.m */; };
 		A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6842466B0BC00E74441 /* PhotoListView.m */; };
 		A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6882468F62100E74441 /* NetworkManager.m */; };
 		A0A4A68B24690C0B00E74441 /* BaihuAPiService.kt in Resources */ = {isa = PBXBuildFile; fileRef = A0A4A68A24690C0B00E74441 /* BaihuAPiService.kt */; };
 		A0A4A690246947D900E74441 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A68F246947D900E74441 /* Test.m */; };
-		A0A4A6952469496300E74441 /* InitAccountResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6932469496300E74441 /* InitAccountResponseModel.m */; };
 		A0A4A6982469515300E74441 /* UrlConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6972469515300E74441 /* UrlConstants.m */; };
 		A0A4A69B2469552C00E74441 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69A2469552C00E74441 /* Constants.m */; };
-		A0A4A69F2469650C00E74441 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69E2469650B00E74441 /* CategoryModel.m */; };
 		A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */; };
-		A0D3C403246D3D4100802657 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */; };
-		A0D3C40724739D7B00802657 /* ConfigBeanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40624739D7B00802657 /* ConfigBeanModel.m */; };
 		A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4092473AA4700802657 /* AppConfig.m */; };
 		A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40F2473DA6D00802657 /* BaseUIView.m */; };
 		A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4132473DE1000802657 /* PhotoViewPage.m */; };
@@ -98,6 +98,14 @@
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
+		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
+		A0A43041247A9FC200A93308 /* CategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		A0A43042247A9FC200A93308 /* CategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoItemResponseModel.m; sourceTree = "<group>"; };
+		A0A4304B247AA06E00A93308 /* ConfigBeanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigBeanModel.h; sourceTree = "<group>"; };
+		A0A4304C247AA06E00A93308 /* ConfigBeanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigBeanModel.m; sourceTree = "<group>"; };
+		A0A43050247AA0C500A93308 /* InitAccountResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitAccountResponseModel.h; sourceTree = "<group>"; };
+		A0A43051247AA0C500A93308 /* InitAccountResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitAccountResponseModel.m; sourceTree = "<group>"; };
 		A0A4A6832466B0BC00E74441 /* PhotoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListView.h; sourceTree = "<group>"; };
 		A0A4A6842466B0BC00E74441 /* PhotoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListView.m; sourceTree = "<group>"; };
 		A0A4A6872468F62100E74441 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -105,20 +113,12 @@
 		A0A4A68A24690C0B00E74441 /* BaihuAPiService.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BaihuAPiService.kt; sourceTree = "<group>"; };
 		A0A4A68E246947D900E74441 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		A0A4A68F246947D900E74441 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
-		A0A4A6932469496300E74441 /* InitAccountResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitAccountResponseModel.m; path = "../../../../../tmp/有道词典切图/InitAccountResponseModel/InitAccountResponseModel.m"; sourceTree = "<group>"; };
-		A0A4A6942469496300E74441 /* InitAccountResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitAccountResponseModel.h; path = "../../../../../tmp/有道词典切图/InitAccountResponseModel/InitAccountResponseModel.h"; sourceTree = "<group>"; };
 		A0A4A6962469515300E74441 /* UrlConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlConstants.h; sourceTree = "<group>"; };
 		A0A4A6972469515300E74441 /* UrlConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlConstants.m; sourceTree = "<group>"; };
 		A0A4A6992469552C00E74441 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A0A4A69A2469552C00E74441 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		A0A4A69D2469650B00E74441 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryModel.h; path = "../../../../../../tmp/有道词典切图/CategoryModel/CategoryModel.h"; sourceTree = "<group>"; };
-		A0A4A69E2469650B00E74441 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryModel.m; path = "../../../../../../tmp/有道词典切图/CategoryModel/CategoryModel.m"; sourceTree = "<group>"; };
 		A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListItemView.h; sourceTree = "<group>"; };
 		A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListItemView.m; sourceTree = "<group>"; };
-		A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoItemResponseModel.m; path = "../../../../../../tmp/有道词典切图/PhotoItemResponseModel/PhotoItemResponseModel.m"; sourceTree = "<group>"; };
-		A0D3C402246D3D4000802657 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoItemResponseModel.h; path = "../../../../../../tmp/有道词典切图/PhotoItemResponseModel/PhotoItemResponseModel.h"; sourceTree = "<group>"; };
-		A0D3C40524739D7B00802657 /* ConfigBeanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigBeanModel.h; path = "../../../../../tmp/有道词典切图/ConfigBeanModel/ConfigBeanModel.h"; sourceTree = "<group>"; };
-		A0D3C40624739D7B00802657 /* ConfigBeanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigBeanModel.m; path = "../../../../../tmp/有道词典切图/ConfigBeanModel/ConfigBeanModel.m"; sourceTree = "<group>"; };
 		A0D3C4082473AA4700802657 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		A0D3C4092473AA4700802657 /* AppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		A0D3C40E2473DA6D00802657 /* BaseUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseUIView.h; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 		A03F0AD2245D527B004E3AAB /* index */ = {
 			isa = PBXGroup;
 			children = (
-				A0A4A69C246964F000E74441 /* model */,
+				A0A4303C247A9EEB00A93308 /* model */,
 				A03F0ACF245AB138004E3AAB /* IndexViewController.h */,
 				A03F0AD0245AB138004E3AAB /* IndexViewController.m */,
 				A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */,
@@ -287,6 +287,17 @@
 				A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */,
 			);
 			path = index;
+			sourceTree = "<group>";
+		};
+		A0A4303C247A9EEB00A93308 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */,
+				A0A43041247A9FC200A93308 /* CategoryModel.h */,
+				A0A43042247A9FC200A93308 /* CategoryModel.m */,
+				A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A0A4A6862466B12B00E74441 /* net */ = {
@@ -325,28 +336,17 @@
 		A0A4A6922469492600E74441 /* account */ = {
 			isa = PBXGroup;
 			children = (
-				A0A4A6942469496300E74441 /* InitAccountResponseModel.h */,
-				A0A4A6932469496300E74441 /* InitAccountResponseModel.m */,
+				A0A43050247AA0C500A93308 /* InitAccountResponseModel.h */,
+				A0A43051247AA0C500A93308 /* InitAccountResponseModel.m */,
 			);
 			path = account;
-			sourceTree = "<group>";
-		};
-		A0A4A69C246964F000E74441 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				A0D3C402246D3D4000802657 /* PhotoItemResponseModel.h */,
-				A0D3C401246D3D4000802657 /* PhotoItemResponseModel.m */,
-				A0A4A69D2469650B00E74441 /* CategoryModel.h */,
-				A0A4A69E2469650B00E74441 /* CategoryModel.m */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		A0D3C40424739D5900802657 /* ServerSetting */ = {
 			isa = PBXGroup;
 			children = (
-				A0D3C40524739D7B00802657 /* ConfigBeanModel.h */,
-				A0D3C40624739D7B00802657 /* ConfigBeanModel.m */,
+				A0A4304B247AA06E00A93308 /* ConfigBeanModel.h */,
+				A0A4304C247AA06E00A93308 /* ConfigBeanModel.m */,
 				A0D3C4082473AA4700802657 /* AppConfig.h */,
 				A0D3C4092473AA4700802657 /* AppConfig.m */,
 			);
@@ -577,6 +577,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */,
+				A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */,
 				A0A4A690246947D900E74441 /* Test.m in Sources */,
 				A0D3C4172473E02100802657 /* PhotoCollectionViewCell.m in Sources */,
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
@@ -585,21 +587,19 @@
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
+				A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
-				A0A4A6952469496300E74441 /* InitAccountResponseModel.m in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
 				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
-				A0A4A69F2469650C00E74441 /* CategoryModel.m in Sources */,
+				A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */,
 				A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
-				A0D3C403246D3D4100802657 /* PhotoItemResponseModel.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
 				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
-				A0D3C40724739D7B00802657 /* ConfigBeanModel.m in Sources */,
 				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
 				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 				A0D3C41A2473E25900802657 /* PhotoWatchViewController.m in Sources */,
