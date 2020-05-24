@@ -265,6 +265,7 @@
 		A03F0ACB24580CBF004E3AAB /* uiutil */ = {
 			isa = PBXGroup;
 			children = (
+				A09824E9247AAA0C00E3EC16 /* customViews */,
 				A03F0ACC24580CE3004E3AAB /* DimenAdapter.h */,
 				A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */,
 				A0A43025247A568300A93308 /* UIColor+Addition.h */,
@@ -287,6 +288,13 @@
 				A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */,
 			);
 			path = index;
+			sourceTree = "<group>";
+		};
+		A09824E9247AAA0C00E3EC16 /* customViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = customViews;
 			sourceTree = "<group>";
 		};
 		A0A4303C247A9EEB00A93308 /* model */ = {

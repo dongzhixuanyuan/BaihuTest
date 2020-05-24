@@ -15,9 +15,13 @@
 #import <YYModel.h>
 #import "CategoryModel.h"
 #import "UIColor+Addition.h"
+#import <Masonry.h>
+
 
 @interface IndexTabContainer()
 @property(nonatomic,strong,readwrite)NSMutableArray<UILabel*>* topTabs;
+@property(nonatomic,strong,readwrite)UIImageView* rankIcon;
+@property(nonatomic,strong,readwrite)UIImageView* signIcon;
 @end
 
 @implementation IndexTabContainer
@@ -28,9 +32,9 @@
     if (self) {
         CGRect newFrame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
         self.frame = newFrame;
-        self.backgroundColor = [UIColor greenColor];
+//        self.backgroundColor = [UIColor greenColor];
         for (int i = 0; i < 2; i++) {
-            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * i + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT)];
+            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * i + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT-1)];
             tab.userInteractionEnabled = YES;
               tab.textAlignment = NSTextAlignmentCenter;
             tab.backgroundColor = [UIColor whiteColor];
@@ -42,6 +46,9 @@
                 case 0:
                     tab.text = @"精选";
                     tab.tag = 0;
+                    tab.textColor = [UIColor colorWithHexString:@"#222222"];
+
+                    tab.transform = CGAffineTransformScale(tab.transform, 1.4, 1.4);
                     break;
                 case 1:
                     tab.text = @"最新";
@@ -52,6 +59,32 @@
             }
             [self addSubview:tab];
         }
+        
+         
+        
+        _rankIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rank"]];
+        
+        _signIcon =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sign"]];
+        
+        [self addSubview:_rankIcon];
+        [self addSubview:_signIcon];
+        
+        [_rankIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.mas_left).offset(UI(300));
+            make.centerY.equalTo(self.mas_centerY);
+            make.height.equalTo(@24);
+            make.width.equalTo(@24);
+        }];
+        
+        [_signIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_rankIcon.mas_right).offset(UI(16));
+            make.centerY.equalTo(self.mas_centerY);
+            make.height.equalTo(@24);
+            make.width.equalTo(@24);
+        }];
+        
+     
+    
     }
     [self fetchCategories];
     return self;
@@ -59,6 +92,10 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    NSArray<UIView*>* children =  [self subviews];
+    for (UIView* child in children) {
+        NSLog(@"child: %d",child.hash );
+    }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -81,7 +118,7 @@
         NSInteger existCount = [sself.topTabs count];
     
         for (CategoryDataItem* item in model.data) {
-            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * (existCount) + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT)];
+            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * (existCount) + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT - 1)];
             tab.userInteractionEnabled = YES;
             tab.textAlignment = NSTextAlignmentCenter;
             tab.backgroundColor = [UIColor whiteColor];
@@ -93,6 +130,7 @@
             [sself addSubview:tab];
             existCount++;
         }
+        [sself drawBottomDivider];
         [sself setNeedsLayout];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -123,12 +161,10 @@
         if (selectIndex == i) {
             //放大动画
             UILabel* label =  sself.topTabs[i];
-//            label.font = [UIFont boldSystemFontOfSize:20];
             label.textColor = [UIColor colorWithHexString:@"#222222"];
             
             [UIView animateWithDuration:0.2
                                          animations:^{
-            
                 label.transform = CGAffineTransformScale(label.transform, 1.4, 1.4);
                         }];
         } else if ( oldSelected == i){
@@ -145,6 +181,25 @@
         }
     }
     
+}
+
+-(void)drawBottomDivider {
+    // 线的路径
+    UIBezierPath *linePath = [UIBezierPath bezierPath];
+    // 起点
+    [linePath moveToPoint:CGPointMake(0, NAVIGATIONBAR_HEIGHT-2)];
+    // 其他点
+    [linePath addLineToPoint:CGPointMake(self.frame.size.width  , NAVIGATIONBAR_HEIGHT-2)];
+//    [linePath closePath];
+    
+    CAShapeLayer *lineLayer = [CAShapeLayer layer];
+    
+    lineLayer.lineWidth = 1;
+    lineLayer.strokeColor = [UIColor colorWithHexString:@"#E1E1E1"].CGColor;
+    lineLayer.path = linePath.CGPath;
+//    lineLayer.fillColor = nil; // 默认为blackColor
+    
+    [self.layer addSublayer:lineLayer];
 }
 
 
