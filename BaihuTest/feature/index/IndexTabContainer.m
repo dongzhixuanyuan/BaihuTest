@@ -59,9 +59,6 @@
             }
             [self addSubview:tab];
         }
-        
-         
-        
         _rankIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rank"]];
         
         _signIcon =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sign"]];
@@ -190,7 +187,6 @@
     [linePath moveToPoint:CGPointMake(0, NAVIGATIONBAR_HEIGHT-2)];
     // 其他点
     [linePath addLineToPoint:CGPointMake(self.frame.size.width  , NAVIGATIONBAR_HEIGHT-2)];
-//    [linePath closePath];
     
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
     

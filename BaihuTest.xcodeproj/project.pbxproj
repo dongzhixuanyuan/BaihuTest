@@ -96,6 +96,7 @@
 		A03F0AD0245AB138004E3AAB /* IndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
+		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		A03F0A88245677A8004E3AAB /* BaihuTest */ = {
 			isa = PBXGroup;
 			children = (
+				A09824EA247AB1A100E3EC16 /* doc */,
 				A0D3C4112473DDEF00802657 /* base */,
 				A0A4A6912469491D00E74441 /* feature */,
 				A0A4A68D246947BE00E74441 /* test */,
@@ -295,6 +297,14 @@
 			children = (
 			);
 			path = customViews;
+			sourceTree = "<group>";
+		};
+		A09824EA247AB1A100E3EC16 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				A09824EB247AB1CB00E3EC16 /* 进度表.md */,
+			);
+			path = doc;
 			sourceTree = "<group>";
 		};
 		A0A4303C247A9EEB00A93308 /* model */ = {
