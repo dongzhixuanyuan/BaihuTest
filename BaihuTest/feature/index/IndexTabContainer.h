@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface IndexTabContainer : UIScrollView
 @property(nonatomic,strong) id<IndexTabClickDelegate> tabClickDelegate;
 @property(nonatomic,strong)NSArray<UIView*>* tabs;//items
+@property(nonatomic,strong)NSArray<NSString*>* tabData;
 -(void)fetchCategories;
 @end
 

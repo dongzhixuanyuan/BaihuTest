@@ -32,58 +32,7 @@
     if (self) {
         CGRect newFrame = CGRectMake(0, 0, SCREEN_WIDTH, NAVIGATIONBAR_HEIGHT);
         self.frame = newFrame;
-//        self.backgroundColor = [UIColor greenColor];
-        for (int i = 0; i < 2; i++) {
-            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * i + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT-1)];
-            tab.userInteractionEnabled = YES;
-              tab.textAlignment = NSTextAlignmentCenter;
-            tab.backgroundColor = [UIColor whiteColor];
-            tab.textColor = [UIColor colorWithHexString:@"#777777"];
-            tab.font = [UIFont systemFontOfSize:14];
-            
-            [_topTabs addObject:tab];
-            switch (i) {
-                case 0:
-                    tab.text = @"精选";
-                    tab.tag = 0;
-                    tab.textColor = [UIColor colorWithHexString:@"#222222"];
-
-                    tab.transform = CGAffineTransformScale(tab.transform, 1.4, 1.4);
-                    break;
-                case 1:
-                    tab.text = @"最新";
-                    tab.tag = 1;
-                    break;
-                default:
-                    break;
-            }
-            [self addSubview:tab];
-        }
-        _rankIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rank"]];
-        
-        _signIcon =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sign"]];
-        
-        [self addSubview:_rankIcon];
-        [self addSubview:_signIcon];
-        
-        [_rankIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mas_left).offset(UI(300));
-            make.centerY.equalTo(self.mas_centerY);
-            make.height.equalTo(@24);
-            make.width.equalTo(@24);
-        }];
-        
-        [_signIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(_rankIcon.mas_right).offset(UI(16));
-            make.centerY.equalTo(self.mas_centerY);
-            make.height.equalTo(@24);
-            make.width.equalTo(@24);
-        }];
-        
-     
-    
     }
-    [self fetchCategories];
     return self;
 }
 
@@ -106,33 +55,30 @@
     }
 }
 
-
--(void)fetchCategories{
-    __weak __typeof(self) weakSelf = self;
-    [NetworkManager.getHttpSessionManager GET:[UrlConstants getCategoryUrl] parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        __strong __typeof(weakSelf) sself = weakSelf;
-        CategoryModel* model = [CategoryModel yy_modelWithDictionary:responseObject];
-        NSInteger existCount = [sself.topTabs count];
-    
-        for (CategoryDataItem* item in model.data) {
-            UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * (existCount) + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT - 1)];
-            tab.userInteractionEnabled = YES;
-            tab.textAlignment = NSTextAlignmentCenter;
-            tab.backgroundColor = [UIColor whiteColor];
-            tab.textColor = [UIColor colorWithHexString:@"#777777"];
-            tab.text = item.name;
-            tab.tag = existCount;
-            tab.font = [UIFont systemFontOfSize:14];
-            [sself.topTabs addObject:tab];
-            [sself addSubview:tab];
-            existCount++;
+- (void)setTabData:(NSArray<NSString *> *)tabData {
+    _tabData = tabData;
+    if (_topTabs!=nil) {
+        [_topTabs removeAllObjects];
+    } else {
+        _topTabs = [NSMutableArray arrayWithCapacity:tabData.count];
+    }
+    for (NSInteger i = 0 ; i < tabData.count ; i++) {
+        UILabel *tab = [[UILabel alloc]initWithFrame:CGRectMake([DimenAdapter dimenAutoFit:UI(50)] * i + UI(15) , 0, [DimenAdapter dimenAutoFit:UI(30)], NAVIGATIONBAR_HEIGHT-1)];
+        tab.userInteractionEnabled = YES;
+        tab.textAlignment = NSTextAlignmentCenter;
+        tab.backgroundColor = [UIColor whiteColor];
+        tab.textColor = [UIColor colorWithHexString:@"#777777"];
+        tab.font = [UIFont systemFontOfSize:14];
+        tab.tag = i;
+        tab.text = tabData[i];
+        if (i == 0) {
+            tab.textColor = [UIColor colorWithHexString:@"#222222"];
+            tab.transform = CGAffineTransformScale(tab.transform, 1.4, 1.4);
         }
-        [sself drawBottomDivider];
-        [sself setNeedsLayout];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-    
+        [_topTabs addObject:tab];
+        [self addSubview:tab];
+    }
+    [self drawBottomDivider];
 }
 
 

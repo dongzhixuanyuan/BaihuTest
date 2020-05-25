@@ -15,6 +15,9 @@
 #import "PhotoListView.h"
 #import "UrlConstants.h"
 #import "PhotoWatchViewController.h"
+#import "NetworkManager.h"
+#import "CategoryModel.h"
+#import  <YYModel.h>
 @interface IndexViewController () <UIScrollViewDelegate,IndexTabClickDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -38,6 +41,8 @@
             make.height.mas_equalTo(NAVIGATIONBAR_HEIGHT);
         }];
         [self addObserver:_tabContaienr forKeyPath:@"currentSelectedPage" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        [self fetchIndexCategories];
+        
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - HOME_INDICATION_HEIGHT - BOTTOM_TABS_HEIGHT)];
         _scrollView.backgroundColor = [UIColor blueColor];
         _scrollView.canCancelContentTouches = NO;
@@ -90,6 +95,29 @@
         newFrame.size = CGSizeMake(CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame));
         child.frame = newFrame;
     }
+}
+
+
+-(void)fetchIndexCategories {
+    __weak __typeof(self) weakSelf = self;
+    [NetworkManager.getHttpSessionManager GET:[UrlConstants getCategoryUrl] parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        __strong __typeof(weakSelf) sself = weakSelf;
+        CategoryModel* model = [CategoryModel yy_modelWithDictionary:responseObject];
+        NSMutableArray<NSString*>* tabData = [NSMutableArray arrayWithCapacity:model.data.count + 2];
+        [tabData addObject: @"精选"];
+        [tabData addObject: @"最新"];
+        for (CategoryDataItem* item in model.data) {
+            [tabData addObject: item.name];
+        }
+        [sself.tabContaienr setTabData:tabData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        __strong __typeof(weakSelf) sself = weakSelf;
+        NSMutableArray<NSString*>* tabData = [NSMutableArray arrayWithCapacity:2];
+        [tabData addObject: @"精选"];
+        [tabData addObject: @"最新"];
+        [sself.tabContaienr setTabData:tabData];
+    }];
+    
 }
 
 - (void)viewDidLoad {
