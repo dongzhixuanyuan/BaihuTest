@@ -34,6 +34,7 @@
     return self;
 }
 
+# pragma mark 数据加载相关
 - (void)reFetchData {
     if (_data != nil) {
         [_data removeAllObjects];
@@ -63,6 +64,7 @@
     }];
 }
 
+# pragma mark tableview回调
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.data == nil ? 0 : self.data.count;
 }
@@ -82,4 +84,9 @@
     PhotoItemDataItem* selectedItem =   [_data objectAtIndex:indexPath.item];
     _clickCallback(selectedItem);
 }
+
+#pragma mark 下拉刷新、上拉加载
+
+
+
 @end

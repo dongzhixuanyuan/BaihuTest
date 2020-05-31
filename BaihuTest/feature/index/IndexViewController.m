@@ -18,11 +18,17 @@
 #import "NetworkManager.h"
 #import "CategoryModel.h"
 #import  <YYModel.h>
+#import "TableRefreshHeaderView.h"
+#import "TableViewWithRefreshHeader.h"
 @interface IndexViewController () <UIScrollViewDelegate,IndexTabClickDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) IndexTabContainer *tabContaienr;
 @property(nonatomic,assign)NSInteger currentSelectedPage;
+@property(nonatomic,strong,readwrite)UIImageView* rankIcon;
+@property(nonatomic,strong,readwrite)UIImageView* signIcon;
+@property(nonatomic,assign)BOOL isLoading;
+@property(nonatomic,assign)BOOL isRefreshing;
 @end
 
 @implementation IndexViewController
@@ -42,7 +48,7 @@
         }];
         [self addObserver:_tabContaienr forKeyPath:@"currentSelectedPage" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
         [self fetchIndexCategories];
-        
+        [self initTopBtn];
         _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT - HOME_INDICATION_HEIGHT - BOTTOM_TABS_HEIGHT)];
         _scrollView.backgroundColor = [UIColor blueColor];
         _scrollView.canCancelContentTouches = NO;
@@ -57,13 +63,19 @@
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]init];
         gesture.cancelsTouchesInView = NO;
         [_scrollView addGestureRecognizer:gesture];
-        PhotoListView* tableView = [[PhotoListView alloc]initWithUrl:[UrlConstants getIndexAllUrl]];
-        tableView.clickCallback = ^(PhotoItemDataItem * _Nonnull photoItem) {
+        TableViewWithRefreshHeader* tableView = [[TableViewWithRefreshHeader alloc]initWithParams:[UrlConstants getIndexAllUrl] itemClickListener:^(PhotoItemDataItem * _Nonnull photoItem) {
             PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
             [self.navigationController pushViewController:newController animated:YES];
-            
-        };
+        }];
         
+//
+//
+//        PhotoListView* tableView = [[PhotoListView alloc]initWithUrl:[UrlConstants getIndexAllUrl]];
+//        tableView.clickCallback = ^(PhotoItemDataItem * _Nonnull photoItem) {
+//            PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
+//            [self.navigationController pushViewController:newController animated:YES];
+//
+//        };
         
         UIImageView *view2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dream"]];
         UIImageView *view3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"girl"]];
@@ -95,6 +107,29 @@
         newFrame.size = CGSizeMake(CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame));
         child.frame = newFrame;
     }
+}
+
+-(void)initTopBtn {
+    _rankIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rank"]];
+    
+    _signIcon =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"sign"]];
+    
+    [self.view addSubview:_rankIcon];
+    [self.view addSubview:_signIcon];
+    
+    [_signIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view.mas_right).offset(-UI(15));
+        make.centerY.equalTo(self.tabContaienr.mas_centerY);
+        make.size.equalTo(@24);
+        
+    }];
+    
+    [_rankIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(_signIcon.mas_left).offset(-UI(20));
+        make.centerY.equalTo(_signIcon);
+        make.size.equalTo(@24);
+    }];
+    
 }
 
 

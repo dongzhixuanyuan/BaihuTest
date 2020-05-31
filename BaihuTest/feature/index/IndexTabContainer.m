@@ -130,17 +130,13 @@
     // 线的路径
     UIBezierPath *linePath = [UIBezierPath bezierPath];
     // 起点
-    [linePath moveToPoint:CGPointMake(0, NAVIGATIONBAR_HEIGHT-2)];
+    [linePath moveToPoint:CGPointMake(0, NAVIGATIONBAR_HEIGHT)];
     // 其他点
-    [linePath addLineToPoint:CGPointMake(self.frame.size.width  , NAVIGATIONBAR_HEIGHT-2)];
-    
+    [linePath addLineToPoint:CGPointMake(self.frame.size.width  , NAVIGATIONBAR_HEIGHT)];
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
-    
     lineLayer.lineWidth = 1;
     lineLayer.strokeColor = [UIColor colorWithHexString:@"#E1E1E1"].CGColor;
     lineLayer.path = linePath.CGPath;
-//    lineLayer.fillColor = nil; // 默认为blackColor
-    
     [self.layer addSublayer:lineLayer];
 }
 

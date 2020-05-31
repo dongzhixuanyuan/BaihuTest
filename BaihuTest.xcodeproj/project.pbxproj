@@ -24,6 +24,8 @@
 		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
+		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
+		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
 		A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43042247A9FC200A93308 /* CategoryModel.m */; };
 		A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */; };
@@ -97,6 +99,10 @@
 		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
 		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
+		A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshHeaderView.h; sourceTree = "<group>"; };
+		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
+		A09824F0247BCA0700E3EC16 /* TableViewWithRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewWithRefreshHeader.h; sourceTree = "<group>"; };
+		A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewWithRefreshHeader.m; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
@@ -279,13 +285,12 @@
 		A03F0AD2245D527B004E3AAB /* index */ = {
 			isa = PBXGroup;
 			children = (
+				A09824EC247BBEAA00E3EC16 /* tableView */,
 				A0A4303C247A9EEB00A93308 /* model */,
 				A03F0ACF245AB138004E3AAB /* IndexViewController.h */,
 				A03F0AD0245AB138004E3AAB /* IndexViewController.m */,
 				A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */,
 				A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */,
-				A0A4A6832466B0BC00E74441 /* PhotoListView.h */,
-				A0A4A6842466B0BC00E74441 /* PhotoListView.m */,
 				A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */,
 				A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */,
 			);
@@ -305,6 +310,19 @@
 				A09824EB247AB1CB00E3EC16 /* 进度表.md */,
 			);
 			path = doc;
+			sourceTree = "<group>";
+		};
+		A09824EC247BBEAA00E3EC16 /* tableView */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4A6832466B0BC00E74441 /* PhotoListView.h */,
+				A0A4A6842466B0BC00E74441 /* PhotoListView.m */,
+				A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */,
+				A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */,
+				A09824F0247BCA0700E3EC16 /* TableViewWithRefreshHeader.h */,
+				A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */,
+			);
+			path = tableView;
 			sourceTree = "<group>";
 		};
 		A0A4303C247A9EEB00A93308 /* model */ = {
@@ -605,6 +623,7 @@
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
+				A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */,
 				A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
@@ -612,6 +631,7 @@
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */,
 				A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */,
+				A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
