@@ -11,17 +11,16 @@
 #import "DimenAdapter.h"
 #import <Foundation/Foundation.h>
 
-@interface TableViewWithRefreshHeader()
-@property(nonatomic,assign)BOOL isLoading;
-@property(nonatomic,assign)BOOL isRefreshing;
+@interface TableViewWithRefreshHeader ()<UIScrollViewDelegate>
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) BOOL isRefreshing;
 @end
-
 
 @implementation TableViewWithRefreshHeader
 
 - (instancetype)initWithParams:(NSString *)url
              itemClickListener:(itemClickListener)clickCallback {
-    self =[super init];
+    self = [super init];
     if (self) {
         _isLoading = _isRefreshing = NO;
         _tableView = [[PhotoListView alloc]initWithUrl:url];
@@ -29,25 +28,36 @@
         
         _refreshView = [[TableRefreshHeaderView alloc]init];
         
-        //        [_tableView addSubview:_refreshView];
         [self addSubview:_tableView];
-        //        [_refreshView mas_makeConstraints:^(MASConstraintMaker *make) {
-        //            make.top.equalTo(_tableView.mas_top);
-        //            make.left.right.equalTo(_tableView);
-        //            make.height.equalTo( [ NSNumber numberWithFloat: UI(60)]);
-        //        }];
+        
         [_tableView setTableHeaderView:_refreshView];
+        __weak typeof(self) wself = self;
+        _tableView.dragEndListener = ^{
+            __strong typeof(wself) sself = wself;
+            if (sself.tableView.contentOffset.y <= 0) {
+                //                进行刷新的操作
+                [sself.refreshView setRefreshMode:REFRESH_LOADING];
+                [sself startRefreshing];
+                NSLog(@"%@", @"REFRESH_LOADING");
+            } else if(sself.tableView.contentOffset.y < sself.refreshView.frame.size.height ) {
+                [sself.refreshView setRefreshMode:REFRESH_INIT];
+                [sself resetNormalState:nil];
+                NSLog(@"%@", @"REFRESH_INIT");
+            }
+        };
         
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top);
             make.bottom.equalTo(self.mas_bottom);
             make.left.right.equalTo(self);
         }];
+        //这个地方之所以需要用dispatch，是因为在ios sdk中，view的布局更新啥的不一定是在主线程中执行的，所以有关UI的操作全部需要派发到主线程中执行。
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __strong typeof(wself) sself = wself;
+            sself.tableView.contentOffset = CGPointMake(0, sself.refreshView.frame.size.height);
+        });
         
-        _tableView.contentInset = UIEdgeInsetsMake(-_refreshView.frame.size.height, 0, 0, 0);
-        //        _tableView.contentOffset = CGPointMake(0, -UI(60));
         [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-        
     }
     return self;
 }
@@ -56,44 +66,50 @@
 {
     if ([keyPath isEqualToString:@"contentOffset"] && !_isLoading && !_isRefreshing) {
         CGPoint curContentOffset = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue];
-        NSLog(@"offset:%f",curContentOffset.y);
+        NSLog(@"offset:%f", curContentOffset.y);
         if (_tableView.isDragging) {
-            if (curContentOffset.y <= 0 ) {
+            if (curContentOffset.y <= 0) {
                 //到达下拉刷新的临界线
                 [_refreshView setRefreshMode:REFRESH_WILL_LOADING];
-            }else {
-                [_refreshView setRefreshMode:REFRESH_DRAGING];
-            }
-        } else {
-            if (curContentOffset.y <= 0 ) {
-                //                进行刷新的操作
-                [_refreshView setRefreshMode:REFRESH_LOADING];
-                [self startRefreshing];
-                
-            }else {
+                NSLog(@"%@", @"REFRESH_WILL_LOADING");
+            } else {
                 [_refreshView setRefreshMode:REFRESH_INIT];
+                NSLog(@"%@", @"isDragging REFRESH_INIT");
             }
         }
     }
 }
 
--(void) startRefreshing {
-    _isRefreshing = YES;
-    _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    __weak typeof(self) wself = self;
-    dispatch_async(dispatch_get_global_queue(000, 0), ^{
-        sleep(2);
-        dispatch_async(dispatch_get_main_queue()
-                       , ^{
-            __strong typeof(wself) sself = wself;
-            sself.isRefreshing = NO;
-            sself.tableView.contentInset = UIEdgeInsetsMake(- sself. refreshView.frame.size.height, 0, 0, 0);
-        });
-    });
+- (void)resetNormalState:(void (^__nullable)(BOOL finished))complete {
+    [UIView animateWithDuration:0.3
+                     animations:^{
+        self.tableView.contentOffset = CGPointMake(0,  self.refreshView.frame.size.height);
+    } completion:^(BOOL finished) {
+        if (complete != nil) {
+            complete(finished);
+        }
+    }];
 }
 
-- (void)dealloc
-{
-    [_tableView removeObserver:self forKeyPath:@"contentOffset"];
+- (void)startRefreshing {
+    _isRefreshing = YES;
+    __weak typeof(self) wself = self;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+        self.tableView.contentOffset = CGPointMake(0,  0);
+    } completion:^(BOOL finished) {
+        dispatch_async(dispatch_get_global_queue(000, 0), ^{
+            sleep(2);
+            dispatch_async(dispatch_get_main_queue()
+                           , ^{
+                __strong typeof(wself) sself = wself;
+                [sself.refreshView setRefreshMode:REFRESH_INIT];
+                [sself resetNormalState:^(BOOL finished) {
+                    sself.isRefreshing = NO;
+                }];
+            });
+        });
+    }];
 }
+
 @end

@@ -65,7 +65,7 @@
         return;
     }
     switch (state) {
-        case REFRESH_DRAGING:
+        case REFRESH_INIT:
             _refreshText.hidden = NO;
             _refreshText.text = @"继续下拉刷新";
             _loadingIndicatorView.hidden = NO;
@@ -91,6 +91,7 @@
         default:
             break;
     }
+    _curState = state;
 }
 
 @end

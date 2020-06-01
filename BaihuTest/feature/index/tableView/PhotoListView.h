@@ -11,11 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^itemClickListener)(PhotoItemDataItem*);
+typedef void(^dragEndCallback)();
 
 @interface PhotoListView : UITableView
 -(instancetype)initWithUrl:(NSString*)url;
 @property(nonatomic,copy)NSString* url;
 @property(nonatomic,copy)itemClickListener clickCallback;
+@property(nonatomic,copy)dragEndCallback dragEndListener;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, strong, readwrite) NSMutableArray<PhotoItemDataItem *> *data;
+@property(nonatomic,assign)BOOL isTouchDown;
 @end
 
 @implementation PhotoListView
@@ -26,6 +27,7 @@
     _page = 0;
     _pageSize = 20;
     if (self) {
+        self.isTouchDown = NO;
         self.delegate = self;
         self.dataSource = self;
         [self reFetchData];
@@ -85,8 +87,30 @@
     _clickCallback(selectedItem);
 }
 
-#pragma mark 下拉刷新、上拉加载
 
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+   NSLog(@"scrollViewWillBeginDragging");
+    _isTouchDown = YES;
+}
+
+//手指弹起，没有自动回弹动画时，调用该方法。
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"scrollViewDidEndDragging，decelerate : %@",decelerate?@"true":@"false");
+    if (!decelerate && _dragEndListener ) {
+        _isTouchDown = NO;
+        _dragEndListener();
+    }
+}
+
+//当有自动回弹动画时，会调用这个方法
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewDidEndDecelerating");
+    if (_isTouchDown && _dragEndListener) {
+        _isTouchDown = NO;
+        _dragEndListener();
+    }
+}
 
 
 @end
