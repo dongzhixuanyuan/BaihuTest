@@ -30,27 +30,27 @@
         self.isTouchDown = NO;
         self.delegate = self;
         self.dataSource = self;
-        [self reFetchData];
+        [self reFetchData:nil];
         
     }
     return self;
 }
 
 # pragma mark 数据加载相关
-- (void)reFetchData {
+- (void)reFetchData:   (_Nullable  id<PhotoListFetchCallback>) callback {
     if (_data != nil) {
         [_data removeAllObjects];
     }
     _page = 0;
-    [self fecthListData:NO];
+    [self fecthListData:NO callback:callback];
 }
 
-- (void)loadMoreData {
+- (void)loadMoreData:(id<PhotoListFetchCallback>) callback {
     _page++;
-    [self fecthListData:YES];
+    [self fecthListData:YES callback:callback];
 }
 
-- (void)fecthListData:(BOOL)loadMore {
+- (void)fecthListData:(BOOL)loadMore callback :(id<PhotoListFetchCallback>) callback {
     __weak typeof(self) wself = self;
     [ [NetworkManager getHttpSessionManager] GET:_url parameters:@{ @"page": [NSNumber numberWithInt:_page], @"size":  [ NSNumber numberWithInt:_pageSize] } headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
         __strong typeof(wself) sself = wself;
@@ -61,8 +61,10 @@
         sself.data = [[NSMutableArray alloc]init];
         [sself.data addObjectsFromArray:model.data];
         [sself reloadData];
+        [callback fetchSuccessed];
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
         NSLog(@"error %ld",error.code);
+        [callback fetchFailed];
     }];
 }
 

@@ -11,7 +11,7 @@
 #import "DimenAdapter.h"
 #import <Foundation/Foundation.h>
 
-@interface TableViewWithRefreshHeader ()<UIScrollViewDelegate>
+@interface TableViewWithRefreshHeader ()<UIScrollViewDelegate,PhotoListFetchCallback>
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL isRefreshing;
 @end
@@ -98,17 +98,25 @@
                      animations:^{
         self.tableView.contentOffset = CGPointMake(0,  0);
     } completion:^(BOOL finished) {
-        dispatch_async(dispatch_get_global_queue(000, 0), ^{
-            sleep(2);
-            dispatch_async(dispatch_get_main_queue()
-                           , ^{
-                __strong typeof(wself) sself = wself;
-                [sself.refreshView setRefreshMode:REFRESH_INIT];
-                [sself resetNormalState:^(BOOL finished) {
-                    sself.isRefreshing = NO;
-                }];
-            });
-        });
+        __strong typeof(wself) sself = wself;
+        [sself.tableView reFetchData:sself];
+    }];
+}
+
+
+- (void)fetchSuccessed {
+    NSLog(@"fetchSuccessed");
+    [self.refreshView setRefreshMode:REFRESH_INIT];
+    [self resetNormalState:^(BOOL finished) {
+        self.isRefreshing = NO;
+    }];
+}
+
+- (void)fetchFailed {
+    NSLog(@"fetchFailed");
+    [self.refreshView setRefreshMode:REFRESH_INIT];
+    [self resetNormalState:^(BOOL finished) {
+        self.isRefreshing = NO;
     }];
 }
 
