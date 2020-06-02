@@ -30,6 +30,7 @@
         self.isTouchDown = NO;
         self.delegate = self;
         self.dataSource = self;
+        self.data = [[NSMutableArray alloc]init];
         [self reFetchData:nil];
         
     }
@@ -38,9 +39,6 @@
 
 # pragma mark 数据加载相关
 - (void)reFetchData:   (_Nullable  id<PhotoListFetchCallback>) callback {
-    if (_data != nil) {
-        [_data removeAllObjects];
-    }
     _page = 0;
     [self fecthListData:NO callback:callback];
 }
@@ -58,19 +56,20 @@
         if (!loadMore) {
             [sself.data removeAllObjects];
         }
-        sself.data = [[NSMutableArray alloc]init];
         [sself.data addObjectsFromArray:model.data];
         [sself reloadData];
-        [callback fetchSuccessed];
+        [callback fetchSuccessed: loadMore? LOAD_MORE:REFERSH  ];
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
         NSLog(@"error %ld",error.code);
-        [callback fetchFailed];
+        [callback fetchFailed: loadMore? LOAD_MORE:REFERSH];
     }];
 }
 
 # pragma mark tableview回调
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data == nil ? 0 : self.data.count;
+    NSInteger count =  self.data == nil ? 0 : self.data.count;
+    NSLog(@"元素个数:%d",count);
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

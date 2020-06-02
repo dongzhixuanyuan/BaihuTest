@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PhotoListView.h"
 #import "TableRefreshHeaderView.h"
-
+#import "TableRefreshFooterView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TableViewWithRefreshHeader : UIView
 @property (nonatomic, strong, readwrite) PhotoListView *tableView;
 @property (nonatomic, strong, readwrite) TableRefreshHeaderView *refreshView;
+@property(nonatomic,strong,readwrite)TableRefreshFooterView* footerView;
 - (instancetype)initWithParams:(NSString *)url itemClickListener:(itemClickListener)clickCallback;
 //@property (nonatomic, copy) NSString *url;
 //@property (nonatomic, copy) itemClickListener clickCallback;

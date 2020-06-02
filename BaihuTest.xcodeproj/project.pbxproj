@@ -26,6 +26,7 @@
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
+		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
 		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
 		A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43042247A9FC200A93308 /* CategoryModel.m */; };
 		A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */; };
@@ -103,6 +104,8 @@
 		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
 		A09824F0247BCA0700E3EC16 /* TableViewWithRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewWithRefreshHeader.h; sourceTree = "<group>"; };
 		A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewWithRefreshHeader.m; sourceTree = "<group>"; };
+		A09F8DA124860074004921E3 /* TableRefreshFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshFooterView.h; sourceTree = "<group>"; };
+		A09F8DA224860074004921E3 /* TableRefreshFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshFooterView.m; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */,
 				A09824F0247BCA0700E3EC16 /* TableViewWithRefreshHeader.h */,
 				A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */,
+				A09F8DA124860074004921E3 /* TableRefreshFooterView.h */,
+				A09F8DA224860074004921E3 /* TableRefreshFooterView.m */,
 			);
 			path = tableView;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 				A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
+				A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */,
 				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */,

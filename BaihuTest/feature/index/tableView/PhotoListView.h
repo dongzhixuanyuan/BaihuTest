@@ -13,10 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void(^itemClickListener)(PhotoItemDataItem*);
 typedef void(^dragEndCallback)();
 
+
+typedef enum:NSInteger{
+    REFERSH,
+    LOAD_MORE
+}FetchType;
 @protocol PhotoListFetchCallback <NSObject>
 @required
--(void)fetchSuccessed;
--(void)fetchFailed;
+-(void)fetchSuccessed:(FetchType)type;
+-(void)fetchFailed:(FetchType)type;
 
 @end
 

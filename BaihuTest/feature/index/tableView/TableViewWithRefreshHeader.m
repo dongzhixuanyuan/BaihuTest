@@ -10,8 +10,8 @@
 #import <Masonry.h>
 #import "DimenAdapter.h"
 #import <Foundation/Foundation.h>
-
-@interface TableViewWithRefreshHeader ()<UIScrollViewDelegate,PhotoListFetchCallback>
+#import "TableRefreshFooterView.h"
+@interface TableViewWithRefreshHeader ()<UIScrollViewDelegate, PhotoListFetchCallback>
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL isRefreshing;
 @end
@@ -25,27 +25,41 @@
         _isLoading = _isRefreshing = NO;
         _tableView = [[PhotoListView alloc]initWithUrl:url];
         [_tableView setClickCallback:clickCallback];
-        
+
         _refreshView = [[TableRefreshHeaderView alloc]init];
-        
+        _footerView = [[TableRefreshFooterView alloc]init];
         [self addSubview:_tableView];
-        
+
         [_tableView setTableHeaderView:_refreshView];
+        [_tableView setTableFooterView:_footerView];
         __weak typeof(self) wself = self;
         _tableView.dragEndListener = ^{
             __strong typeof(wself) sself = wself;
-            if (sself.tableView.contentOffset.y <= 0) {
-                //                进行刷新的操作
-                [sself.refreshView setRefreshMode:REFRESH_LOADING];
-                [sself startRefreshing];
-                NSLog(@"%@", @"REFRESH_LOADING");
-            } else if(sself.tableView.contentOffset.y < sself.refreshView.frame.size.height ) {
-                [sself.refreshView setRefreshMode:REFRESH_INIT];
-                [sself resetNormalState:nil];
-                NSLog(@"%@", @"REFRESH_INIT");
+            CGFloat curContentOffsetY = sself.tableView.contentOffset.y;
+
+            if (curContentOffsetY <= sself.refreshView.frame.size.height) {
+                //下拉操作
+                if (curContentOffsetY <= 0) {
+                    //到达下拉刷新的临界线
+                    [sself.refreshView setRefreshMode:REFRESH_LOADING];
+                    [sself startRefreshing];
+                } else {
+                    [sself.refreshView setRefreshMode:REFRESH_INIT];
+                    [sself resetRefreshNormalState:nil];
+                }
+            } else if (curContentOffsetY + sself.tableView.frame.size.height > sself.tableView.contentSize.height - sself.footerView.frame.size.height) {
+                //                上拉操作
+                if (curContentOffsetY + sself.tableView.frame.size.height > sself.tableView.contentSize.height) {
+                    //到达了上拉加载的临界线
+                    [sself.footerView setRefreshMode:REFRESH_LOADING];
+                    [sself startLoadingMore];
+                } else {
+                    [sself.footerView setRefreshMode:REFRESH_INIT];
+                    [sself resetLoadNormalState:nil];
+                }
             }
         };
-        
+
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top);
             make.bottom.equalTo(self.mas_bottom);
@@ -56,7 +70,7 @@
             __strong typeof(wself) sself = wself;
             sself.tableView.contentOffset = CGPointMake(0, sself.refreshView.frame.size.height);
         });
-        
+
         [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
@@ -67,20 +81,36 @@
     if ([keyPath isEqualToString:@"contentOffset"] && !_isLoading && !_isRefreshing) {
         CGPoint curContentOffset = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue];
         NSLog(@"offset:%f", curContentOffset.y);
+        UIEdgeInsets insets =   _tableView.contentInset;
+        NSLog(@"content size:%f", _tableView.contentSize.height);
+        NSLog(@"frame height:%f", _tableView.frame.size.height);
+        NSLog(@"top:%f,left:%f,bottom:%f,right:%f", insets.top, insets.left, insets.bottom, insets.right);
+
         if (_tableView.isDragging) {
-            if (curContentOffset.y <= 0) {
-                //到达下拉刷新的临界线
-                [_refreshView setRefreshMode:REFRESH_WILL_LOADING];
-                NSLog(@"%@", @"REFRESH_WILL_LOADING");
-            } else {
-                [_refreshView setRefreshMode:REFRESH_INIT];
-                NSLog(@"%@", @"isDragging REFRESH_INIT");
+            if (curContentOffset.y <= _refreshView.frame.size.height) {
+                //下拉操作
+                if (curContentOffset.y <= 0) {
+                    //到达下拉刷新的临界线
+                    [_refreshView setRefreshMode:REFRESH_WILL_LOADING];
+                    NSLog(@"%@", @"REFRESH_WILL_LOADING");
+                } else {
+                    [_refreshView setRefreshMode:REFRESH_INIT];
+                    NSLog(@"%@", @"isDragging REFRESH_INIT");
+                }
+            } else if (curContentOffset.y + _tableView.frame.size.height > _tableView.contentSize.height - _footerView.frame.size.height) {
+                //                上拉操作
+                if (curContentOffset.y + _tableView.frame.size.height > _tableView.contentSize.height) {
+                    //到达了上拉加载的临界线
+                    [_footerView setRefreshMode:REFRESH_WILL_LOADING];
+                } else {
+                    [_footerView setRefreshMode:REFRESH_INIT];
+                }
             }
         }
     }
 }
 
-- (void)resetNormalState:(void (^__nullable)(BOOL finished))complete {
+- (void)resetRefreshNormalState:(void (^__nullable)(BOOL finished))complete {
     [UIView animateWithDuration:0.3
                      animations:^{
         self.tableView.contentOffset = CGPointMake(0,  self.refreshView.frame.size.height);
@@ -91,7 +121,21 @@
     }];
 }
 
+- (void)resetLoadNormalState:(void (^__nullable)(BOOL finished))complete {
+    [UIView animateWithDuration:0.3
+                     animations:^{
+        self.tableView.contentOffset = CGPointMake(0,  self.tableView.contentSize.height - self.footerView.frame.size.height - self.tableView.frame.size.height);
+    } completion:^(BOOL finished) {
+        if (complete != nil) {
+            complete(finished);
+        }
+    }];
+}
+
 - (void)startRefreshing {
+    if (_isRefreshing) {
+        return;
+    }
     _isRefreshing = YES;
     __weak typeof(self) wself = self;
     [UIView animateWithDuration:0.3
@@ -103,21 +147,49 @@
     }];
 }
 
-
-- (void)fetchSuccessed {
-    NSLog(@"fetchSuccessed");
-    [self.refreshView setRefreshMode:REFRESH_INIT];
-    [self resetNormalState:^(BOOL finished) {
-        self.isRefreshing = NO;
+- (void)startLoadingMore {
+    if (_isLoading) {
+        return;
+    }
+    _isLoading = YES;
+    __weak typeof(self) wself = self;
+    [UIView animateWithDuration:0.3
+                     animations:^{
+        self.tableView.contentOffset = CGPointMake(0,  self.tableView.contentSize.height - self.tableView.frame.size.height);
+    } completion:^(BOOL finished) {
+        __strong typeof(wself) sself = wself;
+        [sself.tableView loadMoreData:sself];
     }];
 }
 
-- (void)fetchFailed {
+- (void)fetchSuccessed:(FetchType)type {
+    NSLog(@"fetchSuccessed");
+    if (type == REFERSH) {
+        [self.refreshView setRefreshMode:REFRESH_INIT];
+        [self resetRefreshNormalState:^(BOOL finished) {
+            self.isRefreshing = NO;
+        }];
+    } else {
+        [self.footerView setRefreshMode:REFRESH_INIT];
+        [self resetLoadNormalState:^(BOOL finished) {
+            self.isLoading = NO;
+        }];
+    }
+}
+
+- (void)fetchFailed:(FetchType)type {
     NSLog(@"fetchFailed");
-    [self.refreshView setRefreshMode:REFRESH_INIT];
-    [self resetNormalState:^(BOOL finished) {
-        self.isRefreshing = NO;
-    }];
+    if (type == REFERSH) {
+        [self.refreshView setRefreshMode:REFRESH_INIT];
+        [self resetRefreshNormalState:^(BOOL finished) {
+            self.isRefreshing = NO;
+        }];
+    } else {
+        [self.footerView setRefreshMode:REFRESH_INIT];
+        [self resetLoadNormalState:^(BOOL finished) {
+            self.isLoading = NO;
+        }];
+    }
 }
 
 @end
