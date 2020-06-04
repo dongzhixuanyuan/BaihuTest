@@ -27,6 +27,10 @@
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
+		A09F8DBF2487B570004921E3 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DBE2487B570004921E3 /* RecommendViewController.m */; };
+		A09F8DC22487B684004921E3 /* BaseViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DC12487B684004921E3 /* BaseViewPager.m */; };
+		A09F8DC52488E439004921E3 /* RecommendPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DC42488E439004921E3 /* RecommendPage.m */; };
+		A09F8DC82488F579004921E3 /* ModelResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DC72488F579004921E3 /* ModelResponseModel.m */; };
 		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
 		A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43042247A9FC200A93308 /* CategoryModel.m */; };
 		A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */; };
@@ -106,6 +110,14 @@
 		A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewWithRefreshHeader.m; sourceTree = "<group>"; };
 		A09F8DA124860074004921E3 /* TableRefreshFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshFooterView.h; sourceTree = "<group>"; };
 		A09F8DA224860074004921E3 /* TableRefreshFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshFooterView.m; sourceTree = "<group>"; };
+		A09F8DBD2487B570004921E3 /* RecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		A09F8DBE2487B570004921E3 /* RecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		A09F8DC02487B684004921E3 /* BaseViewPager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewPager.h; sourceTree = "<group>"; };
+		A09F8DC12487B684004921E3 /* BaseViewPager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewPager.m; sourceTree = "<group>"; };
+		A09F8DC32488E439004921E3 /* RecommendPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendPage.h; sourceTree = "<group>"; };
+		A09F8DC42488E439004921E3 /* RecommendPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendPage.m; sourceTree = "<group>"; };
+		A09F8DC62488F578004921E3 /* ModelResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelResponseModel.h; sourceTree = "<group>"; };
+		A09F8DC72488F579004921E3 /* ModelResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelResponseModel.m; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
@@ -220,6 +232,7 @@
 		A03F0A88245677A8004E3AAB /* BaihuTest */ = {
 			isa = PBXGroup;
 			children = (
+				A09F8DBB2487B4DE004921E3 /* page */,
 				A09824EA247AB1A100E3EC16 /* doc */,
 				A0D3C4112473DDEF00802657 /* base */,
 				A0A4A6912469491D00E74441 /* feature */,
@@ -288,7 +301,6 @@
 		A03F0AD2245D527B004E3AAB /* index */ = {
 			isa = PBXGroup;
 			children = (
-				A09824EC247BBEAA00E3EC16 /* tableView */,
 				A0A4303C247A9EEB00A93308 /* model */,
 				A03F0ACF245AB138004E3AAB /* IndexViewController.h */,
 				A03F0AD0245AB138004E3AAB /* IndexViewController.m */,
@@ -330,6 +342,33 @@
 			path = tableView;
 			sourceTree = "<group>";
 		};
+		A09F8DBB2487B4DE004921E3 /* page */ = {
+			isa = PBXGroup;
+			children = (
+				A09F8DBC2487B531004921E3 /* recommend */,
+				A03F0ABE24568B23004E3AAB /* rootTab */,
+				A09824EC247BBEAA00E3EC16 /* tableView */,
+				A03F0AD2245D527B004E3AAB /* index */,
+				A0D3C40D2473D8E300802657 /* PhotoDetailPage */,
+				A09F8DC02487B684004921E3 /* BaseViewPager.h */,
+				A09F8DC12487B684004921E3 /* BaseViewPager.m */,
+			);
+			path = page;
+			sourceTree = "<group>";
+		};
+		A09F8DBC2487B531004921E3 /* recommend */ = {
+			isa = PBXGroup;
+			children = (
+				A09F8DC62488F578004921E3 /* ModelResponseModel.h */,
+				A09F8DC72488F579004921E3 /* ModelResponseModel.m */,
+				A09F8DBD2487B570004921E3 /* RecommendViewController.h */,
+				A09F8DBE2487B570004921E3 /* RecommendViewController.m */,
+				A09F8DC32488E439004921E3 /* RecommendPage.h */,
+				A09F8DC42488E439004921E3 /* RecommendPage.m */,
+			);
+			path = recommend;
+			sourceTree = "<group>";
+		};
 		A0A4303C247A9EEB00A93308 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,10 +404,7 @@
 		A0A4A6912469491D00E74441 /* feature */ = {
 			isa = PBXGroup;
 			children = (
-				A0D3C40D2473D8E300802657 /* PhotoDetailPage */,
 				A0D3C40424739D5900802657 /* ServerSetting */,
-				A03F0ABE24568B23004E3AAB /* rootTab */,
-				A03F0AD2245D527B004E3AAB /* index */,
 				A0A4A6922469492600E74441 /* account */,
 			);
 			path = feature;
@@ -619,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */,
+				A09F8DC52488E439004921E3 /* RecommendPage.m in Sources */,
 				A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */,
 				A0A4A690246947D900E74441 /* Test.m in Sources */,
 				A0D3C4172473E02100802657 /* PhotoCollectionViewCell.m in Sources */,
@@ -629,8 +666,10 @@
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
 				A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */,
+				A09F8DBF2487B570004921E3 /* RecommendViewController.m in Sources */,
 				A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
+				A09F8DC82488F579004921E3 /* ModelResponseModel.m in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
 				A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */,
 				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,
@@ -645,6 +684,7 @@
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
 				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
 				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
+				A09F8DC22487B684004921E3 /* BaseViewPager.m in Sources */,
 				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 				A0D3C41A2473E25900802657 /* PhotoWatchViewController.m in Sources */,
 			);

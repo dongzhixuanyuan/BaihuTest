@@ -51,7 +51,7 @@
         _refreshText = [[UILabel alloc]initWithFrame:CGRectZero];
         _refreshText.font = [UIFont fontWithName:@"Arial" size:14];
         _refreshText.textColor = [UIColor blackColor];
-        _refreshText.text = @"继续下拉刷新";
+        _refreshText.text = @"继续上拉加载更多~~";
     }
     return _refreshText;
 }

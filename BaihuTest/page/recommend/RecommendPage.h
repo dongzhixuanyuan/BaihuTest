@@ -1,8 +1,8 @@
 //
-//  IndexViewController.h
+//  RecommendPage.h
 //  BaihuTest
 //
-//  Created by liudong on 2020/4/30.
+//  Created by liudong on 2020/6/4.
 //  Copyright © 2020 liudong. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IndexViewController : UIViewController 
+@interface RecommendPage : UIView
 
 @end
 

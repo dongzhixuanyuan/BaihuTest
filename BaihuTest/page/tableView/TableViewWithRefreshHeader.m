@@ -32,11 +32,13 @@
 
         [_tableView setTableHeaderView:_refreshView];
         [_tableView setTableFooterView:_footerView];
+
+
         __weak typeof(self) wself = self;
         _tableView.dragEndListener = ^{
             __strong typeof(wself) sself = wself;
             CGFloat curContentOffsetY = sself.tableView.contentOffset.y;
-
+            NSLog(@"dragend offset:%f",curContentOffsetY);
             if (curContentOffsetY <= sself.refreshView.frame.size.height) {
                 //下拉操作
                 if (curContentOffsetY <= 0) {

@@ -10,6 +10,7 @@
 #import "HomeTabBarController.h"
 #import "IndexViewController.h"
 #import "NetworkManager.h"
+#import "RecommendViewController.h"
 @interface SceneDelegate ()
 
 @end
@@ -21,49 +22,12 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     self.window = [[UIWindow alloc]initWithWindowScene:(UIWindowScene *)scene];
-//    UITabBarController *tabController = [[UITabBarController alloc]init];
-//    for (int i = 0; i < 4; i++) {
-//        UIViewController *vc = [[UIViewController alloc]init];
-//        switch (i) {
-//            case 0:
-//                vc = [[IndexViewController alloc]init];
-//                vc.view.backgroundColor = [UIColor redColor];
-//                vc.tabBarItem.title = @"微信";
-//                vc.tabBarItem.image = [[UIImage imageNamed:@"tabbar_mainframe"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_mainframeHL"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                vc.tabBarItem.badgeValue = @"100";
-//                vc.tabBarItem.badgeColor = [UIColor greenColor];
-//                break;
-//            case 1:
-//                vc.view.backgroundColor = [UIColor orangeColor];
-//                vc.tabBarItem.title = @"联系人";
-//                vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_contactsHL" ]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                vc.tabBarItem.image = [[UIImage imageNamed:@"tabbar_contacts"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                break;
-//            case 2:
-//                vc.view.backgroundColor = [UIColor yellowColor];
-//                vc.tabBarItem.title = @"发现";
-//                vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_discoverHL" ]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                vc.tabBarItem.image = [[UIImage imageNamed:@"tabbar_discover"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                break;
-//            case 3:
-//                vc.view.backgroundColor = [UIColor greenColor];
-//                vc.tabBarItem.title = @"我";
-//                vc.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_meHL" ]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                vc.tabBarItem.image = [[UIImage imageNamed:@"tabbar_me"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//                break;
-//            default:
-//                break;
-//        }
-//        [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-//             [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor greenColor]} forState:UIControlStateSelected];
-//        [tabController addChildViewController:vc];
-//    }
+
    HomeTabBarController* customTabController =  [HomeTabBarController createTabBarController:^HomeTabBarConfig *(HomeTabBarConfig * _Nonnull config) {
-        IndexViewController* vc1 = [[IndexViewController alloc]init];
+        IndexViewController* indexVC = [[IndexViewController alloc]init];
         
-        UIViewController* vc2 = [[UIViewController alloc]init];
-        vc2.view.backgroundColor = [UIColor orangeColor];
+        RecommendViewController* recommendVC = [[RecommendViewController alloc]init];
+        
         
         UIViewController* vc3 = [[UIViewController alloc]init];
         vc3.view.backgroundColor = [UIColor yellowColor];
@@ -71,8 +35,8 @@
         UIViewController* vc4 = [[UIViewController alloc]init];
         vc4.view.backgroundColor = [UIColor greenColor];
         
-        config.viewController = @[vc1,vc2,vc3,vc4];
-        config.title = @[@"微信", @"联系人",@"发现",@"我"];
+        config.viewController = @[indexVC,recommendVC,vc3,vc4];
+        config.title = @[@"微信", @"发现",@"发现",@"我"];
         config.normalImage = @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover",@"tabbar_me"];
         config.seletedImages = @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL",@"tabbar_meHL"];
         config.isNavigation = NO;
