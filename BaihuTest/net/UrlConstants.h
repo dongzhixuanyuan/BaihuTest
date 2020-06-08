@@ -22,6 +22,8 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)getSpeCategoryUrl:(NSString*)categoryId;
 +(NSString*)getRecommendModels:(NSInteger)count;
 +(NSString*)getRecommendTags:(NSInteger)count;
++(NSString*)getAllModels;
++(NSString*)getAllTags;
 @end
 
 NS_ASSUME_NONNULL_END
