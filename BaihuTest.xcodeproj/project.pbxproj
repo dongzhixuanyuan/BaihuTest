@@ -24,6 +24,7 @@
 		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
+		A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862509248DE32800EEC301 /* TagResponseModel.m */; };
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
@@ -103,6 +104,8 @@
 		A03F0AD0245AB138004E3AAB /* IndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
+		A0862509248DE32800EEC301 /* TagResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagResponseModel.m; sourceTree = "<group>"; };
+		A086250A248DE32800EEC301 /* TagResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagResponseModel.h; sourceTree = "<group>"; };
 		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
 		A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshHeaderView.h; sourceTree = "<group>"; };
 		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
@@ -312,6 +315,15 @@
 			path = index;
 			sourceTree = "<group>";
 		};
+		A0862508248DE30600EEC301 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A086250A248DE32800EEC301 /* TagResponseModel.h */,
+				A0862509248DE32800EEC301 /* TagResponseModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		A09824E9247AAA0C00E3EC16 /* customViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +371,7 @@
 		A09F8DBC2487B531004921E3 /* recommend */ = {
 			isa = PBXGroup;
 			children = (
+				A0862508248DE30600EEC301 /* model */,
 				A09F8DC62488F578004921E3 /* ModelResponseModel.h */,
 				A09F8DC72488F579004921E3 /* ModelResponseModel.m */,
 				A09F8DBD2487B570004921E3 /* RecommendViewController.h */,
@@ -679,6 +692,7 @@
 				A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
+				A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
