@@ -12,7 +12,7 @@
 #import "ModelPage.h"
 #import "TagPage.h"
 #import <Masonry.h>
-@interface RecommendViewController ()
+@interface RecommendViewController ()<AlbumIconClick>
 @property (nonatomic, strong, readwrite) RecommendPage *recommendPage;
 @property(nonatomic,strong,readwrite)RecommendDetailBasePage* modelPage,*tagPage;
 @end
@@ -30,7 +30,9 @@
         _modelPage = [[ModelPage alloc]initWithFrame:self.scrollView.bounds];
         _tagPage = [[TagPage alloc]initWithFrame:self.scrollView.bounds];
 //        todo 添加点击监听
+        _modelPage.clickCallback = self;
         [_modelPage fetchAllModels];
+        _tagPage.clickCallback = self;
         [_tagPage fetchAllModels];
         [self.scrollView addSubview:_modelPage];
         [self.scrollView addSubview:_tagPage];
@@ -45,4 +47,7 @@
     [super viewDidLoad];
 }
 
+- (void)onItemClick:(NSString *)albumId {
+    
+}
 @end

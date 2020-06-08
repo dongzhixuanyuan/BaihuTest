@@ -10,8 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol AlbumIconClick <NSObject>
+
+-(void)onItemClick:(NSString*)albumId;
+
+@end
+
+
 @interface RecommendDetailBasePage : UIView
 @property (nonatomic, strong, readwrite) NSMutableArray<id> *data;
+@property(nonatomic,weak,readwrite) id<AlbumIconClick> clickCallback;
 - (void)fetchAllModels;
 - (NSString *)loadUrl;
 

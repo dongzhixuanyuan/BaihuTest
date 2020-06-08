@@ -84,12 +84,16 @@
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    id bean = [_data objectAtIndex :indexPath.item ];
-    if ([self isKindOfClass:[ModelPage class]]) {
-        
-    } else if ([self isKindOfClass:[TagPage class]]){
- 
+    if(_clickCallback && [_clickCallback respondsToSelector:@selector(onItemClick:)]){
+        id bean = [_data objectAtIndex :indexPath.item ];
+        if ([self isKindOfClass:[ModelPage class]]) {
+            [_clickCallback onItemClick:((Model*)bean).id];
+        } else if ([self isKindOfClass:[TagPage class]]){
+            [_clickCallback onItemClick:((TagItem*)bean).id];
+
+        }
     }
+    
 
 }
 
