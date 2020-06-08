@@ -19,6 +19,7 @@ NSString* const modelRecommendPath = @"/mobile/model/recommends?";
 NSString* const tagRecommendPath = @"/mobile/tag/recommends?";
 NSString* const allModelPath = @"/mobile/model";
 NSString* const allTagPath = @"/mobile/tag";
+NSString* const albumPath =  @"/mobile/album/";
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
     return [baseUrl stringByAppendingString:tokenUrl];
@@ -53,4 +54,9 @@ NSString* const allTagPath = @"/mobile/tag";
 + (NSString *)getAllTags {
     return [baseUrl stringByAppendingString:allTagPath];
 }
+
++ (NSString *)getAllAlbumsById :(NSString*)albumId {
+    return [baseUrl stringByAppendingString: [albumPath stringByAppendingString:albumId]];
+}
+
 @end

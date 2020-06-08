@@ -25,6 +25,11 @@
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
 		A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862509248DE32800EEC301 /* TagResponseModel.m */; };
+		A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A086250D248DE5CB00EEC301 /* RecommendDetailBasePage.m */; };
+		A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */; };
+		A0862514248E1A9400EEC301 /* ModelPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862513248E1A9400EEC301 /* ModelPage.m */; };
+		A0862517248E1AA000EEC301 /* TagPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862516248E1AA000EEC301 /* TagPage.m */; };
+		A086251B248E37BC00EEC301 /* AlbumInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */; };
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
@@ -106,6 +111,16 @@
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
 		A0862509248DE32800EEC301 /* TagResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagResponseModel.m; sourceTree = "<group>"; };
 		A086250A248DE32800EEC301 /* TagResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagResponseModel.h; sourceTree = "<group>"; };
+		A086250C248DE5CB00EEC301 /* RecommendDetailBasePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendDetailBasePage.h; sourceTree = "<group>"; };
+		A086250D248DE5CB00EEC301 /* RecommendDetailBasePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendDetailBasePage.m; sourceTree = "<group>"; };
+		A086250F248DE7D800EEC301 /* ModelPageCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelPageCollectionViewCell.h; sourceTree = "<group>"; };
+		A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelPageCollectionViewCell.m; sourceTree = "<group>"; };
+		A0862512248E1A9400EEC301 /* ModelPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelPage.h; sourceTree = "<group>"; };
+		A0862513248E1A9400EEC301 /* ModelPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelPage.m; sourceTree = "<group>"; };
+		A0862515248E1AA000EEC301 /* TagPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPage.h; sourceTree = "<group>"; };
+		A0862516248E1AA000EEC301 /* TagPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagPage.m; sourceTree = "<group>"; };
+		A0862519248E37BC00EEC301 /* AlbumInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumInfoViewController.h; sourceTree = "<group>"; };
+		A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumInfoViewController.m; sourceTree = "<group>"; };
 		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
 		A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshHeaderView.h; sourceTree = "<group>"; };
 		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
@@ -318,10 +333,21 @@
 		A0862508248DE30600EEC301 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A09F8DC62488F578004921E3 /* ModelResponseModel.h */,
+				A09F8DC72488F579004921E3 /* ModelResponseModel.m */,
 				A086250A248DE32800EEC301 /* TagResponseModel.h */,
 				A0862509248DE32800EEC301 /* TagResponseModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		A0862518248E379700EEC301 /* albuminfo */ = {
+			isa = PBXGroup;
+			children = (
+				A0862519248E37BC00EEC301 /* AlbumInfoViewController.h */,
+				A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */,
+			);
+			path = albuminfo;
 			sourceTree = "<group>";
 		};
 		A09824E9247AAA0C00E3EC16 /* customViews */ = {
@@ -357,6 +383,7 @@
 		A09F8DBB2487B4DE004921E3 /* page */ = {
 			isa = PBXGroup;
 			children = (
+				A0862518248E379700EEC301 /* albuminfo */,
 				A09F8DBC2487B531004921E3 /* recommend */,
 				A03F0ABE24568B23004E3AAB /* rootTab */,
 				A09824EC247BBEAA00E3EC16 /* tableView */,
@@ -372,12 +399,18 @@
 			isa = PBXGroup;
 			children = (
 				A0862508248DE30600EEC301 /* model */,
-				A09F8DC62488F578004921E3 /* ModelResponseModel.h */,
-				A09F8DC72488F579004921E3 /* ModelResponseModel.m */,
 				A09F8DBD2487B570004921E3 /* RecommendViewController.h */,
 				A09F8DBE2487B570004921E3 /* RecommendViewController.m */,
 				A09F8DC32488E439004921E3 /* RecommendPage.h */,
 				A09F8DC42488E439004921E3 /* RecommendPage.m */,
+				A086250C248DE5CB00EEC301 /* RecommendDetailBasePage.h */,
+				A086250D248DE5CB00EEC301 /* RecommendDetailBasePage.m */,
+				A086250F248DE7D800EEC301 /* ModelPageCollectionViewCell.h */,
+				A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */,
+				A0862512248E1A9400EEC301 /* ModelPage.h */,
+				A0862513248E1A9400EEC301 /* ModelPage.m */,
+				A0862515248E1AA000EEC301 /* TagPage.h */,
+				A0862516248E1AA000EEC301 /* TagPage.m */,
 			);
 			path = recommend;
 			sourceTree = "<group>";
@@ -672,10 +705,13 @@
 				A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */,
 				A0A4A690246947D900E74441 /* Test.m in Sources */,
 				A0D3C4172473E02100802657 /* PhotoCollectionViewCell.m in Sources */,
+				A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */,
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
 				A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */,
 				A0A4A69B2469552C00E74441 /* Constants.m in Sources */,
+				A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
+				A0862517248E1AA000EEC301 /* TagPage.m in Sources */,
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
 				A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */,
@@ -692,7 +728,9 @@
 				A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
+				A086251B248E37BC00EEC301 /* AlbumInfoViewController.m in Sources */,
 				A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */,
+				A0862514248E1A9400EEC301 /* ModelPage.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,

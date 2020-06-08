@@ -29,6 +29,7 @@
         [self.scrollView addSubview:_recommendPage];
         _modelPage = [[ModelPage alloc]initWithFrame:self.scrollView.bounds];
         _tagPage = [[TagPage alloc]initWithFrame:self.scrollView.bounds];
+//        todo 添加点击监听
         [_modelPage fetchAllModels];
         [_tagPage fetchAllModels];
         [self.scrollView addSubview:_modelPage];

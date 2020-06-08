@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)getRecommendTags:(NSInteger)count;
 +(NSString*)getAllModels;
 +(NSString*)getAllTags;
++(NSString*)getAllAlbumsById:(NSString*)albumId;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -84,7 +84,13 @@
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    id bean = [_data objectAtIndex :indexPath.item ];
+    if ([self isKindOfClass:[ModelPage class]]) {
+        
+    } else if ([self isKindOfClass:[TagPage class]]){
+ 
+    }
+
 }
 
 #pragma mark - UICollectionViewDataSource
