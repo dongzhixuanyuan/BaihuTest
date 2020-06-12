@@ -29,7 +29,8 @@
 		A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */; };
 		A0862514248E1A9400EEC301 /* ModelPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862513248E1A9400EEC301 /* ModelPage.m */; };
 		A0862517248E1AA000EEC301 /* TagPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862516248E1AA000EEC301 /* TagPage.m */; };
-		A086251B248E37BC00EEC301 /* AlbumInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */; };
+		A086251B248E37BC00EEC301 /* ModelInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086251A248E37BC00EEC301 /* ModelInfoViewController.m */; };
+		A0862525249371B600EEC301 /* TagInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862524249371B600EEC301 /* TagInfoViewController.m */; };
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
@@ -119,8 +120,10 @@
 		A0862513248E1A9400EEC301 /* ModelPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelPage.m; sourceTree = "<group>"; };
 		A0862515248E1AA000EEC301 /* TagPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPage.h; sourceTree = "<group>"; };
 		A0862516248E1AA000EEC301 /* TagPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagPage.m; sourceTree = "<group>"; };
-		A0862519248E37BC00EEC301 /* AlbumInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumInfoViewController.h; sourceTree = "<group>"; };
-		A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumInfoViewController.m; sourceTree = "<group>"; };
+		A0862519248E37BC00EEC301 /* ModelInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelInfoViewController.h; sourceTree = "<group>"; };
+		A086251A248E37BC00EEC301 /* ModelInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelInfoViewController.m; sourceTree = "<group>"; };
+		A0862523249371B600EEC301 /* TagInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagInfoViewController.h; sourceTree = "<group>"; };
+		A0862524249371B600EEC301 /* TagInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagInfoViewController.m; sourceTree = "<group>"; };
 		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
 		A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshHeaderView.h; sourceTree = "<group>"; };
 		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
@@ -344,8 +347,10 @@
 		A0862518248E379700EEC301 /* albuminfo */ = {
 			isa = PBXGroup;
 			children = (
-				A0862519248E37BC00EEC301 /* AlbumInfoViewController.h */,
-				A086251A248E37BC00EEC301 /* AlbumInfoViewController.m */,
+				A0862519248E37BC00EEC301 /* ModelInfoViewController.h */,
+				A086251A248E37BC00EEC301 /* ModelInfoViewController.m */,
+				A0862523249371B600EEC301 /* TagInfoViewController.h */,
+				A0862524249371B600EEC301 /* TagInfoViewController.m */,
 			);
 			path = albuminfo;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
 				A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */,
 				A0A4A69B2469552C00E74441 /* Constants.m in Sources */,
+				A0862525249371B600EEC301 /* TagInfoViewController.m in Sources */,
 				A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
 				A0862517248E1AA000EEC301 /* TagPage.m in Sources */,
@@ -728,7 +734,7 @@
 				A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
-				A086251B248E37BC00EEC301 /* AlbumInfoViewController.m in Sources */,
+				A086251B248E37BC00EEC301 /* ModelInfoViewController.m in Sources */,
 				A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */,
 				A0862514248E1A9400EEC301 /* ModelPage.m in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,

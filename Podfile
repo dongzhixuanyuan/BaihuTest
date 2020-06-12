@@ -10,6 +10,7 @@ target 'BaihuTest' do
   pod 'YYModel'
   pod 'AFNetworking', '~> 4.0'
   pod 'SDWebImage', '~> 5.0'
+  pod 'SwipeBack', '~> 1.1'
 
   target 'BaihuTestTests' do
     inherit! :search_paths

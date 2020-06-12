@@ -1,18 +1,18 @@
 //
-//  AlbumInfoViewController.m
+//  TagInfoViewController.m
 //  BaihuTest
 //
-//  Created by liudong on 2020/6/8.
+//  Created by liudong on 2020/6/12.
 //  Copyright © 2020 liudong. All rights reserved.
 //
 
-#import "AlbumInfoViewController.h"
+#import "TagInfoViewController.h"
 
-@interface AlbumInfoViewController ()
+@interface TagInfoViewController ()
 
 @end
 
-@implementation AlbumInfoViewController
+@implementation TagInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

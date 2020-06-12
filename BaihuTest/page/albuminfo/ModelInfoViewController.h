@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <SwipeBack.h>
+#import "PhotoItemResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AlbumInfoViewController : UIViewController
-
+@interface ModelInfoViewController : UIViewController
++(instancetype)initWithModel:(Model*)model;
 @end
 
 NS_ASSUME_NONNULL_END

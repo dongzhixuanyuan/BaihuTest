@@ -11,7 +11,9 @@
 #import "RecommendDetailBasePage.h"
 #import "ModelPage.h"
 #import "TagPage.h"
+#import "ModelInfoViewController.h"
 #import <Masonry.h>
+#import <SwipeBack.h>
 @interface RecommendViewController ()<AlbumIconClick>
 @property (nonatomic, strong, readwrite) RecommendPage *recommendPage;
 @property(nonatomic,strong,readwrite)RecommendDetailBasePage* modelPage,*tagPage;
@@ -47,7 +49,9 @@
     [super viewDidLoad];
 }
 
-- (void)onItemClick:(NSString *)albumId {
+- (void)onItemClick:(id)item {
     
+    ModelInfoViewController* albumViewController = [ModelInfoViewController initWithModel:(Model*)item ];
+    [self.navigationController pushViewController:albumViewController animated:YES];
 }
 @end

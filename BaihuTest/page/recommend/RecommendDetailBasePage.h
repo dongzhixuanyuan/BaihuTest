@@ -6,13 +6,14 @@
 //  Copyright © 2020 liudong. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol AlbumIconClick <NSObject>
 
--(void)onItemClick:(NSString*)albumId;
+-(void)onItemClick:(id)item;
 
 @end
 

@@ -87,9 +87,9 @@
     if(_clickCallback && [_clickCallback respondsToSelector:@selector(onItemClick:)]){
         id bean = [_data objectAtIndex :indexPath.item ];
         if ([self isKindOfClass:[ModelPage class]]) {
-            [_clickCallback onItemClick:((Model*)bean).id];
+            [_clickCallback onItemClick:((Model*)bean)];
         } else if ([self isKindOfClass:[TagPage class]]){
-            [_clickCallback onItemClick:((TagItem*)bean).id];
+            [_clickCallback onItemClick:((TagItem*)bean)];
 
         }
     }
