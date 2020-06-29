@@ -55,9 +55,18 @@
         PhotoItemResponseModel *model = [PhotoItemResponseModel yy_modelWithDictionary:responseObject];
         if (!loadMore) {
             [sself.data removeAllObjects];
+            [sself.data addObjectsFromArray:model.data];
+            [sself reloadData];
+        } else {
+            
+            NSMutableArray<NSIndexPath*>* indexArray = [[NSMutableArray alloc]init];
+            for (NSInteger i = sself.data.count; i < model.data.count + sself.data.count; i++) {
+                [indexArray addObject:[NSIndexPath indexPathForItem:i inSection:0] ];
+            }
+            [sself.data addObjectsFromArray:model.data];
+            [sself insertRowsAtIndexPaths: indexArray withRowAnimation:UITableViewRowAnimationNone];
         }
-        [sself.data addObjectsFromArray:model.data];
-        [sself reloadData];
+   
         [callback fetchSuccessed: loadMore? LOAD_MORE:REFERSH  ];
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
         NSLog(@"error %ld",error.code);
@@ -87,7 +96,9 @@
     PhotoItemDataItem* selectedItem =   [_data objectAtIndex:indexPath.item];
     _clickCallback(selectedItem);
 }
-
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 400;
+//}
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
