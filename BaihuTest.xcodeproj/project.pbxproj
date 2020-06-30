@@ -24,13 +24,15 @@
 		A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */; };
 		A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD0245AB138004E3AAB /* IndexViewController.m */; };
 		A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */; };
+		A073112D24AAD8C600636C74 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073112C24AAD8C600636C74 /* BaseUIViewController.swift */; };
+		A073113124AADCF700636C74 /* ModelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073113024AADCF700636C74 /* ModelInfoViewController.swift */; };
+		A073113324AADDB000636C74 /* TagInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073113224AADDB000636C74 /* TagInfoViewController.swift */; };
 		A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862509248DE32800EEC301 /* TagResponseModel.m */; };
 		A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A086250D248DE5CB00EEC301 /* RecommendDetailBasePage.m */; };
 		A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */; };
 		A0862514248E1A9400EEC301 /* ModelPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862513248E1A9400EEC301 /* ModelPage.m */; };
 		A0862517248E1AA000EEC301 /* TagPage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862516248E1AA000EEC301 /* TagPage.m */; };
-		A086251B248E37BC00EEC301 /* ModelInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086251A248E37BC00EEC301 /* ModelInfoViewController.m */; };
-		A0862525249371B600EEC301 /* TagInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862524249371B600EEC301 /* TagInfoViewController.m */; };
+		A086251B248E37BC00EEC301 /* BaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A086251A248E37BC00EEC301 /* BaseInfoViewController.m */; };
 		A09824EF247BBF1400E3EC16 /* TableRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */; };
 		A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A09824F1247BCA0700E3EC16 /* TableViewWithRefreshHeader.m */; };
 		A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DA224860074004921E3 /* TableRefreshFooterView.m */; };
@@ -110,6 +112,10 @@
 		A03F0AD0245AB138004E3AAB /* IndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		A03F0AD3245DB0D6004E3AAB /* IndexTabContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexTabContainer.h; sourceTree = "<group>"; };
 		A03F0AD4245DB0D6004E3AAB /* IndexTabContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndexTabContainer.m; sourceTree = "<group>"; };
+		A073112B24AAD8C600636C74 /* BaihuTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaihuTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		A073112C24AAD8C600636C74 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		A073113024AADCF700636C74 /* ModelInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoViewController.swift; sourceTree = "<group>"; };
+		A073113224AADDB000636C74 /* TagInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoViewController.swift; sourceTree = "<group>"; };
 		A0862509248DE32800EEC301 /* TagResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagResponseModel.m; sourceTree = "<group>"; };
 		A086250A248DE32800EEC301 /* TagResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagResponseModel.h; sourceTree = "<group>"; };
 		A086250C248DE5CB00EEC301 /* RecommendDetailBasePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendDetailBasePage.h; sourceTree = "<group>"; };
@@ -120,10 +126,8 @@
 		A0862513248E1A9400EEC301 /* ModelPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelPage.m; sourceTree = "<group>"; };
 		A0862515248E1AA000EEC301 /* TagPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagPage.h; sourceTree = "<group>"; };
 		A0862516248E1AA000EEC301 /* TagPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagPage.m; sourceTree = "<group>"; };
-		A0862519248E37BC00EEC301 /* ModelInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelInfoViewController.h; sourceTree = "<group>"; };
-		A086251A248E37BC00EEC301 /* ModelInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelInfoViewController.m; sourceTree = "<group>"; };
-		A0862523249371B600EEC301 /* TagInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagInfoViewController.h; sourceTree = "<group>"; };
-		A0862524249371B600EEC301 /* TagInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagInfoViewController.m; sourceTree = "<group>"; };
+		A0862519248E37BC00EEC301 /* BaseInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseInfoViewController.h; sourceTree = "<group>"; };
+		A086251A248E37BC00EEC301 /* BaseInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseInfoViewController.m; sourceTree = "<group>"; };
 		A09824EB247AB1CB00E3EC16 /* 进度表.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "进度表.md"; sourceTree = "<group>"; };
 		A09824ED247BBF1400E3EC16 /* TableRefreshHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableRefreshHeaderView.h; sourceTree = "<group>"; };
 		A09824EE247BBF1400E3EC16 /* TableRefreshHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableRefreshHeaderView.m; sourceTree = "<group>"; };
@@ -347,10 +351,10 @@
 		A0862518248E379700EEC301 /* albuminfo */ = {
 			isa = PBXGroup;
 			children = (
-				A0862519248E37BC00EEC301 /* ModelInfoViewController.h */,
-				A086251A248E37BC00EEC301 /* ModelInfoViewController.m */,
-				A0862523249371B600EEC301 /* TagInfoViewController.h */,
-				A0862524249371B600EEC301 /* TagInfoViewController.m */,
+				A0862519248E37BC00EEC301 /* BaseInfoViewController.h */,
+				A086251A248E37BC00EEC301 /* BaseInfoViewController.m */,
+				A073113024AADCF700636C74 /* ModelInfoViewController.swift */,
+				A073113224AADDB000636C74 /* TagInfoViewController.swift */,
 			);
 			path = albuminfo;
 			sourceTree = "<group>";
@@ -499,6 +503,8 @@
 			children = (
 				A0D3C40E2473DA6D00802657 /* BaseUIView.h */,
 				A0D3C40F2473DA6D00802657 /* BaseUIView.m */,
+				A073112C24AAD8C600636C74 /* BaseUIViewController.swift */,
+				A073112B24AAD8C600636C74 /* BaihuTest-Bridging-Header.h */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				TargetAttributes = {
 					A03F0A85245677A8004E3AAB = {
 						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1150;
 					};
 					A03F0AA0245677AC004E3AAB = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -714,9 +721,9 @@
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
 				A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */,
 				A0A4A69B2469552C00E74441 /* Constants.m in Sources */,
-				A0862525249371B600EEC301 /* TagInfoViewController.m in Sources */,
 				A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
+				A073113324AADDB000636C74 /* TagInfoViewController.swift in Sources */,
 				A0862517248E1AA000EEC301 /* TagPage.m in Sources */,
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,
 				A03F0ACA2456BE03004E3AAB /* HomeTabBarController.m in Sources */,
@@ -734,14 +741,16 @@
 				A09824F2247BCA0700E3EC16 /* TableViewWithRefreshHeader.m in Sources */,
 				A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */,
 				A0A4A6982469515300E74441 /* UrlConstants.m in Sources */,
-				A086251B248E37BC00EEC301 /* ModelInfoViewController.m in Sources */,
+				A086251B248E37BC00EEC301 /* BaseInfoViewController.m in Sources */,
 				A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */,
 				A0862514248E1A9400EEC301 /* ModelPage.m in Sources */,
+				A073112D24AAD8C600636C74 /* BaseUIViewController.swift in Sources */,
 				A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */,
 				A03F0A9C245677AB004E3AAB /* main.m in Sources */,
 				A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */,
 				A03F0AC42456B20F004E3AAB /* HomeTabBar.m in Sources */,
 				A03F0AC124568B56004E3AAB /* HomeTabBarItem.m in Sources */,
+				A073113124AADCF700636C74 /* ModelInfoViewController.swift in Sources */,
 				A09F8DC22487B684004921E3 /* BaseViewPager.m in Sources */,
 				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 				A0D3C41A2473E25900802657 /* PhotoWatchViewController.m in Sources */,
@@ -906,6 +915,7 @@
 			baseConfigurationReference = 89E19AA926BFD762C84F0AAE /* Pods-BaihuTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 25372VQL85;
@@ -918,6 +928,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baihu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = baihu_pet;
+				SWIFT_OBJC_BRIDGING_HEADER = "BaihuTest/base/BaihuTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -927,6 +940,7 @@
 			baseConfigurationReference = 923C64EEB7EB21A13B19A1F0 /* Pods-BaihuTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 25372VQL85;
@@ -939,6 +953,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baihu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = baihu_pet_distri;
+				SWIFT_OBJC_BRIDGING_HEADER = "BaihuTest/base/BaihuTest-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -947,6 +963,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1BF29D1C1856307481D7DA2 /* Pods-BaihuTestTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
@@ -968,6 +985,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA25E4D479EB1C21DD56B0D1 /* Pods-BaihuTestTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
@@ -989,6 +1007,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6B8C94A979558132BC7F54E /* Pods-BaihuTest-BaihuTestUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
 				INFOPLIST_FILE = BaihuTestUITests/Info.plist;
@@ -1008,6 +1027,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 957F973674B448F2C32A7F3E /* Pods-BaihuTest-BaihuTestUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25372VQL85;
 				INFOPLIST_FILE = BaihuTestUITests/Info.plist;

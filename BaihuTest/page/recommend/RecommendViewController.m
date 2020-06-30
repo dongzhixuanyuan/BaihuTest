@@ -11,9 +11,11 @@
 #import "RecommendDetailBasePage.h"
 #import "ModelPage.h"
 #import "TagPage.h"
-#import "ModelInfoViewController.h"
+#import "BaseInfoViewController.h"
 #import <Masonry.h>
 #import <SwipeBack.h>
+#import "TagResponseModel.h"
+#import "BaihuTest-Swift.h"
 @interface RecommendViewController ()<AlbumIconClick>
 @property (nonatomic, strong, readwrite) RecommendPage *recommendPage;
 @property(nonatomic,strong,readwrite)RecommendDetailBasePage* modelPage,*tagPage;
@@ -50,8 +52,13 @@
 }
 
 - (void)onItemClick:(id)item {
+    if ([item isKindOfClass:[Model class]]) {
+        ModelInfoViewController* albumViewController = [ModelInfoViewController initWithModel:(Model*)item ];
+        [self.navigationController pushViewController:albumViewController animated:YES];
+    }else if ([item isKindOfClass:[TagItem class]]){
+        TagInfoViewController* vc = [TagInfoViewController initWithModel:item ];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
-    ModelInfoViewController* albumViewController = [ModelInfoViewController initWithModel:(Model*)item ];
-    [self.navigationController pushViewController:albumViewController animated:YES];
 }
 @end

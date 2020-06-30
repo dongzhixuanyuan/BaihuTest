@@ -31,8 +31,6 @@ static const NSString* collectionCellIdentifier = @"PhotoCollectionViewCell";
 
 @implementation PhotoWatchViewController
 
-
-
 + (instancetype)initWithBean:(PhotoItemDataItem *)item {
     PhotoWatchViewController*  instance = [[PhotoWatchViewController alloc]init];
     if (instance) {

@@ -11,7 +11,8 @@
 #import "PhotoItemResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ModelInfoViewController : UIViewController
+@interface BaseInfoViewController : UIViewController
+@property (nonatomic, strong, readwrite) id model; //Model or TagItem
 +(instancetype)initWithModel:(Model*)model;
 @end
 

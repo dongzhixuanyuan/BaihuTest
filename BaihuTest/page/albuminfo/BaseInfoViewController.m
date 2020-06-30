@@ -6,23 +6,24 @@
 //  Copyright © 2020 liudong. All rights reserved.
 //
 
-#import "ModelInfoViewController.h"
+#import "BaseInfoViewController.h"
 #import <Masonry.h>
 #import <SDWebImage.h>
 #import "AppConfig.h"
+#import "TagResponseModel.h"
 #import "DimenAdapter.h"
 
-@interface ModelInfoViewController ()
-@property (nonatomic, strong, readwrite) Model *model;
+
+@interface BaseInfoViewController ()
 @property (nonatomic, strong, readwrite) UIImageView *topImage;
-@property(nonatomic,strong,readwrite)UIView* topBar;
-@property(nonatomic,strong,readwrite)UIButton* backIcon;
+@property (nonatomic, strong, readwrite) UIView *topBar;
+@property (nonatomic, strong, readwrite) UIButton *backIcon;
 @end
 
-@implementation ModelInfoViewController
+@implementation BaseInfoViewController
 
-+ (instancetype)initWithModel:(Model *)model {
-    ModelInfoViewController *vc = [[ModelInfoViewController alloc]init];
++ (instancetype)initWithModel:(id)model {
+    BaseInfoViewController *vc = [[BaseInfoViewController alloc]init];
     vc.model = model;
     return vc;
 }
@@ -37,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _topBar = [[UIView alloc]initWithFrame: CGRectZero];
+    _topBar = [[UIView alloc]initWithFrame:CGRectZero];
     _topBar.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_topBar];
     [_topBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,16 +54,19 @@
         make.centerY.equalTo(_topBar.mas_centerY);
         make.left.equalTo(_topBar.mas_left).offset(UI(15));
     }];
-    
-    
-    
+
     [self.view addSubview:self.topImage];
     [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
         make.top.mas_equalTo(_topBar.mas_bottom);
         make.height.mas_equalTo(UI(200));
     }];
-    NSString *converUrl =   [[AppConfig getInstance]getPhotoWholeUrl:_model.cover_image_url isThumb:NO];
+    NSString *converUrl = nil;
+    if ([_model isKindOfClass:[Model class]]) {
+        converUrl =   [[AppConfig getInstance]getPhotoWholeUrl:((Model *)_model).cover_image_url isThumb:NO];
+    } else if ([_model isKindOfClass:[TagItem class]]) {
+        converUrl =   [[AppConfig getInstance]getPhotoWholeUrl:((TagItem *)_model).image_url isThumb:NO];
+    }
     [self.topImage sd_setImageWithURL:[NSURL URLWithString:converUrl]];
 }
 
@@ -71,6 +75,10 @@
         _topImage = [[UIImageView alloc]init];
     }
     return _topImage;
+}
+
+- (void)popPage {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
