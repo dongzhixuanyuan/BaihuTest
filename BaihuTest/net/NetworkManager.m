@@ -53,9 +53,8 @@
 + (void)urlTest {
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
-    [manager GET:[UrlConstants getIndexAllUrl] parameters:@{@"page":@0,@"size":@2} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:[UrlConstants getAlbumCountForModel] parameters:@{@"model_id":@"444c5b54-2aac-42b7-a99f-de684111bac3"} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString* result =  [Test dictionary2String:responseObject ];
-        PhotoItemResponseModel* model =    [PhotoItemResponseModel yy_modelWithDictionary:responseObject];
         NSLog(@"%@",result);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error:%@",error);

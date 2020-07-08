@@ -25,6 +25,8 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)getAllModels;
 +(NSString*)getAllTags;
 +(NSString*)getAllAlbumsById:(NSString*)albumId;
++(NSString*)getAlbumCountForModel;
++(NSString*)getAlbumCountForTag;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,11 +8,28 @@
 
 import UIKit
 
-class ModelInfoViewController: BaseInfoViewController {
-
+class ModelInfoViewController: BaseInfoViewController,AlbumInfoForModelOrTagProtocol {
+    func params() -> [AnyHashable : Any] {
+        return ["model_id":(model as! Model).id];
+    }
+    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.protocolDelegate = self
+        startFetchData();
         
     }
+    
+    func albumsCountUrl() -> String {
+        return UrlConstants.getAlbumCountForModel()
+     }
+     
+     func albumListUrl() -> String {
+        return ""
+     }
+    
+    
+     
 
 }

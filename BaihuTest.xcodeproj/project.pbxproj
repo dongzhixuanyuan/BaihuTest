@@ -51,6 +51,7 @@
 		A0A4A690246947D900E74441 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A68F246947D900E74441 /* Test.m */; };
 		A0A4A6982469515300E74441 /* UrlConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6972469515300E74441 /* UrlConstants.m */; };
 		A0A4A69B2469552C00E74441 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69A2469552C00E74441 /* Constants.m */; };
+		A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */; };
 		A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */; };
 		A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4092473AA4700802657 /* AppConfig.m */; };
 		A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40F2473DA6D00802657 /* BaseUIView.m */; };
@@ -164,6 +165,7 @@
 		A0A4A6972469515300E74441 /* UrlConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlConstants.m; sourceTree = "<group>"; };
 		A0A4A6992469552C00E74441 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A0A4A69A2469552C00E74441 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCountResponse.swift; sourceTree = "<group>"; };
 		A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListItemView.h; sourceTree = "<group>"; };
 		A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListItemView.m; sourceTree = "<group>"; };
 		A0D3C4082473AA4700802657 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 		A0862518248E379700EEC301 /* albuminfo */ = {
 			isa = PBXGroup;
 			children = (
+				A0C8B28824B5C0CA000592CD /* model */,
 				A0862519248E37BC00EEC301 /* BaseInfoViewController.h */,
 				A086251A248E37BC00EEC301 /* BaseInfoViewController.m */,
 				A073113024AADCF700636C74 /* ModelInfoViewController.swift */,
@@ -472,6 +475,14 @@
 				A0A43051247AA0C500A93308 /* InitAccountResponseModel.m */,
 			);
 			path = account;
+			sourceTree = "<group>";
+		};
+		A0C8B28824B5C0CA000592CD /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A0D3C40424739D5900802657 /* ServerSetting */ = {
@@ -723,6 +734,7 @@
 				A0A4A69B2469552C00E74441 /* Constants.m in Sources */,
 				A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
+				A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */,
 				A073113324AADDB000636C74 /* TagInfoViewController.swift in Sources */,
 				A0862517248E1AA000EEC301 /* TagPage.m in Sources */,
 				A0D3C4142473DE1000802657 /* PhotoViewPage.m in Sources */,

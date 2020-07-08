@@ -81,6 +81,7 @@ interface BaihuAPiService {
 
     @GET("/mobile/album/{id}")
     fun getAlbumDetail(@Path("id") id: String):Observable<AlbumDetailBean>
+    
     @GET("/mobile/album/count_by_model")
     fun getModelAlbums(@Query("model_id") model_id:String):Observable<AlbumCountResponse>
 

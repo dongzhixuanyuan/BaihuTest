@@ -20,6 +20,8 @@ NSString* const tagRecommendPath = @"/mobile/tag/recommends?";
 NSString* const allModelPath = @"/mobile/model";
 NSString* const allTagPath = @"/mobile/tag";
 NSString* const albumPath =  @"/mobile/album/";
+NSString* const albumCountForModel =@"/mobile/album/count_by_model";
+NSString* const albumCountForTag = @"/mobile/album/count_by_tag";
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
     return [baseUrl stringByAppendingString:tokenUrl];
@@ -57,6 +59,14 @@ NSString* const albumPath =  @"/mobile/album/";
 
 + (NSString *)getAllAlbumsById :(NSString*)albumId {
     return [baseUrl stringByAppendingString: [albumPath stringByAppendingString:albumId]];
+}
+
++ (NSString *)getAlbumCountForModel {
+    return [baseUrl stringByAppendingString: albumCountForModel];
+}
+
++ (NSString *)getAlbumCountForTag {
+    return [baseUrl stringByAppendingString:albumCountForTag];
 }
 
 @end
