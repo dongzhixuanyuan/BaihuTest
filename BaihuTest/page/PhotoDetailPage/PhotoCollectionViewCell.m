@@ -23,15 +23,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-         
-        
         _image = [[UIImageView alloc]initWithFrame:self.bounds];
         [self.contentView addSubview:_image];
         [_image mas_makeConstraints:^(MASConstraintMaker *make) {
-           
-            
             make.left.right.bottom.top.mas_equalTo(self.contentView);
         }];
+
         
     }
     return self;
@@ -41,5 +38,7 @@
 - (void)setPhoto:(PhotosItem *)photoItem {
     [_image sd_setImageWithURL:  [NSURL URLWithString: [[AppConfig getInstance]getPhotoWholeUrl:photoItem.key isThumb:NO ]]];
 }
+
+  
 
 @end

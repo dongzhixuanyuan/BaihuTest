@@ -52,6 +52,7 @@
 		A0A4A6982469515300E74441 /* UrlConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6972469515300E74441 /* UrlConstants.m */; };
 		A0A4A69B2469552C00E74441 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69A2469552C00E74441 /* Constants.m */; };
 		A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */; };
+		A0C8B28C24B9B65D000592CD /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28B24B9B65D000592CD /* String+URL.swift */; };
 		A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */; };
 		A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4092473AA4700802657 /* AppConfig.m */; };
 		A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40F2473DA6D00802657 /* BaseUIView.m */; };
@@ -166,6 +167,7 @@
 		A0A4A6992469552C00E74441 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A0A4A69A2469552C00E74441 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCountResponse.swift; sourceTree = "<group>"; };
+		A0C8B28B24B9B65D000592CD /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListItemView.h; sourceTree = "<group>"; };
 		A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListItemView.m; sourceTree = "<group>"; };
 		A0D3C4082473AA4700802657 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				A03F0ACD24580CE3004E3AAB /* DimenAdapter.m */,
 				A0A43025247A568300A93308 /* UIColor+Addition.h */,
 				A0A43026247A568300A93308 /* UIColor+Addition.m */,
+				A0C8B28B24B9B65D000592CD /* String+URL.swift */,
 			);
 			path = uiutil;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				A09F8DC52488E439004921E3 /* RecommendPage.m in Sources */,
 				A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */,
 				A0A4A690246947D900E74441 /* Test.m in Sources */,
+				A0C8B28C24B9B65D000592CD /* String+URL.swift in Sources */,
 				A0D3C4172473E02100802657 /* PhotoCollectionViewCell.m in Sources */,
 				A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */,
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
