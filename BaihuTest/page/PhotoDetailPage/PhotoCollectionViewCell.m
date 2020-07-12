@@ -11,9 +11,10 @@
 #import "AppConfig.h"
 #import <Masonry.h>
 #import "DimenAdapter.h"
-@interface PhotoCollectionViewCell()
-@property(nonatomic,strong,readwrite)UIImageView* image;
 
+@interface PhotoCollectionViewCell()
+@property(nonatomic,strong,readwrite)ScaleableImageview* image;
+//@property(nonatomic,assign) id<ScaleableImageViewTapped> tapDelegate;
 @end
 
 
@@ -23,22 +24,27 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _image = [[UIImageView alloc]initWithFrame:self.bounds];
+        _image = [[ScaleableImageview alloc] initWithFrame:self.bounds];
         [self.contentView addSubview:_image];
         [_image mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.top.mas_equalTo(self.contentView);
         }];
-
-        
+        _image.contentMode = UIViewContentModeScaleAspectFit;
     }
     return self;
 }
 
 
 - (void)setPhoto:(PhotosItem *)photoItem {
-    [_image sd_setImageWithURL:  [NSURL URLWithString: [[AppConfig getInstance]getPhotoWholeUrl:photoItem.key isThumb:NO ]]];
+    [_image setImageWithImageUrl:[NSURL URLWithString: [[AppConfig getInstance]getPhotoWholeUrl:photoItem.key isThumb:NO ]]];
 }
 
-  
+-(void)setTapDelegate:(id<ScaleableImageViewTapped>)tapDelegate {
+//    _tapDelegate = tapDelegate;
+    _image.tapDelegate = tapDelegate;
+}
+
+
+
 
 @end

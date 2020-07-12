@@ -43,6 +43,9 @@
         }
         return [[[self getPhotoPrefix] stringByAppendingString:key]stringByAppendingString:@".jpg"];
     } else {
+        if (!key) {
+            return @"";
+        }
         return [[self getPhotoPrefix] stringByAppendingString:key];
     }
 }

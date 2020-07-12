@@ -4,3 +4,4 @@
 
 #import "BaseInfoViewController.h"
 #import "UrlConstants.h"
+#import <SDWebImage.h>

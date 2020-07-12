@@ -15,7 +15,7 @@
 #import <SDWebImage.h>
 #import "BaihuTest-Swift.h"
 #import "AppConfig.h"
-@interface PhotoWatchViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface PhotoWatchViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,ScaleableImageViewTapped>
 @property (nonatomic, strong, readwrite) UICollectionView *collectionView;
 @property (nonatomic, strong, readwrite) PhotoItemDataItem *bean;
 
@@ -26,6 +26,7 @@
 @property (nonatomic, strong, readwrite) UILabel *count;
 @property (nonatomic, strong, readwrite) UIButton *favourite;
 @property (nonatomic, strong, readwrite) UIButton *jumpToPhotoList;
+@property (nonatomic,assign)Boolean topBarShow;
 
 @end
 
@@ -43,8 +44,29 @@ static const NSString *collectionCellIdentifier = @"PhotoCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.minimumLineSpacing = 0;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
+    _collectionView.showsHorizontalScrollIndicator = NO;
+    _collectionView.pagingEnabled = YES;
+    [_collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:collectionCellIdentifier];
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    [self.view addSubview:_collectionView];
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.left.right.mas_equalTo(self.view);
+    }];
+    if(@available(iOS 11.0,*)) {
+        _collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     _topBar = [[UIView alloc]initWithFrame:CGRectZero];
     _topBar.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_topBar];
     [_topBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
@@ -93,22 +115,7 @@ static const NSString *collectionCellIdentifier = @"PhotoCollectionViewCell";
         make.width.mas_equalTo(UI(53.5));
         make.height.mas_equalTo(UI(26));
     }];
-    
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.minimumLineSpacing = 0;
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
-    _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
-    _collectionView.showsHorizontalScrollIndicator = NO;
-    _collectionView.pagingEnabled = YES;
-    [_collectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:collectionCellIdentifier];
-    _collectionView.dataSource = self;
-    _collectionView.delegate = self;
-    [self.view addSubview:_collectionView];
-    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_topBar.mas_bottom);
-        make.bottom.left.right.mas_equalTo(self.view);
-    }];
+    _topBarShow = YES;
 }
 
 - (UIImageView *)topAvartar {
@@ -179,12 +186,25 @@ static const NSString *collectionCellIdentifier = @"PhotoCollectionViewCell";
     PhotoCollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:collectionCellIdentifier forIndexPath:indexPath];
     [cell setPhoto:[_bean.photos objectAtIndex:indexPath.row]];
     _count.text = @"6/13";
+    [cell setTapDelegate:self];
     return cell;
 }
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+    return self.view.bounds.size;
 }
+
+
+- (void)imageViewTap {
+    [_topBar setHidden:_topBarShow];
+    self.navigationController.navigationBar.hidden = _topBarShow;
+    _topBarShow = !_topBarShow;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return _topBarShow;
+}
+
 
 - (void)popPage {
     [self.navigationController popViewControllerAnimated:YES];

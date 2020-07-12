@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotoItemResponseModel.h"
+#import "BaihuTest-Swift.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
--(instancetype)initWithBean:(PhotosItem*)photoItem;
+//+(instancetype)initWithDelegate:(CGRect)frame tapDelegate:(id<ScaleableImageViewTapped>)delegate;
 -(void)setPhoto:(PhotosItem*)photoItem;
+-(void)setTapDelegate:(id<ScaleableImageViewTapped>)delegate;
+-(void)resetSize;
 @end
 
 NS_ASSUME_NONNULL_END
