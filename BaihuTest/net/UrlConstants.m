@@ -8,7 +8,7 @@
 
 #import "UrlConstants.h"
 
-NSString *const baseUrl = @"http://129.211.27.144:8081";
+NSString *const baseUrl = @"http://129.211.27.144:8080";
 NSString *const tokenUrl = @"/mobile/auth/initialize";
 NSString* const categoryPath =  @"/mobile/category";
 NSString* const indexAllPath = @"/mobile/album/all";

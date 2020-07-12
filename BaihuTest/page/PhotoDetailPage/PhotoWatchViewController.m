@@ -185,7 +185,7 @@ static const NSString *collectionCellIdentifier = @"PhotoCollectionViewCell";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:collectionCellIdentifier forIndexPath:indexPath];
     [cell setPhoto:[_bean.photos objectAtIndex:indexPath.row]];
-    _count.text = @"6/13";
+    _count.text = [NSString stringWithFormat:@"%d/%d",indexPath.row +1,_bean.photos.count ];
     [cell setTapDelegate:self];
     return cell;
 }

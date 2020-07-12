@@ -17,7 +17,7 @@
 #import <YYModel.h>
 #import <Masonry.h>
 #import "AppConfig.h"
-@interface RecommendDetailBasePage()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface RecommendDetailBasePage()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong,readwrite)UICollectionView* collectionView;
 @end
 
@@ -29,8 +29,7 @@
     if (self) {
         [self addSubview:self.collectionView];
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.left.right.top.bottom.mas_equalTo(self).offset(UI(15));
+            make.left.right.top.bottom.equalTo(self);
         }];
         self.data = @[].mutableCopy;
     }
@@ -68,9 +67,9 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
-        layout.minimumLineSpacing = UI(10);
-        layout.minimumInteritemSpacing = UI(10);
-        layout.itemSize = CGSizeMake(UI(50),UI(50));
+        layout.minimumLineSpacing = UI(20);
+        layout.minimumInteritemSpacing = UI(20);
+        layout.itemSize = CGSizeMake(UI(50),UI(75));
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -93,9 +92,9 @@
 
         }
     }
-    
-
 }
+
+
 
 #pragma mark - UICollectionViewDataSource
 
@@ -111,18 +110,18 @@
     id bean = [_data objectAtIndex:indexPath.item];
     if ([self isKindOfClass:[ModelPage class]]) {
         url =  [[AppConfig getInstance]getPhotoWholeUrl:((Model*)bean).avatar_image_url isThumb:YES];
+        [cell setData:url name:((Model*)bean).name];
     } else if ([self isKindOfClass:[TagPage class]]){
         url =  [[AppConfig getInstance]getPhotoWholeUrl:((TagItem*)bean).image_url isThumb:YES];
+        [cell setData:url name: ((TagItem*)bean).name];
     }
     
-    [cell loadImage: url];
     return cell;
 }
 
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width =   (self.frame.size.width - UI(15)*4) / 4;
-    return CGSizeMake(width,width);
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10,10 , 10, 10);
 }
 
 

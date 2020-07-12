@@ -54,6 +54,7 @@
 		A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */; };
 		A0C8B28C24B9B65D000592CD /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28B24B9B65D000592CD /* String+URL.swift */; };
 		A0C8B28E24BA97D6000592CD /* ScaleableImageview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28D24BA97D6000592CD /* ScaleableImageview.swift */; };
+		A0C8B29224BAEF0A000592CD /* RecommendSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B29124BAEF0A000592CD /* RecommendSingleView.swift */; };
 		A0D3C400246CEE9800802657 /* PhotoListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */; };
 		A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C4092473AA4700802657 /* AppConfig.m */; };
 		A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C40F2473DA6D00802657 /* BaseUIView.m */; };
@@ -170,6 +171,7 @@
 		A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCountResponse.swift; sourceTree = "<group>"; };
 		A0C8B28B24B9B65D000592CD /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		A0C8B28D24BA97D6000592CD /* ScaleableImageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleableImageview.swift; sourceTree = "<group>"; };
+		A0C8B29124BAEF0A000592CD /* RecommendSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSingleView.swift; sourceTree = "<group>"; };
 		A0D3C3FE246CEE9800802657 /* PhotoListItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoListItemView.h; sourceTree = "<group>"; };
 		A0D3C3FF246CEE9800802657 /* PhotoListItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoListItemView.m; sourceTree = "<group>"; };
 		A0D3C4082473AA4700802657 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				A0862513248E1A9400EEC301 /* ModelPage.m */,
 				A0862515248E1AA000EEC301 /* TagPage.h */,
 				A0862516248E1AA000EEC301 /* TagPage.m */,
+				A0C8B29124BAEF0A000592CD /* RecommendSingleView.swift */,
 			);
 			path = recommend;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */,
 				A0A4A6892468F62100E74441 /* NetworkManager.m in Sources */,
 				A09F8DC82488F579004921E3 /* ModelResponseModel.m in Sources */,
+				A0C8B29224BAEF0A000592CD /* RecommendSingleView.swift in Sources */,
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
 				A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */,
 				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,

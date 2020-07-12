@@ -5,3 +5,5 @@
 #import "BaseInfoViewController.h"
 #import "UrlConstants.h"
 #import <SDWebImage.h>
+#import "UIColor+Addition.h"
+#import "DimenAdapter.h"
