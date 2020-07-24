@@ -7,3 +7,4 @@
 #import <SDWebImage.h>
 #import "UIColor+Addition.h"
 #import "DimenAdapter.h"
+#import "AppConfig.h"

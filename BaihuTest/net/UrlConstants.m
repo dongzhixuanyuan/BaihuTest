@@ -22,6 +22,9 @@ NSString* const allTagPath = @"/mobile/tag";
 NSString* const albumPath =  @"/mobile/album/";
 NSString* const albumCountForModel =@"/mobile/album/count_by_model";
 NSString* const albumCountForTag = @"/mobile/album/count_by_tag";
+NSString* const albumsForModel = @"/mobile/album/all_by_model?";
+NSString* const albumsForTAG = @"/mobile/album/all_by_tag?";
+
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
     return [baseUrl stringByAppendingString:tokenUrl];
@@ -67,6 +70,33 @@ NSString* const albumCountForTag = @"/mobile/album/count_by_tag";
 
 + (NSString *)getAlbumCountForTag {
     return [baseUrl stringByAppendingString:albumCountForTag];
+}
+
++ (NSString *)getAlbumsForModel:(NSString *)modelId page:(NSInteger)page size:(NSInteger)pageSize {
+    NSDictionary<NSString*,NSString*>* dictParams =  [NSDictionary dictionaryWithObjectsAndKeys:@"model_id",modelId,@"page",[NSString stringWithFormat: @"%ld", (long)page],
+                                                      @"size",[NSString stringWithFormat: @"%ld", (long)pageSize],nil];
+    NSString* subfix =  [UrlConstants joinUrlParams:dictParams];
+    return [baseUrl stringByAppendingFormat:@"%@", subfix];
+}
+
++ (NSString *)getAlbumsForTag:(NSString *)tagId page:(NSInteger)page size:(NSInteger)pageSize{
+    NSDictionary<NSString*,NSString*>* dictParams =  [NSDictionary dictionaryWithObjectsAndKeys:@"tag_id",tagId,@"page",[NSString stringWithFormat: @"%ld", (long)page],
+                                                      @"size",[NSString stringWithFormat: @"%ld", (long)pageSize],nil];
+    NSString* subfix =  [UrlConstants joinUrlParams:dictParams];
+    return [baseUrl stringByAppendingFormat:@"%@", subfix];
+    
+}
+
++ (NSString *)joinUrlParams:(NSDictionary<NSString *,NSString*> *)params {
+    NSString* subfix = @"";
+    NSArray<NSString*>* keys =  params.allKeys;
+    for (NSInteger i = 0; i < keys.count; i++) {
+        if (i!=0) {
+            subfix = [subfix stringByAppendingFormat:@"&"];
+        }
+        subfix =  [subfix stringByAppendingFormat:@"%@=%@",keys[i], [params objectForKey:keys[i]]  ];
+    }
+    return subfix;
 }
 
 @end

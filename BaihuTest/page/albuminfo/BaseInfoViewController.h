@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseInfoViewController : UIViewController
 @property (nonatomic, strong, readwrite) id model; //Model or TagItem
+@property (nonatomic, strong, readwrite) UIButton *backIcon;
+
 +(instancetype)initWithModel:(Model*)model;
 
 @property (nonatomic,assign) id<AlbumInfoForModelOrTagProtocol> protocolDelegate;
