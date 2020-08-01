@@ -23,12 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseInfoViewController : UIViewController
 @property (nonatomic, strong, readwrite) id model; //Model or TagItem
 @property (nonatomic, strong, readwrite) UIButton *backIcon;
+@property (nonatomic, strong, readwrite) UILabel *pictCount;
+@property (nonatomic, strong, readwrite) UIImageView *topImage;
 
 +(instancetype)initWithModel:(Model*)model;
 
 @property (nonatomic,assign) id<AlbumInfoForModelOrTagProtocol> protocolDelegate;
 
--(void)startFetchData;
+-(void)fetchPhotosCount;
 
 @end
 

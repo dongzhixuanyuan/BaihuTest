@@ -16,9 +16,7 @@
 #import "BaihuTest-Swift.h"
 #import <YYModel.h>
 @interface BaseInfoViewController ()
-@property (nonatomic, strong, readwrite) UIImageView *topImage;
 
-@property (nonatomic,strong,readwrite)UILabel* pictCount;
 @end
 
 @implementation BaseInfoViewController
@@ -72,21 +70,20 @@
     [self.topImage sd_setImageWithURL:[NSURL URLWithString:converUrl]];
     
     [self.view addSubview:self.pictCount];
-    [self.pictCount mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.topImage.mas_bottom);
-        make.left.mas_equalTo(self.view).mas_offset(10);
-    }];
+
     
 }
 
 
-- (void)startFetchData {
+- (void)fetchPhotosCount {
     if (_protocolDelegate) {
         [[NetworkManager getHttpSessionManager] GET: [_protocolDelegate  albumsCountUrl] parameters:[_protocolDelegate params] headers:[NetworkManager getCommonHeaders] progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             AlbumCountResponse* bean =     [AlbumCountResponse  yy_modelWithDictionary:responseObject];
-            self.pictCount.text = [@(bean.data) stringValue];
+            NSString* text =[ NSString stringWithFormat:@"图集(%d)套",bean.data];
+          
+            self.pictCount.text =   text;
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"error");
         }];
@@ -105,8 +102,8 @@
 - (UILabel *)pictCount {
     if (!_pictCount) {
         _pictCount = [[UILabel alloc]init];
-        _pictCount.textColor = [UIColor blackColor];
-        _pictCount.font = [UIFont fontWithName:@"PingFang SC" size: 13];
+        _pictCount.textColor = [UIColor colorWithHexString:@"#FF333333"];
+        _pictCount.font = [UIFont fontWithName:@"PingFang-SC-Medium" size: 16];
     }
     return _pictCount;
 }

@@ -13,6 +13,7 @@ target 'BaihuTest' do
   pod 'SwipeBack', '~> 1.1'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.2'
+  pod 'MJRefresh'
   target 'BaihuTestTests' do
     inherit! :search_paths
     # Pods for testing

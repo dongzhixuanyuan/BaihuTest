@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,7 @@
 		A0A4A690246947D900E74441 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A68F246947D900E74441 /* Test.m */; };
 		A0A4A6982469515300E74441 /* UrlConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6972469515300E74441 /* UrlConstants.m */; };
 		A0A4A69B2469552C00E74441 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A69A2469552C00E74441 /* Constants.m */; };
+		A0C2A32424D57E9A00377A0E /* DetailPagePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C2A32324D57E9A00377A0E /* DetailPagePhotoCell.swift */; };
 		A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */; };
 		A0C8B28C24B9B65D000592CD /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28B24B9B65D000592CD /* String+URL.swift */; };
 		A0C8B28E24BA97D6000592CD /* ScaleableImageview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8B28D24BA97D6000592CD /* ScaleableImageview.swift */; };
@@ -171,6 +172,7 @@
 		A0A4A6972469515300E74441 /* UrlConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrlConstants.m; sourceTree = "<group>"; };
 		A0A4A6992469552C00E74441 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A0A4A69A2469552C00E74441 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		A0C2A32324D57E9A00377A0E /* DetailPagePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPagePhotoCell.swift; sourceTree = "<group>"; };
 		A0C8B28924B5C0F7000592CD /* AlbumCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCountResponse.swift; sourceTree = "<group>"; };
 		A0C8B28B24B9B65D000592CD /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		A0C8B28D24BA97D6000592CD /* ScaleableImageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleableImageview.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				A073113224AADDB000636C74 /* TagInfoViewController.swift */,
 				A0F44BAA24CB25A800D984C3 /* CustomTagView.swift */,
 				A0F44BAC24CB365E00D984C3 /* PaddingUILabel.swift */,
+				A0C2A32324D57E9A00377A0E /* DetailPagePhotoCell.swift */,
 			);
 			path = albuminfo;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				A03F0A82245677A8004E3AAB /* Sources */,
 				A03F0A83245677A8004E3AAB /* Frameworks */,
 				A03F0A84245677A8004E3AAB /* Resources */,
+				F428D55F8E271E0BD9FD0FFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -586,6 +590,7 @@
 				A03F0AA8245677AC004E3AAB /* Sources */,
 				A03F0AA9245677AC004E3AAB /* Frameworks */,
 				A03F0AAA245677AC004E3AAB /* Resources */,
+				B57ED2E79A6EDED014FD52B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -712,6 +717,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B57ED2E79A6EDED014FD52B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaihuTest-BaihuTestUITests/Pods-BaihuTest-BaihuTestUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E59E0B5A43D89AD7264B47F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,6 +754,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F428D55F8E271E0BD9FD0FFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaihuTest/Pods-BaihuTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaihuTest/Pods-BaihuTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaihuTest/Pods-BaihuTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -769,6 +808,7 @@
 				A0D3C40A2473AA4700802657 /* AppConfig.m in Sources */,
 				A09F8DA324860074004921E3 /* TableRefreshFooterView.m in Sources */,
 				A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */,
+				A0C2A32424D57E9A00377A0E /* DetailPagePhotoCell.swift in Sources */,
 				A03F0AD1245AB138004E3AAB /* IndexViewController.m in Sources */,
 				A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */,
 				A0D3C4102473DA6D00802657 /* BaseUIView.m in Sources */,
