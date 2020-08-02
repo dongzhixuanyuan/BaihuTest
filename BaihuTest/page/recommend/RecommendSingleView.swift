@@ -9,7 +9,7 @@
 import UIKit
 
 class RecommendSingleView: UIView {
-    
+    var bean:Any? = nil
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(icon)
@@ -27,9 +27,17 @@ class RecommendSingleView: UIView {
         }
     }
     
-   @objc func setData(imageUrl:URL,name:String)  {
+    @objc func setData(imageUrl:URL,name:String)  {
         icon.sd_setImage(with: imageUrl,completed: nil)
         nameLabel.text = name
+    }
+    
+    @objc func setBean(data:Any)  {
+        self.bean = data
+    }
+    
+    @objc  func getBean() -> Any? {
+        return bean
     }
     
     required init?(coder: NSCoder) {
@@ -51,5 +59,5 @@ class RecommendSingleView: UIView {
         name.sizeToFit()
         return name
     }()
-
+    
 }

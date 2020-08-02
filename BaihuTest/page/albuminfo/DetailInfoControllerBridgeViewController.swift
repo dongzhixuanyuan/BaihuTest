@@ -27,6 +27,11 @@ class DetailInfoControllerBridgeViewController: BaseInfoViewController, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newController = PhotoWatchViewController.initWithBean(photos[indexPath.row])
+        navigationController?.pushViewController(newController, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

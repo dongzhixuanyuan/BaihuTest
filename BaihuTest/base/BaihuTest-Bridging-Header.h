@@ -12,3 +12,4 @@
 #import <MJRefreshFooter.h>
 #import "NetworkManager.h"
 #import <YYModel.h>
+#import "PhotoWatchViewController.h"

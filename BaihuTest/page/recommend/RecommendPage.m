@@ -40,8 +40,10 @@
     if (self) {
         _recomendGirl = [[UILabel alloc]init];
         _recomendTag = [[UILabel alloc]init];
-        _girlContaienr = [[UILabel alloc]init];
-        _tagsContaienr = [[UILabel alloc]init];
+        _girlContaienr = [[UIView alloc]init];
+        _girlContaienr.userInteractionEnabled = YES;
+        _tagsContaienr = [[UIView alloc]init];
+        _tagsContaienr.userInteractionEnabled = YES;
         [self addSubview:_recomendTag];
         [self addSubview:_recomendGirl];
         [self addSubview:_girlContaienr];
@@ -80,7 +82,7 @@
             
             for (int i = 0; i < 4 && i < response.data.count; i++) {
                 Model *model  = [response.data objectAtIndex:i];
-               RecommendSingleView *image;
+                RecommendSingleView *image;
                 if (i == 0) {
                     image = [[RecommendSingleView alloc]initWithFrame:CGRectMake(20, 10, 55, 75)];
                     sself.tag01 = image;
@@ -96,8 +98,15 @@
                 }
                 NSString *avatarImgUrl =  [[AppConfig getInstance]getPhotoWholeUrl:model.avatar_image_url isThumb:false];
                 [image setDataWithImageUrl:  [NSURL URLWithString:avatarImgUrl]  name:model.name];
+                
+                UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:sself action:@selector(pushModelInfoController:)];
+                [image addGestureRecognizer:tapGesture];
+                image.userInteractionEnabled = YES;
+                [image setBeanWithData:model];
+                
+                
                 [sself.girlContaienr addSubview:image];
-        
+                
             }
             
             [sself setNeedsLayout];
@@ -125,10 +134,17 @@
                 } else if (i == 3) {
                     image = [[RecommendSingleView alloc]initWithFrame:CGRectMake(260, 10, 55, 75)];
                     sself.tag04 = image;
+                    
                 }
+                
                 NSString *avatarImgUrl =  [[AppConfig getInstance]getPhotoWholeUrl:tag.image_url isThumb:false];
                 
                 [image setDataWithImageUrl:  [NSURL URLWithString:avatarImgUrl]  name:tag.name];
+                UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:sself action:@selector(pushTagInfoController:)];
+                [image addGestureRecognizer:tapGesture];
+                image.userInteractionEnabled = YES;
+                [image setBeanWithData:tag];
+                
                 [sself.tagsContaienr addSubview:image];
             }
             
@@ -138,6 +154,54 @@
         }];
     }
     return self;
+}
+
+- (void) pushModelInfoController:(UITapGestureRecognizer*)sender {
+    CGPoint clickPoint =  [sender locationInView:_girlContaienr];
+    for (RecommendSingleView* view in [_girlContaienr subviews]) {
+        if ([view.layer.presentationLayer hitTest:clickPoint]) {
+            id data =  [(RecommendSingleView*)view getBean];
+            BaseInfoViewController* controller = [BaseInfoViewController initWithModel: data ];
+            UIResponder *responder = [self nextResponder];
+            while (responder)
+            {
+                if ([responder isKindOfClass:[UIViewController class]])
+                {
+                    break;
+                }
+                responder = [responder nextResponder];
+            }
+            if (responder!=nil && [responder isKindOfClass:[UIViewController class]]) {
+                [((UIViewController*)responder).navigationController pushViewController:controller animated:true];
+            }
+            break;
+        }
+    }
+    
+}
+
+- (void) pushTagInfoController:(UITapGestureRecognizer*)sender  {
+    CGPoint clickPoint =  [sender locationInView:_tagsContaienr];
+    for (RecommendSingleView* view in [_tagsContaienr subviews]) {
+        if ([view.layer.presentationLayer hitTest:clickPoint]) {
+            id data =  [(RecommendSingleView*)view getBean];
+            BaseInfoViewController* controller = [BaseInfoViewController initWithModel: data ];
+            UIResponder *responder = [self nextResponder];
+            while (responder)
+            {
+                if ([responder isKindOfClass:[UIViewController class]])
+                {
+                    break;
+                }
+                responder = [responder nextResponder];
+            }
+            if (responder!=nil && [responder isKindOfClass:[UIViewController class]]) {
+                [((UIViewController*)responder).navigationController pushViewController:controller animated:true];
+            }
+            break;
+        }
+    }
+    
 }
 
 @end
