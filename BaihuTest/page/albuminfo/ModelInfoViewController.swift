@@ -9,30 +9,15 @@
 import Alamofire
 import UIKit
 
-class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    var photos = [PhotoItemDataItem]()
-    let LIST_CELL_IDENTIFIER = "DetailPagePhotoCell"
-    var page = 0
-    var pageSize = 10
-    var noMoreData = false
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: LIST_CELL_IDENTIFIER, for: indexPath)
-        (cell as! DetailPagePhotoCell).setData(bean: photos[indexPath.row])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-    
-    func params() -> [AnyHashable: Any] {
+class ModelInfoViewController: DetailInfoControllerBridgeViewController, AlbumInfoForModelOrTagProtocol {
+    func paramsForCount() -> [AnyHashable: Any] {
         return ["model_id": (model as! Model).id]
     }
-    
+
+    func paramsForAlbumList() -> [AnyHashable: Any] {
+        return ["model_id": (model as! Model).id!, "page": page, "size": pageSize]
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         super.protocolDelegate = self
@@ -44,7 +29,7 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
         let nameLabel = UILabel()
         nameLabel.text = (model as! Model).name
         nameLabel.font = UIFont(name: "PingFang-SC-Bold", size: 18)
-        
+
         nameLabel.textColor = UIColor.white
         nameBg.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { maker in
@@ -70,14 +55,14 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
             maker.left.equalToSuperview().offset(15)
             maker.right.equalToSuperview().offset(-15)
         }
-        
+
         fetchPhotosCount()
         view.addSubview(pictCount)
         pictCount.snp.makeConstraints { make in
             make.top.equalTo(descriptionView.snp.bottom).offset(24)
             make.left.equalToSuperview().offset(17)
         }
-        
+
         view.addSubview(photoList)
         photoList.snp.makeConstraints { maker in
             maker.top.equalTo(pictCount.snp.bottom).offset(15)
@@ -86,42 +71,15 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
         }
         fetchPhotos(page: page, pageSize: pageSize)
     }
-    
-    func fetchPhotos(page: Int, pageSize: Int) {
-        let urlStr = UrlConstants.getAlbumsForModel((model as! Model).id, page: page, size: pageSize)
-        NetworkManager.getHttpSessionManager().get(urlStr, parameters: nil, headers: NetworkManager.getCommonHeaders(), progress: nil, success: { [weak self] _, response in
-            guard let self = self else { return }
-            let model = PhotoItemResponseModel.yy_model(with: response as! [AnyHashable: Any])
-            let existCount = self.photos.count
-            let newComeDataCount = (model!.data!).count
-            
-            var insertRows = [IndexPath]()
-            for i in 0 ..< newComeDataCount {
-                insertRows.append(IndexPath(row: existCount + i, section: 0))
-            }
-            self.photos.append(contentsOf: model!.data!)
-            self.photoList.insertItems(at: insertRows)
-            self.page += 1
-            if newComeDataCount < pageSize {
-                self.noMoreData = true
-                self.photoList.mj_footer?.endRefreshingWithNoMoreData()
-            } else {
-                self.photoList.mj_footer?.endRefreshing()
-            }
-            
-            
-        }) { _, _ in
-        }
-    }
-    
+
     func albumsCountUrl() -> String {
         return UrlConstants.getAlbumCountForModel()
     }
-    
+
     func albumListUrl() -> String {
-        return ""
+        return UrlConstants.getAlbumsForModel()
     }
-    
+
     lazy var avatarIcon: UIImageView = {
         let imageview = UIImageView()
         imageview.sd_setImage(with: (model as! Model).avatar_image_url.keyStrToUrl(isThumb: true), completed: nil)
@@ -129,7 +87,7 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
         imageview.layer.masksToBounds = true
         return imageview
     }()
-    
+
     lazy var descriptionView: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -139,31 +97,14 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
         label.font = UIFont(name: "PingFang-SC-Medium", size: 14)
         return label
     }()
-    
-    lazy var photoList: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 8
-        
-        layout.itemSize = CGSize(width: DimenAdapter.dimenAutoFit(110), height: DimenAdapter.dimenAutoFit(150))
-        let listview = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        listview.backgroundColor = UIColor.white
-        listview.delegate = self
-        listview.dataSource = self
-        listview.register(DetailPagePhotoCell.self, forCellWithReuseIdentifier: LIST_CELL_IDENTIFIER)
-        listview.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock:  {
-            self.fetchPhotos(page: self.page, pageSize: self.pageSize)
-        })
-        return listview
-    }()
-    
+
     func initTags(_ tagStr: String) {
         var tags = [String]()
-        
+
         tagStr.components(separatedBy: "|").forEach { it in
             tags.append(it)
         }
-        
+
         let tagView = CustomTagView(tags: tags, frame: CGRect.zero)
         view.addSubview(tagView)
         tagView.snp.makeConstraints { maker in
@@ -173,8 +114,5 @@ class ModelInfoViewController: BaseInfoViewController, AlbumInfoForModelOrTagPro
             maker.top.equalTo(avatarIcon.snp.bottom).offset(20)
         }
         print("")
-    }
-    
-    func addCollectionView() {
     }
 }

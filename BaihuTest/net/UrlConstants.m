@@ -22,8 +22,8 @@ NSString *const allTagPath = @"/mobile/tag";
 NSString *const albumPath =  @"/mobile/album/";
 NSString *const albumCountForModel = @"/mobile/album/count_by_model";
 NSString *const albumCountForTag = @"/mobile/album/count_by_tag";
-NSString *const albumsForModel = @"/mobile/album/all_by_model?";
-NSString *const albumsForTAG = @"/mobile/album/all_by_tag?";
+NSString *const albumsForModel = @"/mobile/album/all_by_model";
+NSString *const albumsForTAG = @"/mobile/album/all_by_tag";
 
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
@@ -81,20 +81,20 @@ NSString *const albumsForTAG = @"/mobile/album/all_by_tag?";
     return [baseUrl stringByAppendingString:albumCountForTag];
 }
 
-+ (NSString *)getAlbumsForModel:(NSString *)modelId page:(NSInteger)page size:(NSInteger)pageSize {
-    NSDictionary<NSString *, NSString *> *dictParams =  [NSDictionary dictionaryWithObjectsAndKeys:modelId, @"model_id",
-                                                         [NSString stringWithFormat:@"%ld", (long)page], @"page",
-                                                         [NSString stringWithFormat:@"%ld", (long)pageSize], @"size",  nil];
-    NSString *subfix =  [UrlConstants joinUrlParams:dictParams];
++ (NSString *)getAlbumsForModel{
+  
     NSString *prefix =  [baseUrl stringByAppendingString:albumsForModel];
-    return [prefix stringByAppendingFormat:@"%@", subfix];
+    return prefix;
+//    return [prefix stringByAppendingFormat:@"%@", subfix];
 }
 
-+ (NSString *)getAlbumsForTag:(NSString *)tagId page:(NSInteger)page size:(NSInteger)pageSize {
-    NSDictionary<NSString *, NSString *> *dictParams =  [NSDictionary dictionaryWithObjectsAndKeys:tagId, @"tag_id", [NSString stringWithFormat:@"%ld", (long)page],  @"page", [NSString stringWithFormat:@"%ld", (long)pageSize],   @"size",  nil];
-    NSString *subfix =  [UrlConstants joinUrlParams:dictParams];
+
+
+
+
++ (NSString *)getAlbumsForTag {
+    return [baseUrl stringByAppendingString:albumsForTAG];
     
-    return [ [ baseUrl stringByAppendingString:albumsForTAG] stringByAppendingFormat:@"%@", subfix];
 }
 
 + (NSString *)joinUrlParams:(NSDictionary<NSString *, NSString *> *)params {

@@ -27,8 +27,8 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)getAllAlbumsById:(NSString*)albumId;
 +(NSString*)getAlbumCountForModel;
 +(NSString*)getAlbumCountForTag;
-+(NSString*)getAlbumsForModel:(NSString*)modelId page:(NSInteger)page size:(NSInteger)pageSize;
-+(NSString*)getAlbumsForTag:(NSString*)tagId page:(NSInteger)page size:(NSInteger)pageSize;
++(NSString*)getAlbumsForModel;
++(NSString*)getAlbumsForTag;
 
 
 +(NSString*)joinUrlParams:(NSDictionary<NSString*,NSString*>*)params;

@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <SwipeBack.h>
 #import "PhotoItemResponseModel.h"
+#import "TagResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol AlbumInfoForModelOrTagProtocol <NSObject>
 
 -(NSString*) albumsCountUrl;
 -(NSString*) albumListUrl;
--(NSDictionary*) params;
+-(NSDictionary*) paramsForCount;
+-(NSDictionary*) paramsForAlbumList;
 
 @end
 

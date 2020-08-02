@@ -44,6 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.topImage];
     [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
@@ -77,7 +78,7 @@
 
 - (void)fetchPhotosCount {
     if (_protocolDelegate) {
-        [[NetworkManager getHttpSessionManager] GET: [_protocolDelegate  albumsCountUrl] parameters:[_protocolDelegate params] headers:[NetworkManager getCommonHeaders] progress:^(NSProgress * _Nonnull downloadProgress) {
+        [[NetworkManager getHttpSessionManager] GET: [_protocolDelegate  albumsCountUrl] parameters:[_protocolDelegate paramsForCount] headers:[NetworkManager getCommonHeaders] progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             AlbumCountResponse* bean =     [AlbumCountResponse  yy_modelWithDictionary:responseObject];
