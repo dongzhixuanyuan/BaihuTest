@@ -24,6 +24,11 @@ NSString *const albumCountForModel = @"/mobile/album/count_by_model";
 NSString *const albumCountForTag = @"/mobile/album/count_by_tag";
 NSString *const albumsForModel = @"/mobile/album/all_by_model";
 NSString *const albumsForTAG = @"/mobile/album/all_by_tag";
+NSString* const allFavouriteAlbums=@"/mobile/favorite";
+NSString* const addFavourite=@"/mobile/favorite";
+NSString* const deleteFavourite=@"/mobile/favorite/";
+NSString* const postVisit=@"/mobile/album/visit/%@";
+NSString* const scanHistory = @"/mobile/album/visit";
 
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
@@ -82,10 +87,10 @@ NSString *const albumsForTAG = @"/mobile/album/all_by_tag";
 }
 
 + (NSString *)getAlbumsForModel{
-  
+    
     NSString *prefix =  [baseUrl stringByAppendingString:albumsForModel];
     return prefix;
-//    return [prefix stringByAppendingFormat:@"%@", subfix];
+    //    return [prefix stringByAppendingFormat:@"%@", subfix];
 }
 
 
@@ -108,5 +113,26 @@ NSString *const albumsForTAG = @"/mobile/album/all_by_tag";
     }
     return subfix;
 }
+
++ (NSString *)getAllFavourite{
+    return [baseUrl stringByAppendingString:allFavouriteAlbums];
+}
+
++ (NSString *)addFavourite {
+    return [baseUrl stringByAppendingString:addFavourite];
+}
+
++ (NSString *)deleteFavourite:(NSString *)id{
+    return [[baseUrl stringByAppendingString:deleteFavourite]stringByAppendingString:id];
+}
+
++ (NSString *)postVisitRecord:(NSString *)id {
+    return [baseUrl stringByAppendingFormat:postVisit,id] ;
+}
+
++ (NSString *)getScanHistory {
+    return [baseUrl stringByAppendingString:scanHistory];
+}
+
 
 @end

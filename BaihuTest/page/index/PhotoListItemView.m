@@ -12,6 +12,7 @@
 #import <SDWebImage.h>
 #import "AppConfig.h"
 #import "UIColor+Addition.h"
+#import "BaihuTest-Swift.h"
 @interface PhotoListItemView ()
 @property (nonatomic, strong, readwrite) UIImageView *first;
 @property (nonatomic, strong, readwrite) UIImageView *second;
@@ -20,12 +21,12 @@
 @property (nonatomic, strong, readwrite) UILabel *photoDes;
 @property (nonatomic, strong, readwrite) UILabel *modelName;
 @property (nonatomic, strong, readwrite) UIButton *favouriteBtn;
-@property (nonatomic,copy,readwrite)PhotoItemDataItem* item;
+@property (nonatomic, strong, readwrite) PhotoItemDataItem *item;
 @end
 
 @implementation PhotoListItemView
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _first = [[UIImageView alloc]init];
@@ -36,14 +37,15 @@
         _third.backgroundColor = [UIColor redColor];
         _avart = [[UIImageView alloc]init];
         _favouriteBtn = [[UIButton alloc]init];
+        
         [_favouriteBtn setImage:[UIImage imageNamed:@"unfavourite"] forState:UIControlStateNormal];
         
-        [_favouriteBtn setImage:[UIImage imageNamed:@"favourite"] forState:UIControlStateHighlighted];
+        [_favouriteBtn addTarget:self action:@selector(favouriteBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
         _photoDes = [[UILabel alloc]init];
         _modelName = [[UILabel alloc]init];
         _modelName.textColor = [UIColor colorWithHexString:@"#333333"];
-        _modelName.font = [UIFont fontWithName:@"PingFang SC" size: 14];
+        _modelName.font = [UIFont fontWithName:@"PingFang SC" size:14];
         _modelName.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_first];
         [self.contentView addSubview:_second];
@@ -54,18 +56,16 @@
         [self.contentView addSubview:_modelName];
         _photoDes.text = @"占位文字";
         _photoDes.textColor = [UIColor colorWithHexString:@"#777777"];
-        _photoDes.font = [UIFont fontWithName:@"PingFang SC" size: 13];
-        _photoDes.textAlignment = NSTextAlignmentLeft ;
+        _photoDes.font = [UIFont fontWithName:@"PingFang SC" size:13];
+        _photoDes.textAlignment = NSTextAlignmentLeft;
         
-        
-        UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoPhotoDetailPage:)];
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoPhotoDetailPage:)];
         [_first addGestureRecognizer:recognizer];
         [_second addGestureRecognizer:recognizer];
         [_third addGestureRecognizer:recognizer];
         _first.tag = 1;
         _second.tag = 2;
         _third.tag = 3;
-        
         
         [_first mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).offset(UI(15));
@@ -90,8 +90,7 @@
             make.bottom.equalTo(self.contentView.mas_bottom).offset(-UI(15));
             make.width.and.height.mas_equalTo(UI(44));
         }];
-       
-    
+        
         [_favouriteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.mas_equalTo(_third);
             make.size.mas_equalTo(UI(26));
@@ -107,59 +106,87 @@
         [_photoDes mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(_modelName.mas_left);
             make.bottom.mas_equalTo(_avart.mas_bottom).offset(-UI(6.5));
-        
-            make.right.lessThanOrEqualTo(_favouriteBtn.mas_left);
             
+            make.right.lessThanOrEqualTo(_favouriteBtn.mas_left);
         }];
-        
     }
     return self;
 }
 
--(void) fillData:(PhotoItemDataItem*)bean{
+- (void)fillData:(PhotoItemDataItem *)bean {
+    self.item = bean;
+    NSString *cover1UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key1 isThumb:false];
     
-    NSString* cover1UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key1 isThumb:false] ;
+    NSString *cover2UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key2 isThumb:false];
     
-    NSString* cover2UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key2 isThumb:false] ;
+    NSString *cover3UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key3 isThumb:false];
     
-    NSString* cover3UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.info.cover_key3 isThumb:false] ;
-    
-    [_first sd_setImageWithURL:[ NSURL URLWithString: cover1UrlStr]];
-    [_second sd_setImageWithURL:[ NSURL URLWithString: cover2UrlStr]];
-    [_third sd_setImageWithURL:[ NSURL URLWithString: cover3UrlStr]];
+    [_first sd_setImageWithURL:[ NSURL URLWithString:cover1UrlStr]];
+    [_second sd_setImageWithURL:[ NSURL URLWithString:cover2UrlStr]];
+    [_third sd_setImageWithURL:[ NSURL URLWithString:cover3UrlStr]];
     __weak typeof(self) wself = self;
-    if(bean.info.model != nil){
+    if (bean.info.model != nil) {
         _modelName.text = bean.info.model.name;
-        NSString* avatar = [[AppConfig getInstance]getPhotoWholeUrl:bean.info.model.avatar_image_url isThumb:YES];
-        [_avart sd_setImageWithURL: [NSURL URLWithString:avatar] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSString *avatar = [[AppConfig getInstance]getPhotoWholeUrl:bean.info.model.avatar_image_url isThumb:YES];
+        [_avart sd_setImageWithURL:[NSURL URLWithString:avatar] completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
             __strong typeof(wself) sself = wself;
             sself.avart.image = image;
             sself.avart.layer.cornerRadius = UI(22);
             sself.avart.layer.masksToBounds = YES;
         }];
-        
     } else {
         _modelName.text = @"素人";
-        [_avart sd_setImageWithURL:[ NSURL URLWithString: cover1UrlStr] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [_avart sd_setImageWithURL:[ NSURL URLWithString:cover1UrlStr] completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
             __strong typeof(wself) sself = wself;
             sself.avart.image = image;
             sself.avart.layer.cornerRadius = UI(22);
             sself.avart.layer.masksToBounds = YES;
         }];
-    
     }
     _photoDes.text = bean.info.name;
     
+    NSString* favouriteId = [FavouriteManager.shared isFavouriteLocalCheckWithAlbumId:bean.info.id];
+    if (favouriteId) {
+        [_favouriteBtn setImage:[UIImage imageNamed:@"favourite"] forState:UIControlStateNormal];
+    } else {
+        [_favouriteBtn setImage:[UIImage imageNamed:@"unfavourite"] forState:UIControlStateNormal];
+    }
 }
 
--(void)gotoPhotoDetailPage:(UITapGestureRecognizer*)sender {
-    //todo 点击跳转
-    NSInteger tag =  sender.view.tag;
-    //    if (tag == 1) {
-    //        itemClickListener()
-    //    }
+- (void)gotoPhotoDetailPage:(UITapGestureRecognizer *)sender {
     if (_clickCallback) {
         _clickCallback(_item);
+    }
+}
+
+- (void)favouriteBtnClick:(UITapGestureRecognizer *)event {
+    NSString* favouriteId = [FavouriteManager.shared isFavouriteLocalCheckWithAlbumId:_item.info.id];
+    __weak typeof(self) wself = self;
+    if (favouriteId!=nil) {
+        [FavouriteManager.shared removeFavouriteWithFavouriteIdParams:favouriteId callback: ^(BOOL success) {
+            __strong typeof(wself) sself = wself;
+            if (success) {
+                [sself.favouriteBtn setImage:[UIImage imageNamed:@"unfavourite"] forState:UIControlStateNormal];
+                
+            }else {
+                [sself.favouriteBtn setImage:[UIImage imageNamed:@"favourite"] forState:UIControlStateNormal];
+                
+            }
+            
+        }];
+    } else {
+        
+        [ FavouriteManager.shared addFavouriteWithAlbumId:_item.info.id
+                                                 callback:^(BOOL success) {
+            __strong typeof(wself) sself = wself;
+            if (success) {
+                [sself.favouriteBtn setImage:[UIImage imageNamed:@"favourite"] forState:UIControlStateNormal];
+            }else {
+                [sself.favouriteBtn setImage:[UIImage imageNamed:@"unfavourite"] forState:UIControlStateNormal];
+                
+            }
+            
+        }];
     }
 }
 

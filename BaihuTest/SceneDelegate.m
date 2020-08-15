@@ -11,6 +11,9 @@
 #import "IndexViewController.h"
 #import "NetworkManager.h"
 #import "RecommendViewController.h"
+#import "UrlConstants.h"
+#import "Test.h"
+#import "BaihuTest-Swift.h"
 @interface SceneDelegate ()
 
 @end
@@ -22,33 +25,43 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     self.window = [[UIWindow alloc]initWithWindowScene:(UIWindowScene *)scene];
-
-   HomeTabBarController* customTabController =  [HomeTabBarController createTabBarController:^HomeTabBarConfig *(HomeTabBarConfig * _Nonnull config) {
+    
+    HomeTabBarController* customTabController =  [HomeTabBarController createTabBarController:^HomeTabBarConfig *(HomeTabBarConfig * _Nonnull config) {
         IndexViewController* indexVC = [[IndexViewController alloc]init];
         
         RecommendViewController* recommendVC = [[RecommendViewController alloc]init];
         
         
-        UIViewController* vc3 = [[UIViewController alloc]init];
-        vc3.view.backgroundColor = [UIColor yellowColor];
+        HistoryViewController* vc3 = [[HistoryViewController alloc]init];
         
-        UIViewController* vc4 = [[UIViewController alloc]init];
-        vc4.view.backgroundColor = [UIColor greenColor];
         
-        config.viewController = @[indexVC,recommendVC,vc3,vc4];
-        config.title = @[@"微信", @"发现",@"发现",@"我"];
-        config.normalImage = @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover",@"tabbar_me"];
-        config.seletedImages = @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL",@"tabbar_meHL"];
+        //        UIViewController* vc4 = [[UIViewController alloc]init];
+        //        vc4.view.backgroundColor = [UIColor greenColor];
+        
+        config.viewController = @[indexVC,recommendVC,vc3];
+        config.title = @[@"微信", @"发现",@"发现"];
+        config.normalImage = @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover"];
+        config.seletedImages = @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL"];
         config.isNavigation = NO;
         return config;
     }];
-//    不使用系统的导航栏，所以不能用navigationviewcontroller
+    //    不使用系统的导航栏，所以不能用navigationviewcontroller
     UINavigationController *rootViewController = [[UINavigationController alloc]initWithRootViewController:customTabController];
     rootViewController.view.backgroundColor = [UIColor whiteColor];
     rootViewController.navigationBarHidden = YES;
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     [NetworkManager urlTest];
+    [[NetworkManager getHttpSessionManager] GET:[UrlConstants getAllFavourite] parameters:[NetworkManager getCommonHeaders] headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject!= nil) {
+            NSString* valueStr =   [Test dictionary2String:(NSDictionary*) responseObject];
+            NSLog(valueStr);
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog( @"");
+    }];
     
 }
 

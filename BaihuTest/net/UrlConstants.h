@@ -29,7 +29,11 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)getAlbumCountForTag;
 +(NSString*)getAlbumsForModel;
 +(NSString*)getAlbumsForTag;
-
++(NSString*)getAllFavourite;
++(NSString*)addFavourite;
++(NSString*)deleteFavourite:(NSString*)id;
++(NSString*)postVisitRecord:(NSString*)id;
++(NSString*)getScanHistory;
 
 +(NSString*)joinUrlParams:(NSDictionary<NSString*,NSString*>*)params;
 @end

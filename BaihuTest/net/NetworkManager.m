@@ -53,12 +53,30 @@
 + (void)urlTest {
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFHTTPSessionManager* manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:configuration];
-    [manager GET:[UrlConstants getAlbumCountForModel] parameters:@{@"model_id":@"444c5b54-2aac-42b7-a99f-de684111bac3"} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [manager POST:[UrlConstants addFavourite] parameters:@{@"album_id":@""} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString* result =  [Test dictionary2String:responseObject ];
         NSLog(@"%@",result);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error:%@",error);
+        
     }];
+    
+    
+    
+//    [manager GET:[UrlConstants getAllFavourite] parameters:nil headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSString* result =  [Test dictionary2String:responseObject ];
+//        NSLog(@"%@",result);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error:%@",error);
+//    }];
+    
+    
+    //    [manager GET:[UrlConstants getAlbumCountForModel] parameters:@{@"model_id":@"444c5b54-2aac-42b7-a99f-de684111bac3"} headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    //        NSString* result =  [Test dictionary2String:responseObject ];
+    //        NSLog(@"%@",result);
+    //    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    //        NSLog(@"error:%@",error);
+    //    }];
     
 }
 

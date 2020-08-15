@@ -38,13 +38,12 @@
         [self fetchIndexCategories];
         [self initTopBtn];
         TableViewWithRefreshHeader* newestPhotos = [[TableViewWithRefreshHeader alloc]initWithParams:[UrlConstants getIndexAllUrl] itemClickListener:^(PhotoItemDataItem * _Nonnull photoItem) {
-            PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
-            [self.navigationController pushViewController:newController animated:YES];
+            [self itemClick:photoItem];
+            
         }];
         
         TableViewWithRefreshHeader* recommendPhotos = [[TableViewWithRefreshHeader alloc]initWithParams:[UrlConstants getRecomandUrl] itemClickListener:^(PhotoItemDataItem * _Nonnull photoItem) {
-            PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
-            [self.navigationController pushViewController:newController animated:YES];
+            [self itemClick:photoItem];
         }];
         
         [self.scrollView addSubview:recommendPhotos];
@@ -104,6 +103,16 @@
         [sself.tabContaienr setTabData:tabData];
     }];
     
+}
+
+-(void)itemClick:(PhotoItemDataItem *)photoItem{
+    PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
+    [self.navigationController pushViewController:newController animated:YES];
+    [[NetworkManager getHttpSessionManager] POST:[UrlConstants postVisitRecord:photoItem.info.id] parameters:[NetworkManager getCommonHeaders] headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"success");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error");
+    }];
 }
 
 @end

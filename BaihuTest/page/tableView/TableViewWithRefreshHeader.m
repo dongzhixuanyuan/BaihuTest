@@ -31,10 +31,6 @@
         _refreshView = [[TableRefreshHeaderView alloc]init];
         _footerView = [[TableRefreshFooterView alloc]init];
         [self addSubview:_tableView];
-//
-//        [_tableView setTableHeaderView:_refreshView];
-//        [_tableView setTableFooterView:_footerView];
-
         __weak typeof(self) wself = self;
         _tableView.dragEndListener = ^{
             __strong typeof(wself) sself = wself;
@@ -54,7 +50,7 @@
                 }
             } else if (curContentOffsetY + sself.tableView.frame.size.height > sself.tableView.contentSize.height - sself.footerView.frame.size.height) {
                 //                上拉操作.能进行上拉操作的前提是contentsize>frame.size
-                if (curContentOffsetY + sself.tableView.frame.size.height >= sself.tableView.contentSize.height) {
+                if (curContentOffsetY + sself.tableView.frame.size.height >= sself.tableView.contentSize.height - 1) {
                     //到达了上拉加载的临界线
                     [sself.footerView setRefreshMode:REFRESH_LOADING];
                     [sself startLoadingMore];
@@ -67,16 +63,10 @@
 
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.mas_top);
-//            make.bottom.mas_lessThanOrEqualTo(self.mas_bottom);
             make.bottom.equalTo(self.mas_bottom);
             make.left.right.equalTo(self);
         }];
-        //这个地方之所以需要用dispatch，是因为在ios sdk中，view的布局更新啥的不一定是在主线程中执行的，所以有关UI的操作全部需要派发到主线程中执行。
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            __strong typeof(wself) sself = wself;
-////            sself.tableView.contentOffset = CGPointMake(0, sself.refreshView.frame.size.height);
-//        });
-
+       
         [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
@@ -122,9 +112,6 @@
                 }
             } else {
                 //                上拉操作
-                
-                
-                
                 if (curContentOffset.y + _tableView.frame.size.height >= _tableView.contentSize.height) {
                     //到达了上拉加载的临界线
                     [_footerView setRefreshMode:REFRESH_WILL_LOADING];
@@ -157,16 +144,11 @@
 - (void)resetLoadNormalState:(void (^__nullable)(BOOL finished))complete {
     [UIView animateWithDuration:0.3
                      animations:^{
-//        if (self.tableView.tableFooterView!= nil) {
-//                   self.tableView.contentOffset = CGPointMake(0,  self.tableView.contentSize.height - self.footerView.frame.size.height - self.tableView.frame.size.height);
-//        }
-
     } completion:^(BOOL finished) {
         if (complete != nil) {
             complete(finished);
         }
          [self.tableView setTableFooterView:nil];
-//                    self.tableView.contentOffset = CGPointMake(0,  self.tableView.contentSize.height - self.tableView.frame.size.height);
     }];
 }
 
@@ -178,7 +160,6 @@
     __weak typeof(self) wself = self;
     [UIView animateWithDuration:0.3
                      animations:^{
-//        self.tableView.contentOffset = CGPointMake(0,  0);
     } completion:^(BOOL finished) {
         __strong typeof(wself) sself = wself;
         [sself.tableView reFetchData:sself];
@@ -193,7 +174,6 @@
     __weak typeof(self) wself = self;
     [UIView animateWithDuration:0.3
                      animations:^{
-//        self.tableView.contentOffset = CGPointMake(0,  self.tableView.contentSize.height - self.tableView.frame.size.height);
     } completion:^(BOOL finished) {
         __strong typeof(wself) sself = wself;
         [sself.tableView loadMoreData:sself];
