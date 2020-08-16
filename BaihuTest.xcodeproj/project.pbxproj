@@ -34,6 +34,12 @@
 		A073112D24AAD8C600636C74 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073112C24AAD8C600636C74 /* BaseUIViewController.swift */; };
 		A073113124AADCF700636C74 /* ModelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073113024AADCF700636C74 /* ModelInfoViewController.swift */; };
 		A073113324AADDB000636C74 /* TagInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073113224AADDB000636C74 /* TagInfoViewController.swift */; };
+		A080B70124E92FB800E3D134 /* index.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B6FF24E92FB800E3D134 /* index.webp */; };
+		A080B70224E92FB800E3D134 /* index_selected.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B70024E92FB800E3D134 /* index_selected.webp */; };
+		A080B70824E9368A00E3D134 /* favourite_unselected.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B70424E9368A00E3D134 /* favourite_unselected.webp */; };
+		A080B70924E9368A00E3D134 /* found.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B70524E9368A00E3D134 /* found.webp */; };
+		A080B70A24E9368A00E3D134 /* favourite_selected.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B70624E9368A00E3D134 /* favourite_selected.webp */; };
+		A080B70B24E9368A00E3D134 /* found_selected.webp in Resources */ = {isa = PBXBuildFile; fileRef = A080B70724E9368A00E3D134 /* found_selected.webp */; };
 		A086250B248DE32800EEC301 /* TagResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862509248DE32800EEC301 /* TagResponseModel.m */; };
 		A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */ = {isa = PBXBuildFile; fileRef = A086250D248DE5CB00EEC301 /* RecommendDetailBasePage.m */; };
 		A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0862510248DE7D800EEC301 /* ModelPageCollectionViewCell.m */; };
@@ -143,6 +149,12 @@
 		A073112C24AAD8C600636C74 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		A073113024AADCF700636C74 /* ModelInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInfoViewController.swift; sourceTree = "<group>"; };
 		A073113224AADDB000636C74 /* TagInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoViewController.swift; sourceTree = "<group>"; };
+		A080B6FF24E92FB800E3D134 /* index.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = index.webp; sourceTree = "<group>"; };
+		A080B70024E92FB800E3D134 /* index_selected.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = index_selected.webp; sourceTree = "<group>"; };
+		A080B70424E9368A00E3D134 /* favourite_unselected.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = favourite_unselected.webp; sourceTree = "<group>"; };
+		A080B70524E9368A00E3D134 /* found.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = found.webp; sourceTree = "<group>"; };
+		A080B70624E9368A00E3D134 /* favourite_selected.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = favourite_selected.webp; sourceTree = "<group>"; };
+		A080B70724E9368A00E3D134 /* found_selected.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = found_selected.webp; sourceTree = "<group>"; };
 		A0862509248DE32800EEC301 /* TagResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagResponseModel.m; sourceTree = "<group>"; };
 		A086250A248DE32800EEC301 /* TagResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagResponseModel.h; sourceTree = "<group>"; };
 		A086250C248DE5CB00EEC301 /* RecommendDetailBasePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendDetailBasePage.h; sourceTree = "<group>"; };
@@ -272,6 +284,7 @@
 		A03F0A7D245677A8004E3AAB = {
 			isa = PBXGroup;
 			children = (
+				A080B6FE24E92F4800E3D134 /* Resources */,
 				A03F0A88245677A8004E3AAB /* BaihuTest */,
 				A03F0AA4245677AC004E3AAB /* BaihuTestTests */,
 				A03F0AAF245677AC004E3AAB /* BaihuTestUITests */,
@@ -399,6 +412,19 @@
 				A05FB99924E0099500E13AF1 /* FavouriteOperationResponse.m */,
 			);
 			path = bean;
+			sourceTree = "<group>";
+		};
+		A080B6FE24E92F4800E3D134 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A080B70624E9368A00E3D134 /* favourite_selected.webp */,
+				A080B70424E9368A00E3D134 /* favourite_unselected.webp */,
+				A080B70724E9368A00E3D134 /* found_selected.webp */,
+				A080B70524E9368A00E3D134 /* found.webp */,
+				A080B70024E92FB800E3D134 /* index_selected.webp */,
+				A080B6FF24E92FB800E3D134 /* index.webp */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A0862508248DE30600EEC301 /* model */ = {
@@ -699,8 +725,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A080B70A24E9368A00E3D134 /* favourite_selected.webp in Resources */,
 				A03F0A99245677AB004E3AAB /* LaunchScreen.storyboard in Resources */,
 				A03F0A96245677AB004E3AAB /* Assets.xcassets in Resources */,
+				A080B70224E92FB800E3D134 /* index_selected.webp in Resources */,
+				A080B70924E9368A00E3D134 /* found.webp in Resources */,
+				A080B70824E9368A00E3D134 /* favourite_unselected.webp in Resources */,
+				A080B70124E92FB800E3D134 /* index.webp in Resources */,
+				A080B70B24E9368A00E3D134 /* found_selected.webp in Resources */,
 				A0A4A68B24690C0B00E74441 /* BaihuAPiService.kt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

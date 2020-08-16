@@ -14,6 +14,8 @@ target 'BaihuTest' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.2'
   pod 'MJRefresh'
+  pod 'SDWebImageWebPCoder'
+  
   target 'BaihuTestTests' do
     inherit! :search_paths
     # Pods for testing

@@ -15,6 +15,7 @@
 #import "NetworkManager.h"
 #import "ConfigBeanModel.h"
 #import "AppConfig.h"
+#import <SDWebImageWebPCoder.h>
 @interface AppDelegate ()
 
 @end
@@ -26,6 +27,8 @@
     // Override point for customization after application launch.
     [self getAccessToken];
     [self getConfigBean];
+    SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];
+    [[SDImageCodersManager sharedManager] addCoder:webPCoder];
     return YES;
 }
 

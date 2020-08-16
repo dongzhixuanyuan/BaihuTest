@@ -40,10 +40,11 @@
         //        vc4.view.backgroundColor = [UIColor greenColor];
         
         config.viewController = @[indexVC,recommendVC,vc3];
-        config.title = @[@"微信", @"发现",@"发现"];
-        config.normalImage = @[@"tabbar_mainframe",@"tabbar_contacts",@"tabbar_discover"];
-        config.seletedImages = @[@"tabbar_mainframeHL",@"tabbar_contactsHL",@"tabbar_discoverHL"];
+        config.title = @[@"首页", @"发现",@"收藏"];
+        config.normalImage = @[@"index",@"found",@"favourite_unselected"];
+        config.seletedImages = @[@"index_selected",@"found_selected",@"favourite_selected"];
         config.isNavigation = NO;
+        config.selectedColor = [UIColor colorWithHexString:@"#FFFF6B9C"];
         return config;
     }];
     //    不使用系统的导航栏，所以不能用navigationviewcontroller

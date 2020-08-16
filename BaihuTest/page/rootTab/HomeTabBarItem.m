@@ -7,6 +7,9 @@
 //
 
 #import "HomeTabBarItem.h"
+#import <SDWebImageWebPCoder.h>
+#import "DimenAdapter.h"
+#import <Masonry.h>
 static NSInteger defaultTag = 10000;
 @interface HomeTabBarItem ()
 @property (nonatomic, strong) UIImageView *iconImageView;
@@ -22,6 +25,17 @@ static NSInteger defaultTag = 10000;
         self.userInteractionEnabled = YES;
         UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(itemClicked:)];
         [self addGestureRecognizer:recognizer];
+        [self addSubview:self.iconImageView];
+        [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(UI(26));
+            make.centerX.mas_equalTo(self);
+        }];
+        [self addSubview:self.titleLabel];
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self);
+            make.top.mas_equalTo(self.iconImageView.mas_bottom).offset(UI(6));
+        }];
+        
     }
     return self;
 }
@@ -52,7 +66,21 @@ static NSInteger defaultTag = 10000;
 
 - (void)setIcon:(NSString *)icon {
     _icon = icon;
-    self.iconImageView.image = [UIImage imageNamed:icon];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:icon ofType:@"webp"];
+    if (path == nil) {
+        self.iconImageView.image = [UIImage imageNamed:icon];
+    }else {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        UIImage *img = [UIImage sd_imageWithWebPData:data];
+        self.iconImageView.image = img;
+    }
+    //    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    //    UIImage *img = [UIImage sd_imageWithWebPData:data];
+    //    self.imageView.image = img;
+    //    [SDImageWebPCoder sharedCoder] decodedImageWithData:<#(nullable NSData *)#> options:<#(nullable SDImageCoderOptions *)#>
+    
+    
 }
 
 - (void)setTitle:(NSString *)title {
@@ -65,15 +93,6 @@ static NSInteger defaultTag = 10000;
     _titleLabel.textColor = titleColor;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _iconImageView.translatesAutoresizingMaskIntoConstraints = NO;
-    _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [_iconImageView.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
-    [_iconImageView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
-    [_titleLabel.topAnchor constraintEqualToAnchor:self.iconImageView.bottomAnchor constant:6.0].active = YES;
-    [_titleLabel.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
-}
 
 - (void)itemClicked:(UITapGestureRecognizer *)tap {
     if (_delegate && [_delegate respondsToSelector:@selector(tabBarItem:didSelectIndex:)]) {

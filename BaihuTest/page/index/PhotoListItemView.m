@@ -32,11 +32,17 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _first = [[UIImageView alloc]init];
-        _first.backgroundColor = [UIColor blackColor];
+        _first.backgroundColor = [UIColor grayColor];
+        _first.layer.cornerRadius = 6;
+        _first.layer.masksToBounds = YES;
         _second = [[UIImageView alloc]init];
-        _second.backgroundColor = [UIColor blueColor];
+        _second.backgroundColor = [UIColor grayColor];
+        _second.layer.cornerRadius = 6;
+        _second.layer.masksToBounds = YES;
         _third = [[UIImageView alloc]init];
-        _third.backgroundColor = [UIColor redColor];
+        _third.backgroundColor = [UIColor grayColor];
+        _third.layer.cornerRadius = 6;
+        _third.layer.masksToBounds = YES;
         _avart = [[UIImageView alloc]init];
         _favouriteBtn = [[UIButton alloc]init];
         
