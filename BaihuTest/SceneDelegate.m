@@ -13,7 +13,7 @@
 #import "RecommendViewController.h"
 #import "UrlConstants.h"
 #import "Test.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import "HistoryViewControllerOC.h"
 @interface SceneDelegate ()
 
@@ -53,18 +53,6 @@
     rootViewController.navigationBarHidden = YES;
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
-    [NetworkManager urlTest];
-    [[NetworkManager getHttpSessionManager] GET:[UrlConstants getAllFavourite] parameters:[NetworkManager getCommonHeaders] headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (responseObject!= nil) {
-            NSString* valueStr =   [Test dictionary2String:(NSDictionary*) responseObject];
-            NSLog(valueStr);
-        }
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog( @"");
-    }];
-    
 }
 
 - (void)sceneDidDisconnect:(UIScene *)scene {

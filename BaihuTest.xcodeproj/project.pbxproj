@@ -113,7 +113,7 @@
 		A022494624E8DBB700E01613 /* FavouriteResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteResponseModel.m; sourceTree = "<group>"; };
 		A022494724E8DBB700E01613 /* FavouriteResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteResponseModel.h; sourceTree = "<group>"; };
 		A022494924E8E00600E01613 /* FavouriteTableiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableiew.swift; sourceTree = "<group>"; };
-		A03F0A86245677A8004E3AAB /* BaihuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaihuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03F0A86245677A8004E3AAB /* Beauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03F0A89245677A8004E3AAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A03F0A8A245677A8004E3AAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A03F0A8C245677A8004E3AAB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		A03F0A87245677A8004E3AAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A03F0A86245677A8004E3AAB /* BaihuTest.app */,
+				A03F0A86245677A8004E3AAB /* Beauty.app */,
 				A03F0AA1245677AC004E3AAB /* BaihuTestTests.xctest */,
 				A03F0AAC245677AC004E3AAB /* BaihuTestUITests.xctest */,
 			);
@@ -635,7 +635,7 @@
 			);
 			name = BaihuTest;
 			productName = BaihuTest;
-			productReference = A03F0A86245677A8004E3AAB /* BaihuTest.app */;
+			productReference = A03F0A86245677A8004E3AAB /* Beauty.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A03F0AA0245677AC004E3AAB /* BaihuTestTests */ = {
@@ -1084,6 +1084,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 25372VQL85;
 				INFOPLIST_FILE = BaihuTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -1092,7 +1093,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = youdao.BaihuTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Beauty;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BaihuTest/base/BaihuTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1109,6 +1110,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 25372VQL85;
 				INFOPLIST_FILE = BaihuTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -1117,7 +1119,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = youdao.BaihuTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Beauty;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BaihuTest/base/BaihuTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

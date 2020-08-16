@@ -13,7 +13,7 @@
 #import "DimenAdapter.h"
 #import <Masonry.h>
 #import <SDWebImage.h>
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import "AppConfig.h"
 @interface PhotoWatchViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,ScaleableImageViewTapped>
 @property (nonatomic, strong, readwrite) UICollectionView *collectionView;

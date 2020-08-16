@@ -12,7 +12,7 @@
 #import <SDWebImage.h>
 #import "AppConfig.h"
 #import "UIColor+Addition.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 
 @interface PhotoListItemView ()
 @property (nonatomic, strong, readwrite) UIImageView *first;

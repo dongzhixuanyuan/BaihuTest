@@ -9,7 +9,7 @@
 #import "ModelPageCollectionViewCell.h"
 #import "DimenAdapter.h"
 #import <SDWebImage.h>
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import <Masonry.h>
 @interface ModelPageCollectionViewCell()
 @property(nonatomic,strong,readwrite)RecommendSingleView* modelIcon;

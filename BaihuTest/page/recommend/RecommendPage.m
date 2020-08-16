@@ -17,7 +17,7 @@
 #import "AppConfig.h"
 #import "DimenAdapter.h"
 #import "TagResponseModel.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import "UIColor+Addition.h"
 @interface RecommendPage ()
 @property (nonatomic, strong, readwrite) UILabel *recomendGirl;

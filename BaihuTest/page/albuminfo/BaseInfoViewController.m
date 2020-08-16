@@ -13,7 +13,7 @@
 #import "TagResponseModel.h"
 #import "DimenAdapter.h"
 #import "NetworkManager.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import <YYModel.h>
 @interface BaseInfoViewController ()
 

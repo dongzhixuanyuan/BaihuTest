@@ -7,7 +7,7 @@
 //
 
 #import "HistoryViewControllerOC.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 #import <Masonry.h>
 @interface HistoryViewControllerOC ()
 

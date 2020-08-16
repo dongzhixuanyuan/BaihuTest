@@ -15,7 +15,7 @@
 #import <Masonry.h>
 #import <SwipeBack.h>
 #import "TagResponseModel.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 @interface RecommendViewController ()<AlbumIconClick>
 @property (nonatomic, strong, readwrite) RecommendPage *recommendPage;
 @property(nonatomic,strong,readwrite)RecommendDetailBasePage* modelPage,*tagPage;

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+//#define BOTTOM_TABS_HEIGHT  [DimenAdapter dimenAutoFit:(f)]
+
+
 @class HomeTabBarItem;
 @protocol HomeTabBarDelegate;
 NS_ASSUME_NONNULL_BEGIN
-extern const CGFloat BOTTOM_TABS_HEIGHT;
+extern  CGFloat BOTTOM_TABS_HEIGHT;
 @interface HomeTabBar : UIView
 
 @property(nonatomic,strong)NSArray<HomeTabBarItem*>* items;

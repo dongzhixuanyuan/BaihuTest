@@ -10,6 +10,7 @@
 #import "HomeTabBar.h"
 #import "HomeTabBarConfig.h"
 #import "HomeTabBarItem.h"
+#import "DimenAdapter.h"
 
 @interface HomeTabBarController ()<HomeTabBarDelegate>
 
@@ -128,12 +129,12 @@
     if (@available(iOS 11.0,*)) {
         UILayoutGuide *guide =  self.view.safeAreaLayoutGuide;
         [_customTabBar.bottomAnchor constraintEqualToSystemSpacingBelowAnchor:guide.bottomAnchor multiplier:1].active = YES;
-        [_customTabBar.heightAnchor constraintEqualToConstant:BOTTOM_TABS_HEIGHT].active = YES;
+        [_customTabBar.heightAnchor constraintEqualToConstant:UI(70)].active = YES;
         [_customTabBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
         [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     } else {
         [_customTabBar.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-        [_customTabBar.heightAnchor constraintEqualToConstant:BOTTOM_TABS_HEIGHT].active = YES;
+        [_customTabBar.heightAnchor constraintEqualToConstant:UI(70)].active = YES;
         [_customTabBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
         [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     }
@@ -166,7 +167,7 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    self.customTabBar.frame = CGRectMake(0, size.height - BOTTOM_TABS_HEIGHT, size.width, BOTTOM_TABS_HEIGHT);
+    self.customTabBar.frame = CGRectMake(0, size.height - UI(70), size.width, UI(70));
 }
 
 - (BOOL)shouldAutorotate {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotoItemListResponseModel.h"
-#import "BaihuTest-Swift.h"
+#import "Beauty-Swift.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
