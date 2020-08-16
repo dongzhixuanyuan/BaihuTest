@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SwipeBack.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 #import "TagResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 

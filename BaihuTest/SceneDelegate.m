@@ -14,6 +14,7 @@
 #import "UrlConstants.h"
 #import "Test.h"
 #import "BaihuTest-Swift.h"
+#import "HistoryViewControllerOC.h"
 @interface SceneDelegate ()
 
 @end
@@ -32,7 +33,7 @@
         RecommendViewController* recommendVC = [[RecommendViewController alloc]init];
         
         
-        HistoryViewController* vc3 = [[HistoryViewController alloc]init];
+        HistoryViewControllerOC* vc3 = [[HistoryViewControllerOC alloc]init];
         
         
         //        UIViewController* vc4 = [[UIViewController alloc]init];

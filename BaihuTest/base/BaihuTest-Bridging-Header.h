@@ -18,3 +18,5 @@
 #import "TableViewWithRefreshHeader.h"
 #import "FavouriteOperationResponse.h"
 #import "IndexTabContainer.h"
+#import "FavouriteResponseModel.h"
+#import "PhotoListItemView.h"

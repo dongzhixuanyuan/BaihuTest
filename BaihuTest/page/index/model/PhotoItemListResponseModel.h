@@ -54,9 +54,17 @@
 @end
 
 
-@interface PhotoItemResponseModel :NSObject
+@interface PhotoItemListResponseModel :NSObject
 @property (nonatomic , strong) NSArray <PhotoItemDataItem *>              * data;
 @property (nonatomic , assign) NSInteger              code;
 
 @end
+
+@interface PhotoItemResponseModel : NSObject
+
+@property(nonatomic,strong)PhotoItemDataItem * data;
+@property (nonatomic , assign) NSInteger              code;
+@end
+
+
 

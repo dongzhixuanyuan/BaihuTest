@@ -29,17 +29,17 @@
     if (self) {
         NSArray<NSString *> *tabLabels = @[@"推荐", @"宠物", @"标签"];
         [self.tabContaienr setTabData:tabLabels ];
-        _recommendPage = [[RecommendPage alloc]initWithFrame:self.scrollView.bounds ];
-        [self.scrollView addSubview:_recommendPage];
-        _modelPage = [[ModelPage alloc]initWithFrame:self.scrollView.bounds];
-        _tagPage = [[TagPage alloc]initWithFrame:self.scrollView.bounds];
+        _recommendPage = [[RecommendPage alloc]initWithFrame:self.mainScrollView.bounds ];
+        [self.mainScrollView addSubview:_recommendPage];
+        _modelPage = [[ModelPage alloc]initWithFrame:self.mainScrollView.bounds];
+        _tagPage = [[TagPage alloc]initWithFrame:self.mainScrollView.bounds];
 //        todo 添加点击监听
         _modelPage.clickCallback = self;
         [_modelPage fetchAllModels];
         _tagPage.clickCallback = self;
         [_tagPage fetchAllModels];
-        [self.scrollView addSubview:_modelPage];
-        [self.scrollView addSubview:_tagPage];
+        [self.mainScrollView addSubview:_modelPage];
+        [self.mainScrollView addSubview:_tagPage];
         
     
         [self layoutAllPhotoTableViews];

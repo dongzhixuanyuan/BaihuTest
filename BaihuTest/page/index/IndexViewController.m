@@ -46,8 +46,8 @@
             [self itemClick:photoItem];
         }];
         
-        [self.scrollView addSubview:recommendPhotos];
-        [self.scrollView addSubview:newestPhotos];
+        [self.mainScrollView addSubview:recommendPhotos];
+        [self.mainScrollView addSubview:newestPhotos];
         [self layoutAllPhotoTableViews];
     }
     return self;
@@ -91,7 +91,7 @@
                 PhotoWatchViewController* newController = [PhotoWatchViewController initWithBean:photoItem];
                 [sself.navigationController pushViewController:newController animated:YES];
             }];
-            [sself.scrollView addSubview:photoTableView];
+            [sself.mainScrollView addSubview:photoTableView];
         }
         [sself.tabContaienr setTabData:tabData];
         [sself layoutAllPhotoTableViews];

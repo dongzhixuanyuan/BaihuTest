@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 @interface User :NSObject
 @property (nonatomic , copy) NSString              * id;
 @property (nonatomic , assign) NSInteger              album_visit_count;

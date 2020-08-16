@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 #import "PhotoListView.h"
+#import "FavouriteResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface PhotoListItemView : UITableViewCell
 -(void) fillData:(PhotoItemDataItem*)bean;
+-(void) fillFavouriteData:(FavouriteDataItem*)bean;
 @property(nonatomic,copy)itemClickListener clickCallback;
 @end
 

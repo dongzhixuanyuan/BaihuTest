@@ -13,6 +13,7 @@
 #import "AppConfig.h"
 #import "UIColor+Addition.h"
 #import "BaihuTest-Swift.h"
+
 @interface PhotoListItemView ()
 @property (nonatomic, strong, readwrite) UIImageView *first;
 @property (nonatomic, strong, readwrite) UIImageView *second;
@@ -22,6 +23,7 @@
 @property (nonatomic, strong, readwrite) UILabel *modelName;
 @property (nonatomic, strong, readwrite) UIButton *favouriteBtn;
 @property (nonatomic, strong, readwrite) PhotoItemDataItem *item;
+@property (nonatomic,strong,readwrite)FavouriteDataItem* favouriteItem;
 @end
 
 @implementation PhotoListItemView
@@ -112,6 +114,47 @@
     }
     return self;
 }
+
+- (void)fillFavouriteData:(FavouriteDataItem *)bean {
+    self.favouriteItem = bean;
+    NSString *cover1UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.album.cover_key1 isThumb:false];
+    
+    NSString *cover2UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.album.cover_key2 isThumb:false];
+    
+    NSString *cover3UrlStr =  [[AppConfig getInstance]getPhotoWholeUrl:bean.album.cover_key3 isThumb:false];
+    
+    [_first sd_setImageWithURL:[ NSURL URLWithString:cover1UrlStr]];
+    [_second sd_setImageWithURL:[ NSURL URLWithString:cover2UrlStr]];
+    [_third sd_setImageWithURL:[ NSURL URLWithString:cover3UrlStr]];
+    __weak typeof(self) wself = self;
+    if (bean.album.model != nil) {
+        _modelName.text = bean.album.model.name;
+        NSString *avatar = [[AppConfig getInstance]getPhotoWholeUrl:bean.album.model.avatar_image_url isThumb:YES];
+        [_avart sd_setImageWithURL:[NSURL URLWithString:avatar] completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
+            __strong typeof(wself) sself = wself;
+            sself.avart.image = image;
+            sself.avart.layer.cornerRadius = UI(22);
+            sself.avart.layer.masksToBounds = YES;
+        }];
+    } else {
+        _modelName.text = @"素人";
+        [_avart sd_setImageWithURL:[ NSURL URLWithString:cover1UrlStr] completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
+            __strong typeof(wself) sself = wself;
+            sself.avart.image = image;
+            sself.avart.layer.cornerRadius = UI(22);
+            sself.avart.layer.masksToBounds = YES;
+        }];
+    }
+    _photoDes.text = bean.album.name;
+    
+    NSString* favouriteId = [FavouriteManager.shared isFavouriteLocalCheckWithAlbumId:bean.album.id];
+    if (favouriteId) {
+        [_favouriteBtn setImage:[UIImage imageNamed:@"favourite"] forState:UIControlStateNormal];
+    } else {
+        [_favouriteBtn setImage:[UIImage imageNamed:@"unfavourite"] forState:UIControlStateNormal];
+    }
+}
+
 
 - (void)fillData:(PhotoItemDataItem *)bean {
     self.item = bean;

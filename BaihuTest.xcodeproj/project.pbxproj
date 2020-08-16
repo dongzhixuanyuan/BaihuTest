@@ -12,7 +12,9 @@
 		245CEB52EB2A6161F928A445 /* libPods-BaihuTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7A7589BF5CC1512239C57E /* libPods-BaihuTestTests.a */; };
 		A022493F24E78E2500E01613 /* CommonOperationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022493D24E78E2500E01613 /* CommonOperationsResponse.swift */; };
 		A022494024E78E2500E01613 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022493E24E78E2500E01613 /* Data.swift */; };
-		A022494224E79BE200E01613 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022494124E79BE200E01613 /* HistoryViewController.swift */; };
+		A022494524E833BD00E01613 /* HistoryViewControllerOC.m in Sources */ = {isa = PBXBuildFile; fileRef = A022494424E833BD00E01613 /* HistoryViewControllerOC.m */; };
+		A022494824E8DBB700E01613 /* FavouriteResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A022494624E8DBB700E01613 /* FavouriteResponseModel.m */; };
+		A022494A24E8E00600E01613 /* FavouriteTableiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022494924E8E00600E01613 /* FavouriteTableiew.swift */; };
 		A03F0A8B245677A8004E3AAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8A245677A8004E3AAB /* AppDelegate.m */; };
 		A03F0A8E245677A8004E3AAB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A03F0A8D245677A8004E3AAB /* SceneDelegate.m */; };
 		A03F0A96245677AB004E3AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A03F0A95245677AB004E3AAB /* Assets.xcassets */; };
@@ -47,7 +49,7 @@
 		A09F8DC82488F579004921E3 /* ModelResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F8DC72488F579004921E3 /* ModelResponseModel.m */; };
 		A0A43027247A568300A93308 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43026247A568300A93308 /* UIColor+Addition.m */; };
 		A0A43043247A9FC200A93308 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43042247A9FC200A93308 /* CategoryModel.m */; };
-		A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */; };
+		A0A43048247AA00400A93308 /* PhotoItemListResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43047247AA00400A93308 /* PhotoItemListResponseModel.m */; };
 		A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4304C247AA06E00A93308 /* ConfigBeanModel.m */; };
 		A0A43052247AA0C500A93308 /* InitAccountResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A43051247AA0C500A93308 /* InitAccountResponseModel.m */; };
 		A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A4A6842466B0BC00E74441 /* PhotoListView.m */; };
@@ -100,7 +102,11 @@
 		9B7A7589BF5CC1512239C57E /* libPods-BaihuTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaihuTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A022493D24E78E2500E01613 /* CommonOperationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonOperationsResponse.swift; sourceTree = "<group>"; };
 		A022493E24E78E2500E01613 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		A022494124E79BE200E01613 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		A022494324E833BD00E01613 /* HistoryViewControllerOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryViewControllerOC.h; sourceTree = "<group>"; };
+		A022494424E833BD00E01613 /* HistoryViewControllerOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryViewControllerOC.m; sourceTree = "<group>"; };
+		A022494624E8DBB700E01613 /* FavouriteResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteResponseModel.m; sourceTree = "<group>"; };
+		A022494724E8DBB700E01613 /* FavouriteResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteResponseModel.h; sourceTree = "<group>"; };
+		A022494924E8E00600E01613 /* FavouriteTableiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableiew.swift; sourceTree = "<group>"; };
 		A03F0A86245677A8004E3AAB /* BaihuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaihuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A03F0A89245677A8004E3AAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A03F0A8A245677A8004E3AAB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -166,10 +172,10 @@
 		A09F8DC72488F579004921E3 /* ModelResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelResponseModel.m; sourceTree = "<group>"; };
 		A0A43025247A568300A93308 /* UIColor+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		A0A43026247A568300A93308 /* UIColor+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
-		A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemResponseModel.h; sourceTree = "<group>"; };
+		A0A4303D247A9F4700A93308 /* PhotoItemListResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoItemListResponseModel.h; sourceTree = "<group>"; };
 		A0A43041247A9FC200A93308 /* CategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
 		A0A43042247A9FC200A93308 /* CategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
-		A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoItemResponseModel.m; sourceTree = "<group>"; };
+		A0A43047247AA00400A93308 /* PhotoItemListResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoItemListResponseModel.m; sourceTree = "<group>"; };
 		A0A4304B247AA06E00A93308 /* ConfigBeanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigBeanModel.h; sourceTree = "<group>"; };
 		A0A4304C247AA06E00A93308 /* ConfigBeanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigBeanModel.m; sourceTree = "<group>"; };
 		A0A43050247AA0C500A93308 /* InitAccountResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitAccountResponseModel.h; sourceTree = "<group>"; };
@@ -375,7 +381,9 @@
 			children = (
 				A05FB97224DFFF9D00E13AF1 /* bean */,
 				A05FB97024DFD9BC00E13AF1 /* FavouriteManager.swift */,
-				A022494124E79BE200E01613 /* HistoryViewController.swift */,
+				A022494324E833BD00E01613 /* HistoryViewControllerOC.h */,
+				A022494424E833BD00E01613 /* HistoryViewControllerOC.m */,
+				A022494924E8E00600E01613 /* FavouriteTableiew.swift */,
 			);
 			path = history;
 			sourceTree = "<group>";
@@ -383,6 +391,8 @@
 		A05FB97224DFFF9D00E13AF1 /* bean */ = {
 			isa = PBXGroup;
 			children = (
+				A022494724E8DBB700E01613 /* FavouriteResponseModel.h */,
+				A022494624E8DBB700E01613 /* FavouriteResponseModel.m */,
 				A022493D24E78E2500E01613 /* CommonOperationsResponse.swift */,
 				A022493E24E78E2500E01613 /* Data.swift */,
 				A05FB99824E0099500E13AF1 /* FavouriteOperationResponse.h */,
@@ -489,10 +499,10 @@
 		A0A4303C247A9EEB00A93308 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A0A43047247AA00400A93308 /* PhotoItemResponseModel.m */,
+				A0A43047247AA00400A93308 /* PhotoItemListResponseModel.m */,
 				A0A43041247A9FC200A93308 /* CategoryModel.h */,
 				A0A43042247A9FC200A93308 /* CategoryModel.m */,
-				A0A4303D247A9F4700A93308 /* PhotoItemResponseModel.h */,
+				A0A4303D247A9F4700A93308 /* PhotoItemListResponseModel.h */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -819,17 +829,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0A43048247AA00400A93308 /* PhotoItemResponseModel.m in Sources */,
+				A0A43048247AA00400A93308 /* PhotoItemListResponseModel.m in Sources */,
 				A09F8DC52488E439004921E3 /* RecommendPage.m in Sources */,
 				A0A4304D247AA06E00A93308 /* ConfigBeanModel.m in Sources */,
 				A0C8B28E24BA97D6000592CD /* ScaleableImageview.swift in Sources */,
+				A022494824E8DBB700E01613 /* FavouriteResponseModel.m in Sources */,
 				A0A4A690246947D900E74441 /* Test.m in Sources */,
 				A0C8B28C24B9B65D000592CD /* String+URL.swift in Sources */,
 				A0D3C4172473E02100802657 /* PhotoCollectionViewCell.m in Sources */,
 				A0862511248DE7D800EEC301 /* ModelPageCollectionViewCell.m in Sources */,
 				A0A4A6852466B0BC00E74441 /* PhotoListView.m in Sources */,
+				A022494524E833BD00E01613 /* HistoryViewControllerOC.m in Sources */,
 				A03F0AD5245DB0D6004E3AAB /* IndexTabContainer.m in Sources */,
 				A0A4A69B2469552C00E74441 /* Constants.m in Sources */,
+				A022494A24E8E00600E01613 /* FavouriteTableiew.swift in Sources */,
 				A086250E248DE5CB00EEC301 /* RecommendDetailBasePage.m in Sources */,
 				A03F0AC72456BC8E004E3AAB /* HomeTabBarConfig.m in Sources */,
 				A0C8B28A24B5C0F7000592CD /* AlbumCountResponse.swift in Sources */,
@@ -873,7 +886,6 @@
 				A0C2A32824D6B46F00377A0E /* ViewExtensions.swift in Sources */,
 				A0F44BA924CB1A6500D984C3 /* Extensions.swift in Sources */,
 				A09F8DC22487B684004921E3 /* BaseViewPager.m in Sources */,
-				A022494224E79BE200E01613 /* HistoryViewController.swift in Sources */,
 				A03F0ACE24580CE3004E3AAB /* DimenAdapter.m in Sources */,
 				A0D3C41A2473E25900802657 /* PhotoWatchViewController.m in Sources */,
 			);

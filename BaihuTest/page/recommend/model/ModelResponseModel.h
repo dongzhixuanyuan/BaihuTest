@@ -1,5 +1,5 @@
 
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 
 #import <Foundation/Foundation.h>
 

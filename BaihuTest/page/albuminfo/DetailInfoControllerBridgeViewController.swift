@@ -51,7 +51,7 @@ class DetailInfoControllerBridgeViewController: BaseInfoViewController, UICollec
 //        let urlStr = UrlConstants.getAlbumsForModel((model as! Model).id, page: page, size: pageSize)
             NetworkManager.getHttpSessionManager().get(urlStr, parameters: protocolDelegate.paramsForAlbumList(), headers: NetworkManager.getCommonHeaders(), progress: nil, success: { [weak self] _, response in
             guard let self = self else { return }
-            let model = PhotoItemResponseModel.yy_model(with: response as! [AnyHashable: Any])
+            let model = PhotoItemListResponseModel.yy_model(with: response as! [AnyHashable: Any])
             let existCount = self.photos.count
             let newComeDataCount = (model!.data!).count
 

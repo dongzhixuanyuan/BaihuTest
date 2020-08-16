@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 #import "BaihuTest-Swift.h"
 NS_ASSUME_NONNULL_BEGIN
 

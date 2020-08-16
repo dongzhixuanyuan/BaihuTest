@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^itemClickListener)(PhotoItemDataItem*);
@@ -22,7 +22,6 @@ typedef enum:NSInteger{
 @required
 -(void)fetchSuccessed:(FetchType)type;
 -(void)fetchFailed:(FetchType)type;
-
 @end
 
 

@@ -34,6 +34,7 @@ FOUNDATION_EXPORT NSString* const categoryPath;
 +(NSString*)deleteFavourite:(NSString*)id;
 +(NSString*)postVisitRecord:(NSString*)id;
 +(NSString*)getScanHistory;
++(NSString*)getAlbumsFromInfo:(NSString*)id;
 
 +(NSString*)joinUrlParams:(NSDictionary<NSString*,NSString*>*)params;
 @end

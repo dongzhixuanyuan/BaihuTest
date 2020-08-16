@@ -9,14 +9,17 @@
 #import "PhotoListView.h"
 #import "PhotoListItemView.h"
 #import "NetworkManager.h"
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 #import  <YYModel.h>
+#import <Masonry.h>
+#import "Test.h"
 
 @interface PhotoListView ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, strong, readwrite) NSMutableArray<PhotoItemDataItem *> *data;
 @property(nonatomic,assign)BOOL isTouchDown;
+@property(nonatomic,strong,readwrite)UILabel* errorView;
 @end
 
 @implementation PhotoListView
@@ -31,6 +34,7 @@
         self.delegate = self;
         self.dataSource = self;
         self.data = [[NSMutableArray alloc]init];
+        [self  setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [self reFetchData:nil];
         
     }
@@ -52,11 +56,21 @@
     __weak typeof(self) wself = self;
     [ [NetworkManager getHttpSessionManager] GET:_url parameters:@{ @"page": [NSNumber numberWithInt:_page], @"size":  [ NSNumber numberWithInt:_pageSize] } headers:[NetworkManager getCommonHeaders] progress:nil success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
         __strong typeof(wself) sself = wself;
-        PhotoItemResponseModel *model = [PhotoItemResponseModel yy_modelWithDictionary:responseObject];
+        PhotoItemListResponseModel *model = [PhotoItemListResponseModel yy_modelWithDictionary:responseObject];
         if (!loadMore) {
-            [sself.data removeAllObjects];
-            [sself.data addObjectsFromArray:model.data];
-            [sself reloadData];
+            if (model.data.count == 0 ) {
+                [sself setBackgroundView:self.errorView];
+            }else {
+                if ([sself.url containsString:@"favorite"]) {
+                    NSString* value =   [Test dictionary2String:(NSDictionary*)responseObject];
+                    NSLog(value);
+                }
+                [sself setBackgroundView:nil];
+                [sself.data removeAllObjects];
+                [sself.data addObjectsFromArray:model.data];
+                [sself reloadData];
+            }
+            
         } else {
             
             NSMutableArray<NSIndexPath*>* indexArray = [[NSMutableArray alloc]init];
@@ -65,13 +79,29 @@
             }
             [sself.data addObjectsFromArray:model.data];
             [sself insertRowsAtIndexPaths: indexArray withRowAnimation:UITableViewRowAnimationNone];
+           
         }
    
         [callback fetchSuccessed: loadMore? LOAD_MORE:REFERSH  ];
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+        __strong typeof(wself) sself = wself;
         NSLog(@"error %ld",error.code);
+        
         [callback fetchFailed: loadMore? LOAD_MORE:REFERSH];
     }];
+}
+
+
+- (UIView *)errorView {
+    if(_errorView == nil) {
+        UILabel* errorLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        errorLabel.text = @"加载出错啦~~~~~";
+        errorLabel.textAlignment = NSTextAlignmentCenter;
+        errorLabel.textColor = [UIColor blackColor];
+        [errorLabel sizeToFit];
+        _errorView = errorLabel;
+    }
+    return _errorView;
 }
 
 # pragma mark tableview回调
@@ -96,9 +126,6 @@
     PhotoItemDataItem* selectedItem =   [_data objectAtIndex:indexPath.item];
     _clickCallback(selectedItem);
 }
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 400;
-//}
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

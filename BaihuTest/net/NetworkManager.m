@@ -14,7 +14,7 @@
 #import "UrlConstants.h"
 #import "CategoryModel.h"
 #import "Constants.h"
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 
 @interface NetworkManager()
 

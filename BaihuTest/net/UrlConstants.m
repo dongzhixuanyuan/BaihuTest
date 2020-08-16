@@ -29,7 +29,7 @@ NSString* const addFavourite=@"/mobile/favorite";
 NSString* const deleteFavourite=@"/mobile/favorite/";
 NSString* const postVisit=@"/mobile/album/visit/%@";
 NSString* const scanHistory = @"/mobile/album/visit";
-
+NSString* const albumsForInfo=@"/mobile/album/";
 @implementation UrlConstants
 + (NSString *)getInitAccountUrl {
     return [baseUrl stringByAppendingString:tokenUrl];
@@ -134,5 +134,8 @@ NSString* const scanHistory = @"/mobile/album/visit";
     return [baseUrl stringByAppendingString:scanHistory];
 }
 
++ (NSString *)getAlbumsFromInfo:(NSString *)id {
+    return [[baseUrl stringByAppendingString:albumsForInfo] stringByAppendingString:id];
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PhotoWatchViewController.h"
 #import "PhotoCollectionViewCell.h"
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 #import "PhotoCollectionViewCell.h"
 #import "DimenAdapter.h"
 #import <Masonry.h>

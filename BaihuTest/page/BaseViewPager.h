@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //一个基类 定义了顶部tab以及下面的scroollview，并完成联动。类似于android的viewpager
 @interface BaseViewPager : UIViewController
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) IndexTabContainer *tabContaienr;
 @property(nonatomic,assign)NSInteger currentSelectedPage;
 -(void)layoutAllPhotoTableViews;

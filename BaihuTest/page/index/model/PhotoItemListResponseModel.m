@@ -1,4 +1,4 @@
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 
 @implementation TagsItem
 @end
@@ -26,7 +26,7 @@
 @end
 
 
-@implementation PhotoItemResponseModel
+@implementation PhotoItemListResponseModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
     // value should be Class or Class name.
     return @{@"data" : [PhotoItemDataItem class],
@@ -34,4 +34,15 @@
              @"tags":[TagsItem class]
     };
 }
+@end
+
+@implementation PhotoItemResponseModel
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    // value should be Class or Class name.
+    return @{@"data" : [PhotoItemDataItem class]
+    };
+}
+
+
 @end

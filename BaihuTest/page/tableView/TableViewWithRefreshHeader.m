@@ -15,6 +15,7 @@
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic,assign)  BOOL hasMore;
+@property (nonatomic,strong,readwrite)UIView* errorView;
 @end
 
 @implementation TableViewWithRefreshHeader
@@ -126,6 +127,20 @@
     }
 }
 
+- (UIView *)errorView {
+    if(_errorView == nil) {
+        UILabel* errorLabel = [[UILabel alloc]init];
+        errorLabel.text = @"加载出错啦~~~~~";
+        _errorView = errorLabel;
+        [_errorView setHidden:NO];
+        [self addSubview:_errorView];
+        [_errorView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.bottom.mas_equalTo(self);
+        }];
+    }
+    return _errorView;
+}
+
 - (void)resetRefreshNormalState:(void (^__nullable)(BOOL finished))complete {
     [UIView animateWithDuration:0.3
                      animations:^{
@@ -186,6 +201,7 @@
         [self.refreshView setRefreshMode:REFRESH_INIT];
         [self resetRefreshNormalState:^(BOOL finished) {
             self.isRefreshing = NO;
+            
         }];
     } else {
         [self.footerView setRefreshMode:REFRESH_INIT];
@@ -201,7 +217,10 @@
         [self.refreshView setRefreshMode:REFRESH_INIT];
         [self resetRefreshNormalState:^(BOOL finished) {
             self.isRefreshing = NO;
+             
         }];
+//        ADD ERROR view
+       
     } else {
         [self.footerView setRefreshMode:REFRESH_INIT];
         [self resetLoadNormalState:^(BOOL finished) {

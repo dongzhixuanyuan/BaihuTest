@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoItemResponseModel.h"
+#import "PhotoItemListResponseModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PhotoWatchViewController : UIViewController
