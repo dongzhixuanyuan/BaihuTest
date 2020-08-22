@@ -31,7 +31,7 @@
             make.height.mas_equalTo(NAVIGATIONBAR_HEIGHT);
         }];
         [self addObserver:self.tabContaienr forKeyPath:@"currentSelectedPage" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-        self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT  - UI(70))];
+        self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT  - 70)];
         self.mainScrollView.canCancelContentTouches = NO;
         self.mainScrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
         self.mainScrollView.clipsToBounds = YES;

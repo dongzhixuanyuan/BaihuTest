@@ -134,7 +134,7 @@
         [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     } else {
         [_customTabBar.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
-        [_customTabBar.heightAnchor constraintEqualToConstant:UI(70)].active = YES;
+        [_customTabBar.heightAnchor constraintEqualToConstant:70].active = YES;
         [_customTabBar.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
         [_customTabBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
     }
@@ -167,7 +167,7 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    self.customTabBar.frame = CGRectMake(0, size.height - UI(70), size.width, UI(70));
+    self.customTabBar.frame = CGRectMake(0, size.height - 70, size.width, 70);
 }
 
 - (BOOL)shouldAutorotate {

@@ -11,7 +11,7 @@
 #import "DimenAdapter.h"
 
 
-// CGFloat BOTTOM_TABS_HEIGHT = UI(70);
+// CGFloat BOTTOM_TABS_HEIGHT = 70;
 @interface HomeTabBar ()<HomeTabBarItemDelegate>
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
@@ -25,7 +25,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, UI(70));
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 70);
     }
     return self;
 }

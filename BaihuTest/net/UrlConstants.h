@@ -10,10 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXPORT NSString* const baseUrl;
+FOUNDATION_EXPORT NSString*  baseUrl;
 FOUNDATION_EXPORT NSString* const tokenUrl;
 FOUNDATION_EXPORT NSString* const categoryPath;
 @interface UrlConstants : NSObject
++(void)initEnv;
++(Boolean)getConfig;
 +(NSString*)getInitAccountUrl;
 +(NSString*)getCategoryUrl;
 +(NSString*)getIndexAllUrl;

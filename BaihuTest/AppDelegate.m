@@ -25,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [UrlConstants initEnv];
     [self getAccessToken];
     [self getConfigBean];
     SDImageWebPCoder *webPCoder = [SDImageWebPCoder sharedCoder];

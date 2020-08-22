@@ -8,7 +8,10 @@
 
 #import "UrlConstants.h"
 
-NSString *const baseUrl = @"http://129.211.27.144:8080";
+NSString *baseUrl = @"http://129.211.27.144:8081";
+NSString *devBase = @"http://129.211.27.144:8081";
+NSString *base = @"http://129.211.27.144:8080";
+
 NSString *const tokenUrl = @"/mobile/auth/initialize";
 NSString *const categoryPath =  @"/mobile/category";
 NSString *const indexAllPath = @"/mobile/album/all";
@@ -24,13 +27,38 @@ NSString *const albumCountForModel = @"/mobile/album/count_by_model";
 NSString *const albumCountForTag = @"/mobile/album/count_by_tag";
 NSString *const albumsForModel = @"/mobile/album/all_by_model";
 NSString *const albumsForTAG = @"/mobile/album/all_by_tag";
-NSString* const allFavouriteAlbums=@"/mobile/favorite";
-NSString* const addFavourite=@"/mobile/favorite";
-NSString* const deleteFavourite=@"/mobile/favorite/";
-NSString* const postVisit=@"/mobile/album/visit/%@";
-NSString* const scanHistory = @"/mobile/album/visit";
-NSString* const albumsForInfo=@"/mobile/album/";
+NSString *const allFavouriteAlbums = @"/mobile/favorite";
+NSString *const addFavourite = @"/mobile/favorite";
+NSString *const deleteFavourite = @"/mobile/favorite/";
+NSString *const postVisit = @"/mobile/album/visit/%@";
+NSString *const scanHistory = @"/mobile/album/visit";
+NSString *const albumsForInfo = @"/mobile/album/";
 @implementation UrlConstants
+
+/// true:正式服务器；false:测试服务器
++ (Boolean)getConfig {
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDate *anchorTime = [dateFormatter dateFromString:@"2020-08-21 00:00:00"];
+    double elapseHour = anchorTime.timeIntervalSinceNow / 3600;
+    if (elapseHour < (-24 * 10)  ) {
+//        NSLog(@"已经过去%f,使用正式服务器",elapseHour);
+        return YES;
+    } else {
+//        NSLog(@"已经过去%f,使用测试服务器",elapseHour);
+        return NO;
+    }
+}
+
++ (void)initEnv {
+    if ([UrlConstants getConfig]) {
+        baseUrl = base;
+    } else {
+        baseUrl = devBase;
+    }
+}
+
 + (NSString *)getInitAccountUrl {
     return [baseUrl stringByAppendingString:tokenUrl];
 }
@@ -86,20 +114,14 @@ NSString* const albumsForInfo=@"/mobile/album/";
     return [baseUrl stringByAppendingString:albumCountForTag];
 }
 
-+ (NSString *)getAlbumsForModel{
-    
++ (NSString *)getAlbumsForModel {
     NSString *prefix =  [baseUrl stringByAppendingString:albumsForModel];
     return prefix;
     //    return [prefix stringByAppendingFormat:@"%@", subfix];
 }
 
-
-
-
-
 + (NSString *)getAlbumsForTag {
     return [baseUrl stringByAppendingString:albumsForTAG];
-    
 }
 
 + (NSString *)joinUrlParams:(NSDictionary<NSString *, NSString *> *)params {
@@ -114,7 +136,7 @@ NSString* const albumsForInfo=@"/mobile/album/";
     return subfix;
 }
 
-+ (NSString *)getAllFavourite{
++ (NSString *)getAllFavourite {
     return [baseUrl stringByAppendingString:allFavouriteAlbums];
 }
 
@@ -122,12 +144,12 @@ NSString* const albumsForInfo=@"/mobile/album/";
     return [baseUrl stringByAppendingString:addFavourite];
 }
 
-+ (NSString *)deleteFavourite:(NSString *)id{
++ (NSString *)deleteFavourite:(NSString *)id {
     return [[baseUrl stringByAppendingString:deleteFavourite]stringByAppendingString:id];
 }
 
 + (NSString *)postVisitRecord:(NSString *)id {
-    return [baseUrl stringByAppendingFormat:postVisit,id] ;
+    return [baseUrl stringByAppendingFormat:postVisit, id];
 }
 
 + (NSString *)getScanHistory {
