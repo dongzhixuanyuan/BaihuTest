@@ -40,13 +40,13 @@ NSString *const albumsForInfo = @"/mobile/album/";
     NSDate *currentTime = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-    NSDate *anchorTime = [dateFormatter dateFromString:@"2020-08-21 00:00:00"];
+    NSDate *anchorTime = [dateFormatter dateFromString:@"2020-08-23 00:00:00"];
     double elapseHour = anchorTime.timeIntervalSinceNow / 3600;
     if (elapseHour < (-24 * 10)  ) {
-//        NSLog(@"已经过去%f,使用正式服务器",elapseHour);
+        //        NSLog(@"已经过去%f,使用正式服务器",elapseHour);
         return YES;
     } else {
-//        NSLog(@"已经过去%f,使用测试服务器",elapseHour);
+        //        NSLog(@"已经过去%f,使用测试服务器",elapseHour);
         return NO;
     }
 }
@@ -76,7 +76,11 @@ NSString *const albumsForInfo = @"/mobile/album/";
 }
 
 + (NSString *)getRecomandUrl {
-    return [baseUrl stringByAppendingString:indexRecommandPath];
+    if ([UrlConstants getConfig]) {
+        return [baseUrl stringByAppendingString:indexRecommandPath];
+    }else {
+        return [UrlConstants getIndexAllUrl];
+    }
 }
 
 + (NSString *)getSpeCategoryUrl:(NSString *)categoryId {
